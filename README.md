@@ -1,0 +1,176 @@
+<div align="center">
+
+# 🛡️ Vexor Monitoring
+
+### Monitoring, refined.
+
+A modern, all-in-one infrastructure monitoring platform — fast to deploy,
+effortless to operate, and built on a battle-tested open-source core.
+
+**Hosts &amp; services · network discovery · agent deployment · SLA reporting ·
+notifications · log management · dashboards · AI assistant**
+
+</div>
+
+---
+
+## ✨ What is Vexor?
+
+Vexor is a commercial monitoring platform for servers, network devices and
+applications. It pairs a proven [Naemon](https://www.naemon.org/) monitoring
+core with a modern web interface, automatic discovery, agent deployment and
+enterprise reporting — so you can go from a fresh server to a fully monitored
+environment in minutes.
+
+This repository is the **public landing page** for Vexor. It contains
+screenshots, installation instructions, the End-User License Agreement, and a
+ready-to-use **700-day evaluation license** so you can try the full Enterprise
+edition for free.
+
+> Looking to install? Jump to **[Installation](#-installation)**.
+
+---
+
+## 🚀 Highlights
+
+| | Feature |
+|---|---|
+| 🧭 | **Effortless host onboarding** — add a host in seconds. Vexor scans it for ping, SSH, FTP, RDP, HTTP/S, SNMP and other standard services and proposes a baseline of checks to enable. |
+| 🛰️ | **Agent deployment from the GUI** — push the monitoring agent (NSClient++/NRPE on Windows, NRPE on Linux) straight from the web UI, with the option to bundle additional packages. |
+| 🔎 | **Smart agent detection** — already have an agent on the target? Vexor detects it and offers the extra checks it unlocks, ready to tick on. |
+| 📊 | **SLA reports** — per-host availability, MTTR and outage counts based on real HARD-state history, exportable to PDF. |
+| 🔔 | **Notifications &amp; escalations** — flexible policies, contact groups, on-call escalation, and multiple delivery channels. |
+| 🧩 | **Plugin catalog** — a curated, license-cleared library of monitoring plugins, installable from the UI. |
+| 🌐 | **Network discovery** — scan a single host or a whole subnet, with optional deep (OS-detection) scans. |
+| 🧠 | **Business Service Monitoring** — roll low-level checks up into the services your business actually cares about. |
+| 📈 | **Predictive &amp; anomaly alerts** — baselines and forecasting to catch problems before they page you. |
+| 🗂️ | **Integrated log management** — ship, search and alert on logs alongside your metrics. |
+| 🤖 | **AI assistant** — built-in LLM help for triage and configuration. |
+| 🔐 | **Enterprise auth** — single sign-on via Keycloak (LDAP/Active Directory, OIDC), two-factor auth and role-based access control. |
+
+---
+
+## 📸 Screenshots
+
+### Dashboard
+At-a-glance health, current problems and a guided setup wizard.
+
+![Dashboard](docs/screenshots/01-dashboard.png)
+
+### Hosts
+Live state, per-host service counts and inline sparklines.
+
+![Hosts](docs/screenshots/02-hosts.png)
+
+### Services
+![Services](docs/screenshots/03-services.png)
+
+### Discovery — add &amp; scan a host
+Scan a single host or an entire subnet for standard services.
+
+![Discovery](docs/screenshots/04-discovery.png)
+
+### SLA reports
+Per-host availability, MTTR and outages — export to PDF.
+
+![SLA reports](docs/screenshots/05-sla-report.png)
+
+### Events
+![Events](docs/screenshots/06-events.png)
+
+### Log management
+![Logs](docs/screenshots/07-logs.png)
+
+### Plugin catalog
+![Plugins](docs/screenshots/08-plugins.png)
+
+### Notification policies
+![Notifications](docs/screenshots/09-notifications.png)
+
+### Custom dashboards
+![Dashboards](docs/screenshots/10-dashboards.png)
+
+---
+
+## 💿 Installation
+
+Vexor runs on **Rocky Linux 10 or 9** (and other RHEL-compatible
+distributions). On a fresh server, the whole stack installs in three commands —
+see **[INSTALL.md](INSTALL.md)** for the full guide.
+
+```bash
+# 1. Bootstrap the Vexor + dependency repositories
+dnf install -y https://sayonara.dyndns.org:8443/vexor-release-latest-el$(rpm -E %rhel).rpm
+
+# 2. Install the full server (API, UI, monitoring core, auth, databases, ...)
+dnf install -y vexor-server
+
+# 3. First-run setup (databases, passwords, SSO, services, firewall)
+vexor-setup
+```
+
+Then open `https://<your-server>/` in a browser and log in with the admin
+credentials printed by `vexor-setup`.
+
+---
+
+## 🔑 Free 700-day evaluation license
+
+A signed **Enterprise** evaluation license is included so you can try every
+feature with **unlimited hosts**:
+
+- **License ID:** `VX-2026-4B3ED6`
+- **Edition:** Enterprise · **Host limit:** unlimited
+- **Valid until:** 2028-05-08
+
+Install it after setup:
+
+```bash
+# Download the trial license from this release, then:
+install -m 0644 vexor-trial-700d-unlimited.lic /etc/vexor/license.lic
+systemctl restart vexor-api
+```
+
+The license file is attached to every [Release](../../releases) and also lives
+at [`vexor-trial-700d-unlimited.lic`](vexor-trial-700d-unlimited.lic).
+
+---
+
+## 📦 What's in a Vexor install
+
+Vexor bundles and integrates a number of components. Its own application code
+(the API and web UI) is **proprietary**; the monitoring core and bundled
+plugins are open source under their respective licenses:
+
+- **Monitoring core:** Naemon (GPL-2.0)
+- **Bundled plugins:** a curated set of GPL/MIT/BSD/Apache-licensed checks —
+  see the [Vexor plugin catalog](https://github.com/sayonarase/vexor-plugin-catalog)
+- **Metrics &amp; logs:** time-series and log back-ends for trends and search
+- **Auth:** Keycloak for SSO/LDAP/OIDC and 2FA
+
+Corresponding source for redistributed GPL components is made available as
+required by their licenses.
+
+---
+
+## 📄 License
+
+Vexor is **commercial software**. Use of the platform is governed by the
+**[End-User License Agreement (EULA)](EULA.md)**. The included evaluation
+license is provided free of charge for testing and evaluation purposes.
+
+For production licensing and pricing, please get in touch.
+
+---
+
+## 🐛 Feedback &amp; security
+
+- **Found a bug or have a feature request?** Open an [issue](../../issues).
+- **Security report?** Please follow **[SECURITY.md](SECURITY.md)** — do not
+  file public issues for vulnerabilities.
+
+---
+
+<div align="center">
+<sub>© 2026 Vexor. All rights reserved. Vexor is a trademark of its respective owner.</sub>
+</div>
