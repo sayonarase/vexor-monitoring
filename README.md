@@ -94,9 +94,14 @@ Per-host availability, MTTR and outages — export to PDF.
 
 ## 💿 Installation
 
-Vexor runs on **Rocky Linux 10 or 9** (and other RHEL-compatible
-distributions). On a fresh server, the whole stack installs in three commands —
-see **[INSTALL.md](INSTALL.md)** for the full guide.
+> ### ✅ Supported platform
+> **Rocky Linux 10** — or any **RHEL 10-compatible** distribution
+> (AlmaLinux 10, RHEL 10, Oracle Linux 10), **x86_64** architecture.
+> This is the only platform the public packages are built and tested for.
+> EL9 / other distributions are **not** supported by the public release.
+
+On a fresh server, the whole stack installs in three commands — see
+**[INSTALL.md](INSTALL.md)** for the full guide.
 
 ```bash
 # 1. Bootstrap the Vexor + dependency repositories
@@ -133,6 +138,10 @@ systemctl restart vexor-api
 
 The license file is attached to every [Release](../../releases) and also lives
 at [`vexor-trial-700d-unlimited.lic`](vexor-trial-700d-unlimited.lic).
+
+> The pre-built **RPMs attached to each Release are for EL10 (Rocky/RHEL 10),
+> x86_64** only.  They are a fallback download for when the primary repo server
+> is unavailable — see [INSTALL.md](INSTALL.md#fallback-install-from-github-if-the-vexor-repo-is-down).
 
 ---
 

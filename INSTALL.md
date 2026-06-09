@@ -1,4 +1,9 @@
-# Vexor Monitoring – Installation (Rocky Linux 10 / 9)
+# Vexor Monitoring – Installation (Rocky Linux 10 / RHEL 10-compatible)
+
+> **Supported platform:** Rocky Linux 10, or any RHEL 10-compatible distribution
+> (AlmaLinux 10, RHEL 10, Oracle Linux 10), **x86_64**.
+> The public packages are built and tested **only** for EL10. EL9 and other
+> distributions are not supported by the public release.
 
 ## Quick install on a fresh server
 
@@ -58,6 +63,8 @@ mirror. The dependency graph itself is unchanged.
 The Vexor RPM server (`sayonara.dyndns.org`) is the primary source, but every
 release also ships the **latest RPMs as assets on the GitHub release**, so you
 can install even if that server is unreachable.
+
+> The release assets are **EL10 (Rocky/RHEL 10), x86_64** only.
 
 ```bash
 # 1. Download every RPM (+ checksums) from the latest release.
