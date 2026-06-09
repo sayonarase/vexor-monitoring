@@ -53,6 +53,41 @@ If your server can't reach the internet, mirror the three .repo sources
 locally and point `vexor.repo` / `influxdata.repo` / `epel.repo` at your
 mirror. The dependency graph itself is unchanged.
 
+## Fallback: install from GitHub (if the Vexor repo is down)
+
+The Vexor RPM server (`sayonara.dyndns.org`) is the primary source, but every
+release also ships the **latest RPMs as assets on the GitHub release**, so you
+can install even if that server is unreachable.
+
+```bash
+# 1. Download every RPM (+ checksums) from the latest release.
+TAG=v0.1.0-preview
+mkdir -p vexor-rpms && cd vexor-rpms
+curl -s "https://api.github.com/repos/sayonarase/vexor-monitoring/releases/tags/$TAG" \
+  | grep browser_download_url | cut -d'"' -f4 \
+  | grep -E '\.(rpm|txt)$' | xargs -n1 curl -LO
+
+# 2. Verify integrity.
+sha256sum -c SHA256SUMS.txt
+
+# 3. vexor-release still configures EPEL + InfluxData + CRB + the GPG keys,
+#    which provide the third-party deps (nagios-plugins, influxdb2, ...).
+dnf install -y ./vexor-release-*.rpm
+
+# 4. Install everything from the local files. We disable the (unreachable)
+#    'vexor' repo so dnf uses the downloaded RPMs, while EPEL / InfluxData /
+#    AppStream stay enabled to resolve third-party dependencies.
+dnf install -y --disablerepo=vexor ./vexor-*.rpm
+
+# 5. First-run setup.
+vexor-setup
+```
+
+> Note: this offloads the **Vexor** packages from the primary server, but a few
+> third-party dependencies (e.g. `java-21-openjdk-headless`, `postgresql-server`,
+> `nagios-plugins-*`, `influxdb2`) are still pulled from the standard EPEL /
+> InfluxData / distro repositories — those are not redistributed here.
+
 ## Upgrades
 
 ```bash
