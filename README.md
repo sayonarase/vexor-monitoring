@@ -23,9 +23,9 @@ enterprise reporting — so you can go from a fresh server to a fully monitored
 environment in minutes.
 
 This repository is the **public landing page** for Vexor. It contains
-screenshots, installation instructions, the End-User License Agreement, and a
-ready-to-use **700-day evaluation license** so you can try the full Enterprise
-edition for free.
+screenshots, installation instructions, and the End-User License Agreement. A
+**700-day Enterprise evaluation license ships pre-installed**, so fresh
+installs are fully licensed out of the box — no manual activation step.
 
 > Looking to install? Jump to **[Installation](#-installation)**.
 
