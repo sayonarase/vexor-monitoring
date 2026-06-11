@@ -39,7 +39,7 @@ edition for free.
 | 🛰️ | **Agent deployment from the GUI** — push the monitoring agent (NSClient++/NRPE on Windows, NRPE on Linux) straight from the web UI, with the option to bundle additional packages. |
 | 🔎 | **Smart agent detection** — already have an agent on the target? Vexor detects it and offers the extra checks it unlocks, ready to tick on. |
 | 📊 | **SLA reports** — per-host availability, MTTR and outage counts based on real HARD-state history, exportable to PDF. |
-| 🔔 | **Notifications &amp; escalations** — flexible policies, contact groups, on-call escalation, and multiple delivery channels. |
+| 🔔 | **Notifications &amp; escalations** — flexible policies, contact groups, on-call escalation, quiet hours and failover, across multiple channels: email, SMS, webhook (Slack/Teams/PagerDuty) and mobile push (ntfy/Gotify). |
 | 🧩 | **Plugin catalog** — a curated, license-cleared library of monitoring plugins, installable from the UI. |
 | 🌐 | **Network discovery** — scan a single host or a whole subnet, with optional deep (OS-detection) scans. |
 | 🧠 | **Business Service Monitoring** — roll low-level checks up into the services your business actually cares about. |
