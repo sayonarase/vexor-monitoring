@@ -121,23 +121,25 @@ credentials printed by `vexor-setup`.
 
 ## 🔑 Free 700-day evaluation license
 
-A signed **Enterprise** evaluation license is included so you can try every
-feature with **unlimited hosts**:
+A signed **Enterprise** evaluation license ships **pre-installed** — fresh
+installs are fully licensed out of the box, with **no manual step required**:
 
 - **License ID:** `VX-2026-4B3ED6`
 - **Edition:** Enterprise · **Host limit:** unlimited
 - **Valid until:** 2028-05-08
 
-Install it after setup:
+It is bundled with `vexor-api`, so after `vexor-setup` the platform is already
+running on the trial license. You can confirm it under **Settings → License** in
+the web UI.
+
+If you ever need to (re)install it manually — e.g. to restore it after replacing
+the file — the license is also attached to every [Release](../../releases) and
+lives at [`vexor-trial-700d-unlimited.lic`](vexor-trial-700d-unlimited.lic):
 
 ```bash
-# Download the trial license from this release, then:
-install -m 0644 vexor-trial-700d-unlimited.lic /etc/vexor/license.lic
+install -m 0640 -o root -g vexor vexor-trial-700d-unlimited.lic /etc/vexor/license.lic
 systemctl restart vexor-api
 ```
-
-The license file is attached to every [Release](../../releases) and also lives
-at [`vexor-trial-700d-unlimited.lic`](vexor-trial-700d-unlimited.lic).
 
 > The pre-built **RPMs attached to each Release are for EL10 (Rocky/RHEL 10),
 > x86_64** only.  They are a fallback download for when the primary repo server
