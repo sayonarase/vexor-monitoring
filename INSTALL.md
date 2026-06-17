@@ -95,6 +95,31 @@ vexor-setup
 > `nagios-plugins-*`, `influxdb2`) are still pulled from the standard EPEL /
 > InfluxData / distro repositories — those are not redistributed here.
 
+## Alternative: Docker (any Linux host)
+
+Rocky / RHEL 10 is the supported production platform, but for evaluation — or
+to run on a non-RHEL host (Ubuntu, Debian, …) — Vexor is also published as an
+all-in-one Docker image. It installs and runs the **same RPMs** under systemd
+inside one container, so it does not touch or depend on the host OS.
+
+```bash
+git clone https://github.com/sayonarase/vexor-docker
+cd vexor-docker
+cp .env.example .env
+# Set VEXOR_PUBLIC_URL to EXACTLY how testers reach the container in the
+# browser, including the port if you publish on anything other than 443
+# (e.g. https://monitor.example.com or https://192.168.1.50:8453). It is
+# registered with Keycloak on first boot so single sign-on works.
+docker compose up -d
+
+# Initial admin credentials (written on first boot):
+docker compose exec vexor cat /etc/vexor/.initial-admin
+```
+
+Image: `ghcr.io/sayonarase/vexor:latest`. Full notes, caveats (systemd-in-Docker,
+ICMP checks, data volumes) and the compose file live in the
+**[sayonarase/vexor-docker](https://github.com/sayonarase/vexor-docker)** repo.
+
 ## Upgrades
 
 ```bash

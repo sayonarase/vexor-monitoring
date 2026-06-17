@@ -117,6 +117,27 @@ vexor-setup
 Then open `https://<your-server>/` in a browser and log in with the admin
 credentials printed by `vexor-setup`.
 
+### 🐳 Alternative: run anywhere with Docker
+
+Not on Rocky / RHEL 10? The same stack is also published as an **all-in-one
+Docker image**, so you can evaluate Vexor on any Linux host with Docker
+(Ubuntu, Debian, …). It runs the **identical RPMs** under systemd inside a
+single container — nothing is re-implemented.
+
+```bash
+git clone https://github.com/sayonarase/vexor-docker
+cd vexor-docker
+cp .env.example .env        # set VEXOR_PUBLIC_URL to how you'll reach it (incl. port)
+docker compose up -d
+docker compose exec vexor cat /etc/vexor/.initial-admin   # initial admin login
+```
+
+Image: `ghcr.io/sayonarase/vexor:latest` · source &amp; docs:
+**[sayonarase/vexor-docker](https://github.com/sayonarase/vexor-docker)**.
+
+> Rocky / RHEL 10 (above) remains the officially supported production platform.
+> The Docker image is a convenience for evaluation and non-RHEL hosts.
+
 ---
 
 ## 🔑 Free 700-day evaluation license
