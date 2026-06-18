@@ -10,6 +10,10 @@ effortless to operate, and built on a battle-tested open-source core.
 **Hosts &amp; services · network discovery · agent deployment · SLA reporting ·
 notifications · log management · dashboards · AI assistant**
 
+**[🌐 Website](https://vexormon.com)** · **[🚀 Live demo](https://demo.vexormon.com)** · **[📦 Install](#-installation)** · **[🐳 Docker](https://github.com/sayonarase/vexor-docker)**
+
+_Try the live demo at **[demo.vexormon.com](https://demo.vexormon.com)** — sign in with `demo` / `demo`. Read-only, resets hourly._
+
 </div>
 
 ---
@@ -26,6 +30,10 @@ This repository is the **public landing page** for Vexor. It contains
 screenshots, installation instructions, and the End-User License Agreement. A
 **700-day Enterprise evaluation license ships pre-installed**, so fresh
 installs are fully licensed out of the box — no manual activation step.
+
+> The full website lives at **[vexormon.com](https://vexormon.com)**, and you can
+> try a hosted instance at **[demo.vexormon.com](https://demo.vexormon.com)**
+> (`demo` / `demo`, read-only, resets hourly).
 
 > Looking to install? Jump to **[Installation](#-installation)**.
 
