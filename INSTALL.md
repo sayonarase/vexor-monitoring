@@ -12,7 +12,7 @@ Run as `root` (or prefix every command with `sudo`):
 ```bash
 # 1. One-shot bootstrap — installs the Vexor + InfluxData repo definitions,
 #    pulls in EPEL, enables CRB and imports both GPG keys automatically.
-dnf install -y https://sayonara.dyndns.org:8443/vexor-release-latest-el$(rpm -E %rhel).rpm
+dnf install -y https://repo.vexormon.com/vexor-release-latest-el$(rpm -E %rhel).rpm
 
 # 2. Install the whole server (api, ui, naemon, keycloak, mariadb-server,
 #    nginx, java, influxdb2, wmi-plugin, log-aggregation, ...). All
@@ -60,7 +60,7 @@ mirror. The dependency graph itself is unchanged.
 
 ## Fallback: install from GitHub (if the Vexor repo is down)
 
-The Vexor RPM server (`sayonara.dyndns.org`) is the primary source, but every
+The Vexor RPM server (`repo.vexormon.com`) is the primary source, but every
 release also ships the **latest RPMs as assets on the GitHub release**, so you
 can install even if that server is unreachable.
 

@@ -105,7 +105,7 @@ On a fresh server, the whole stack installs in three commands — see
 
 ```bash
 # 1. Bootstrap the Vexor + dependency repositories
-dnf install -y https://sayonara.dyndns.org:8443/vexor-release-latest-el$(rpm -E %rhel).rpm
+dnf install -y https://repo.vexormon.com/vexor-release-latest-el$(rpm -E %rhel).rpm
 
 # 2. Install the full server (API, UI, monitoring core, auth, databases, ...)
 dnf install -y vexor-server
