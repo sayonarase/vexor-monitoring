@@ -26,6 +26,19 @@ dates below mark when each change reached the public RPM repo and Docker image.
 - **Configurable log retention:** set a global retention window with an optional
   disk-usage cap, and keep individual hosts for a shorter time using per-host
   overrides.
+- **No-LogsQL log alerts:** a new “Simple” mode lets you build a log alert from
+  plain fields (message contains / minimum level / which host, file or service)
+  with a live preview — no query language required. “Advanced (LogsQL)” is still
+  there for power users.
+- **Ready-made log filters:** one-click starter filters for nginx, Apache/httpd,
+  Caddy and Progress OpenEdge, on top of the existing system filters.
+
+### Usability & fixes
+- **Live install output:** deploying a log shipper or installing plugin
+  dependencies now streams its progress in a console window (with a clear
+  OK/FAIL result) instead of spinning silently.
+- Fixed plugin dependency installs that could fail with a “sudo: no new
+  privileges” error (e.g. when installing the Perl NaServer module).
 
 ## 2026-06-19
 
