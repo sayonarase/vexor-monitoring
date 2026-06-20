@@ -3,6 +3,15 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-21
+
+### Logs & alerting
+- **More ready-made log filters for app servers:** 10 new one-click filters for
+  Progress OpenEdge 11/12 and Apache Tomcat - PASOE agent/server errors, classic
+  AppServer/WebSpeed broker failures, "agent/server died", AdminServer,
+  NameServer and database `.lg` connection errors; plus Tomcat engine errors,
+  startup/out-of-memory failures and access-log 5xx spikes.
+
 ## 2026-06-20
 
 ### Security & maintenance
