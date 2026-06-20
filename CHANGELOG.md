@@ -11,7 +11,7 @@ dates below mark when each change reached the public RPM repo and Docker image.
   patched versions. No action needed; updates ship with the rolling build.
 - Updated the bundled log database (VictoriaLogs) to 1.51.0.
 
----## 2026-06-19
+## 2026-06-19
 
 ### Added
 - **Add Host → Deep scan (nmap):** optional checkbox that scans the top 1000
