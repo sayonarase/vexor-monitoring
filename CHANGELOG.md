@@ -12,6 +12,18 @@ dates below mark when each change reached the public RPM repo and Docker image.
 - Updated the bundled log database (VictoriaLogs) to 1.51.0.
 
 ### Logs & alerting
+- **More ready-made log filters:** 20 new one-click filters for everyday Linux
+  and Windows servers - disk full, filesystem/disk errors, kernel panic,
+  hardware/MCE, failed services, MariaDB/MySQL errors, SELinux denials, fail2ban
+  bans, time-sync loss, NFS stalls and root SSH logins on Linux; service/app
+  crashes, unexpected shutdowns, disk/NTFS errors, account lockouts, Defender
+  detections, failed logons and bugchecks on Windows.
+- **Live-tail fixed:** the Logs search page can stream logs live again (the
+  start button previously failed silently).
+- **Delete saved searches** straight from the Logs page.
+- **Windows log agent** now labels logs with the host name as Vexor knows it and
+  always includes the message text, so Windows logs show under the right host
+  and the Windows filters match. Re-run the installer to pick up the fix.
 - **Deploy a log agent from the GUI:** push the Vector log shipper to a Linux
   host over SSH and watch the install stream live. Logs are now correctly
   labelled with the Vexor host name (so they show under the right host and feed
