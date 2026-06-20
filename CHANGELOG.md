@@ -11,6 +11,22 @@ dates below mark when each change reached the public RPM repo and Docker image.
   patched versions. No action needed; updates ship with the rolling build.
 - Updated the bundled log database (VictoriaLogs) to 1.51.0.
 
+### Logs & alerting
+- **Log-based checks:** turn log data into monitoring. Get alerted when certain
+  messages appear (errors, failed logins, …) or when a host stops sending logs
+  entirely (dead-man switch). Each check is a full monitoring service, so it
+  feeds straight into SLA reports, Business Service Monitoring and notifications.
+- **Host “Logs” tab:** a host's recent logs, its log checks and a history of when
+  each check moved between OK / WARNING / CRITICAL, all in one place. Add a
+  "logs stopped" check straight from the Add Host wizard.
+- **Syslog receiver:** point firewalls, switches and appliances at Vexor over
+  syslog (UDP/TCP 514). Messages are parsed automatically and become searchable
+  and alertable like any other logs. Off by default; enable it under Logs →
+  Settings.
+- **Configurable log retention:** set a global retention window with an optional
+  disk-usage cap, and keep individual hosts for a shorter time using per-host
+  overrides.
+
 ## 2026-06-19
 
 ### Added
