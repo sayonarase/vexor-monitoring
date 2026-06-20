@@ -12,6 +12,11 @@ dates below mark when each change reached the public RPM repo and Docker image.
 - Updated the bundled log database (VictoriaLogs) to 1.51.0.
 
 ### Logs & alerting
+- **Deploy a log agent from the GUI:** push the Vector log shipper to a Linux
+  host over SSH and watch the install stream live. Logs are now correctly
+  labelled with the Vexor host name (so they show under the right host and feed
+  per-host log checks), carry their real message text, and work against
+  self-signed Vexor servers out of the box.
 - **Log-based checks:** turn log data into monitoring. Get alerted when certain
   messages appear (errors, failed logins, …) or when a host stops sending logs
   entirely (dead-man switch). Each check is a full monitoring service, so it
