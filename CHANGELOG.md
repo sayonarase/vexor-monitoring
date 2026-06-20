@@ -34,6 +34,10 @@ dates below mark when each change reached the public RPM repo and Docker image.
   Caddy and Progress OpenEdge, on top of the existing system filters.
 
 ### Usability & fixes
+- **Logs now show under the right host:** fixed two issues that made log
+  views appear empty - the built-in shipper tagged logs as "unknown", and
+  agents deployed to a host labelled logs with the box's own hostname instead
+  of the host name as Vexor knows it. Re-deploy a log agent to pick up the fix.
 - **Live install output:** deploying a log shipper or installing plugin
   dependencies now streams its progress in a console window (with a clear
   OK/FAIL result) instead of spinning silently.
