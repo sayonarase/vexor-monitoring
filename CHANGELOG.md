@@ -6,6 +6,11 @@ dates below mark when each change reached the public RPM repo and Docker image.
 ## 2026-06-21
 
 ### Logs & alerting
+- **More ready-made log filters for Microsoft SQL Server (2014 and later):** 9
+  new one-click filters - high-severity engine errors, login failures,
+  deadlocks, I/O/corruption (823/824/825), backup/restore failures and memory
+  pressure, plus Always On Availability Groups failover/role change,
+  not-synchronizing replicas and connectivity/lease loss.
 - **More ready-made log filters for app servers:** 10 new one-click filters for
   Progress OpenEdge 11/12 and Apache Tomcat - PASOE agent/server errors, classic
   AppServer/WebSpeed broker failures, "agent/server died", AdminServer,
