@@ -17,6 +17,12 @@ dates below mark when each change reached the public RPM repo and Docker image.
   NameServer and database `.lg` connection errors; plus Tomcat engine errors,
   startup/out-of-memory failures and access-log 5xx spikes.
 
+### Agents & deployment
+- **NRPE agent autostart fixed:** installing the NRPE agent (from the GUI or the
+  one-liner) now reliably enables the service to start on boot, even if the very
+  first start hiccups, and the installer prints a clear "enabled (autostart on
+  boot)" / "running" status so you can see it worked.
+
 ## 2026-06-20
 
 ### Security & maintenance
