@@ -24,10 +24,11 @@ dates below mark when each change reached the public RPM repo and Docker image.
   boot)" / "running" status so you can see it worked.
 
 ### Access & roles
-- **Read-only users can open the log dashboard again:** viewer-role users (and
-  the public demo account) can now reach the Logs dashboard, search/live-tail and
-  filter library, matching the read-only access their data already allowed.
-  Managing alerts, shippers and log settings still requires operator/admin.
+- **Read-only users can open the whole Logs section again:** viewer-role users
+  (and the public demo account) can now reach every Logs page - dashboard,
+  search/live-tail, filter library, alerts, shippers and log settings - so the
+  full menu is navigable. Making changes (creating alerts, deploying shippers,
+  editing settings) still requires operator/admin.
 
 ## 2026-06-20
 
