@@ -3,6 +3,22 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-22
+
+### Security & reliability
+- **Tighter API access control:** administrators can now restrict which web
+  origins are allowed to talk to the Vexor API (CORS), instead of accepting any
+  origin. Sensible defaults ship out of the box.
+- **Stronger data integrity:** the database now enforces relationships between
+  hosts, services, checks, contacts and related records, so deleting or editing
+  one no longer leaves orphaned or inconsistent data behind. Existing
+  installations are upgraded automatically.
+- **Login audit trail:** successful and failed sign-ins are now recorded in the
+  audit log, making it easier to spot unauthorised access attempts.
+- **Stability fixes across the web UI:** the host/service wizards, service
+  discovery, job console, log dashboard and reports got internal robustness
+  fixes that prevent stale data and unnecessary background refreshes.
+
 ## 2026-06-21
 
 ### Logs & alerting
