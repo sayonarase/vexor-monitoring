@@ -3,6 +3,18 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25
+
+### New features
+- **Better certificate monitoring:** the Certificates page now reliably lists
+  every cert check you have (HTTPS, check_ssl_cert, raw TLS and on-host cert
+  files), enriched with the issuer, number of SANs and the exact expiry date,
+  sorted by what expires soonest.
+- **Certificate expiry notifications:** opt in to a daily *expiry digest* that
+  alerts you through your notification channels when any monitored certificate
+  is within a configurable number of days of expiring. A *Send test digest*
+  button lets you confirm delivery right away.
+
 ## 2026-06-24 (later)
 
 ### New features
