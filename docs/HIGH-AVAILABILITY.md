@@ -3,7 +3,7 @@
 > Operator guide for running Vexor with redundancy: an **active/passive central
 > node** and **distributed pollers** for remote-site monitoring.
 >
-> Read this together with [`DISASTER-RECOVERY.md`](DISASTER-RECOVERY.md) (rebuild
+> Read this together with your Vexor disaster-recovery runbook (rebuild
 > from zero / backup & restore) and `OPERATIONS.md` (day-to-day).
 >
 > **Important — what is built-in vs. recommended.** Vexor ships a real
@@ -407,7 +407,7 @@ HA is **not** a backup. Replication faithfully copies corruption and bad config
 to the standby. Keep real backups and know the restore path:
 
 * **Full rebuild-from-zero, secrets checklist, signing key** →
-  [`DISASTER-RECOVERY.md`](DISASTER-RECOVERY.md).
+  your Vexor disaster-recovery runbook.
 * The application DB is backed up by `vexor-db-backup.timer`; Keycloak by
   `vexor-keycloak-backup.timer`; config/state self-backup by
   `vexor-selfbackup.timer`. The config auto-rollback (LKG) guard that protects
