@@ -3,6 +3,16 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25 (later)
+
+### New features
+- **Auto-remediation with event handlers:** define handler commands (for example
+  a service-restart script) and attach them to any service. When that service
+  changes state, Naemon now runs the handler automatically. Previously handlers
+  could be configured but were never applied to the monitoring core - they are
+  now written and reloaded, with the reload result surfaced in the UI. Manage
+  them under Settings -> Event Handlers.
+
 ## 2026-06-25
 
 ### New features
