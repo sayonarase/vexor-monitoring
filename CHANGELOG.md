@@ -3,6 +3,22 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-24
+
+### New features
+- **Virtualization monitoring (agentless, read-only):** monitor **Proxmox VE**,
+  **VMware vCenter/ESXi** and **XCP-ng/XenServer** through their native APIs
+  using a dedicated read-only account (Proxmox `PVEAuditor`, vSphere *Read-only*
+  role, XCP-ng read-only RBAC). Track cluster/host health, VM power state,
+  datastore/storage-repository usage and capacity - Vexor never modifies anything
+  in your hypervisors.
+- **Prometheus metrics endpoint:** host and service state plus performance data
+  are now exposed in Prometheus exposition format at `/api/v1/metrics/monitoring`,
+  ready to scrape into Prometheus/Grafana or any compatible TSDB.
+- **Monitoring coverage score:** a new per-host *Monitoring Score* (graded A-F)
+  highlights gaps in your coverage - missing standard checks, no notifications,
+  no thresholds - so you know where to harden your monitoring.
+
 ## 2026-06-23 (later)
 
 ### New features
