@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.2
+
+**Virtualization monitoring — easier setup**
+- Virtualization checks are now clearly labelled by layer: **[Hypervisor]**, **[Virtual machines]** and **[Storage]**, so it's obvious what each check covers.
+- The Add-check dialog now shows a step-by-step **"How to create the read-only user"** guide for Proxmox VE (PVEAuditor token), VMware vCenter (Read-only role) and XCP-ng (read-only RBAC). Vexor only ever reads — it never changes your virtualization platform.
+- New one-click **bundle templates** for Proxmox VE, VMware vCenter and XCP-ng pools that add ping + cluster/host health + VM states + storage checks in one go.
+
 ## 2026-06-25 (later)
 
 ### New features
