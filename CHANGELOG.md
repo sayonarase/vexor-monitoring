@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.3
+
+**Snooze & mute alerts**
+- New **Mute Rules** (Notifications settings): silence notifications for matching hosts/services using glob patterns, with an optional severity ceiling, a time window or indefinite, and a reason. Monitoring keeps running and problems still show in the UI — only the notifications are muted.
+- New **Snooze** quick action on a problem: mute its notifications for 1h, 4h or 24h in one click.
+- Mute is applied before all other suppression rules (quiet hours, rate limits, storm control).
+
 ## 2026-06-25.2
 
 **Virtualization monitoring — easier setup**
