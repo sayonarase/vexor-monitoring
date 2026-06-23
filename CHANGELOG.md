@@ -3,6 +3,14 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.4
+
+**Pull external metrics into Vexor**
+- New **check_prometheus** check (category *Metrics*): scrape any external Prometheus / OpenMetrics endpoint — or a JSON API — and turn a chosen metric into a normal Vexor check with warning/critical thresholds, perfdata graphs, SLA and alerting. Supports label filters, aggregation (sum/max/min/avg), bearer-token headers, self-signed TLS, and a JSON value path.
+
+**AI on incidents**
+- The **Incident timeline** now has an **AI root-cause analysis** button that summarizes the merged timeline (state changes, notifications, acknowledgements, comments) and suggests likely causes and next actions.
+
 ## 2026-06-25.3
 
 **Snooze & mute alerts**
