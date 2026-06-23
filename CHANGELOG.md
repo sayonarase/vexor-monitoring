@@ -5,6 +5,31 @@ dates below mark when each change reached the public RPM repo and Docker image.
 
 ## 2026-06-23
 
+### New features
+- **NOC wallboard:** a new fullscreen, distraction-free status board
+  (open *NOC Wallboard* in the sidebar, or visit `/wallboard`) that
+  auto-refreshes — ideal for a wall-mounted screen in an operations room.
+- **Notification center:** a bell in the top bar shows a live count of
+  unhandled problems and lists them with one-click links to the affected
+  host or service.
+- **Saved views:** save your favourite filters on the Hosts, Services and
+  Events pages and switch between them in a click — each user keeps their own.
+- **Runbook links:** hosts and services can now carry a *Runbook / docs URL*.
+  It appears as a one-click link on the detail pages and is passed through to
+  the monitoring engine, so the runbook is always one hop away from an alert.
+- **On-call schedules:** define daily or weekly rotations of contacts. A
+  notification policy can opt in to a schedule so the person currently on call
+  is automatically added to the recipients.
+- **Status-page subscriptions:** visitors to your public status page can
+  subscribe (with email confirmation) to be notified about incidents.
+  Sending is off by default and enabled from *Notification settings*.
+- **Alert storm control:** an optional safeguard that groups and suppresses
+  repeated alerts from the same host during a storm, so a single flapping
+  host can't flood your inbox. Off by default.
+- **Guided product tour:** a quick in-app walkthrough of the main areas,
+  available any time from *Product Tour* in the sidebar.
+
+
 ### Easier to use
 - **System Health page:** a new *Settings → System Health* page shows live,
   at-a-glance status of the core building blocks — database, monitoring
