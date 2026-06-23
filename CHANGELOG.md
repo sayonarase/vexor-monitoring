@@ -3,6 +3,20 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-24 (later)
+
+### New features
+- **TrueNAS / FreeNAS storage monitoring (agentless, read-only):** keep an eye
+  on your TrueNAS CORE/SCALE and FreeNAS storage via the native REST API using a
+  read-only API key. Checks cover ZFS pool health, capacity, disks and SMART,
+  vdev/RAID redundancy, scrub/resilver status and system alerts - Vexor only ever
+  reads, never writes.
+
+### Fixes
+- **Problem counter now matches the list:** the problem count in the top bar (and
+  the notification bell) no longer includes problems you have already acknowledged,
+  so it stays in sync with the Problems list.
+
 ## 2026-06-24
 
 ### New features
