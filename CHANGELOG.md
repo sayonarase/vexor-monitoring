@@ -3,6 +3,18 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-23 (later)
+
+### New features
+- **Chat & on-call notifications:** Slack, Microsoft Teams, Discord and
+  Telegram are now first-class notification channels with rich, native
+  formatting (colour-coded by severity), alongside **PagerDuty** (Events
+  API v2) and **Opsgenie** — these open an alert on a problem and resolve
+  it automatically on recovery.
+- **Acknowledge from the message:** problem notifications now include a
+  one-click *Acknowledge* link, so you can ack an alert straight from a
+  Slack/Teams/Discord/Telegram message or e-mail without logging in.
+
 ## 2026-06-23
 
 ### New features
