@@ -3,6 +3,24 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-23
+
+### Easier to use
+- **System Health page:** a new *Settings → System Health* page shows live,
+  at-a-glance status of the core building blocks — database, monitoring
+  engine, command pipe, live status feed, single sign-on and disk space — so
+  you can confirm everything is healthy without digging through logs.
+- **Better on mobile:** the navigation menu now closes automatically after you
+  pick a page, so it no longer covers the content on phones and tablets.
+- **In-app help:** contextual help icons next to page titles explain key
+  concepts (for example what SLA availability and services mean).
+- **Test your notifications with a custom message:** the per-channel test
+  dialog now lets you type your own message before sending.
+- **Friendlier empty pages:** the Acknowledgements and Downtimes pages now show
+  a clear explanation when there is nothing to display yet.
+- **Clearer public status page:** the public status page now shows an
+  operational / degraded / outage summary at the top.
+
 ## 2026-06-22
 
 ### Security & reliability
