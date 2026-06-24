@@ -3,6 +3,17 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.7
+
+**Backups now include a fresh, consistent Keycloak dump**
+
+When you create a backup, Vexor now triggers an on-demand PostgreSQL dump of the
+Keycloak (auth) database right before archiving, instead of bundling whatever
+nightly dump happened to exist (which could be up to 24h old). The backup manifest
+marks the Keycloak dump as fresh, stale, or missing so you always know what you
+restored. The dump runs through the privileged vexor-jobd helper, so it works even
+though the API itself runs unprivileged.
+
 ## 2026-06-25.6
 
 **Log alert notifications fixed**
