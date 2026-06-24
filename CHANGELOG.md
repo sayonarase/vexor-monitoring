@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.6
+
+**Log alert notifications fixed**
+- Log alert rules that are **not** bound to a host now correctly deliver their notifications. These direct notifications were previously sent to an outdated internal address and failed silently; they now flow through the normal notification pipeline (email, SMS, ntfy, webhooks, …) like every other alert.
+- Host-bound log rules were unaffected — they notify through the monitoring engine — and are now also protected from duplicate alerts.
+
 ## 2026-06-25.5
 
 **Use your own cloud AI provider**
