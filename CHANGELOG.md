@@ -3,6 +3,14 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.8
+
+**External AI moved into System settings + AI log analysis**
+
+The external-AI / LLM provider configuration now lives under **Settings -> System -> External AI**. Whatever an admin saves there (provider, API key, base URL, model) is **system-wide** and shared by every user; the API key is stored encrypted and never shown again. Local Ollama model management stays on the AI Assistant page.
+
+New on the **Logs Dashboard**: an **Analyze with AI** button runs an SRE-style triage of your current log query (summary, notable events, likely root cause, recommended next steps) using the configured AI provider. Available to operators and admins.
+
 ## 2026-06-25.7
 
 **Backups now include a fresh, consistent Keycloak dump**
