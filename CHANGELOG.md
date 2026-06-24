@@ -3,6 +3,14 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.5
+
+**Use your own cloud AI provider**
+- AI features (incident root-cause, summaries, suggestions) can now run on a **cloud LLM of your choice** instead of — or alongside — local Ollama. Pick a provider in **AI settings** and paste your own API key:
+  - OpenAI (ChatGPT), Anthropic (Claude), Google Gemini, Azure OpenAI, any OpenAI-compatible endpoint (OpenRouter, Groq, Mistral, vLLM…), and GitHub Models.
+- Your API keys are **encrypted at rest** and never shown back in the UI. Each provider keeps its own key, base URL and model, so you can switch between them freely.
+- A **Test connection** button validates your key and model in one click. Local Ollama remains the default and works exactly as before.
+
 ## 2026-06-25.4
 
 **Pull external metrics into Vexor**
