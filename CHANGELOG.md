@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.23
+- Fix: certificate/service notes now actually appear on the host detail
+  page. The host list endpoint that feeds that page was not returning
+  per-service notes (only the single-host endpoint was), so the note
+  stayed hidden on the host even though it showed on the Certificates page.
+
 ## 2026-06-25.22
 - Agent install / downloads help pages now pre-fill the URLs with this
   Vexor server's own address instead of the YOUR-VEXOR-SERVER placeholder.
