@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.12
+
+**Auto-enrollment: choose auto-approve vs. pending per machine**
+
+Zero-touch enrollment now supports **two tokens**. In **Settings -> Agent Recipes** an admin can generate an **auto-approve token** (hosts are created and monitored immediately) and a separate **pending token** (agents wait in an approval queue). Each token has its own badge and can be rotated or cleared independently. Agents enrolled with the pending token appear in a **Pending approval** table on the same page where an admin can **Approve** (create the host with default checks) or **Reject** them. Put whichever token you want into a given machine group's deploy script — the auto-approve token remains the simple default.
+
 ## 2026-06-25.11
 
 **Zero-touch agent auto-enrollment**
