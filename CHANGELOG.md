@@ -3,6 +3,16 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.17
+
+**Auto-enrolled Windows hosts get one service per drive (op5-style)**
+
+Instead of a single combined disk service, auto-enrollment now **discovers the host's fixed drives** and creates one clean **"Disk C:"**, **"Disk D:"**, ... service per drive, each reporting Total / Used (%) / Free (%) (warn at free < 20%, critical at free < 10%). Tiny letterless system/EFI/recovery partitions are skipped. If the agent isn't reachable during enrollment, a single combined all-drives check is used as a fallback. Already-enrolled hosts keep their current checks (delete + re-add to pick up per-drive services).
+
+**Fixed: adding a multi-argument check could crash the UI**
+
+Adding a check such as `check_nrpe_disk` from a host page could throw a blank-screen error (React #185, infinite render loop). Fixed.
+
 ## 2026-06-25.16
 
 **Auto-enrolled Windows hosts now monitor all fixed drives**
