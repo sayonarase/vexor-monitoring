@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.22
+- Agent install / downloads help pages now pre-fill the URLs with this
+  Vexor server's own address instead of the YOUR-VEXOR-SERVER placeholder.
+- The Linux agent one-liner now uses curl -k, so a self-signed Vexor
+  certificate (the common case) works without extra flags.
+
 ## 2026-06-25.21
 - Service/cert notes are now visible on the host detail page (shown under
   each service) and editable from the Edit service modal. Previously a note
