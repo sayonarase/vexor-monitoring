@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.21
+- Service/cert notes are now visible on the host detail page (shown under
+  each service) and editable from the Edit service modal. Previously a note
+  added to a certificate check only appeared on the Certificates page.
+- API: get_host and service detail now return per-service notes; PATCH
+  /services/{id} accepts notes.
+
 ## 2026-06-25.20
 
 **Certificates: add a note to each cert check**
