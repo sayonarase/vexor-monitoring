@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.10
+
+**Fix: self-monitoring checks failed with 'plugin not found' on fresh installs / the demo**
+
+The 10 self-monitoring check plugins (systemd units, MariaDB/Postgres, NTP, memory, Naemon livestatus, API health, license, log ingest) are now shipped inside the vexor-api package under `/opt/vexor/plugins/self-monitor/`. Previously they were only written at runtime by the self-monitor installer, so any host where that step was skipped (for example the all-in-one demo container, which has no bootstrap token at build time) showed every self-check as `execvp(... ) failed errno 2: No such file or directory`. The installer still re-writes them idempotently for self-heal and upgrades.
+
 ## 2026-06-25.9
 
 **AI settings get their own page; AI Assistant is now just a consumer**
