@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.20
+
+**Certificates: add a note to each cert check**
+
+When you add a certificate check on the **Certificates** page you can now fill in an optional **Note** - for example the customer environment name or any other context. Notes show in a new column in the cert list and can be edited inline (click the note to change it). The note is also written to the underlying monitoring service, so it is available wherever service notes are shown.
+
 ## 2026-06-25.19
 
 **One-liner to install + auto-enroll the Linux agent**
