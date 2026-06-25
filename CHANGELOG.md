@@ -3,6 +3,14 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.9
+
+**AI settings get their own page; AI Assistant is now just a consumer**
+
+All AI provider configuration now lives on a dedicated admin page at **Settings -> System -> AI** (internal Ollama and external cloud providers, model management, automation rules and audit log) instead of being embedded in the System settings page. Settings are system-wide and shared by every user.
+
+The **AI Assistant** page is now a pure consumer: it shows the active provider/model, lets you pick from the models that are already configured, and runs the chat — with no setup controls. This also removes the earlier issue where opening the System settings page could leave the menu unresponsive.
+
 ## 2026-06-25.8
 
 **External AI moved into System settings + AI log analysis**
