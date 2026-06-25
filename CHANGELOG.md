@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.15
+
+**Better default checks for auto-enrolled Windows hosts**
+
+The default check set applied to auto-enrolled Windows agents has been tweaked: the **Agent version** check is no longer added by default, and the disk check now uses a detailed drive check that reports **Total / Used (%) / Free (%)** per drive (thresholds: warn when free < 20%, critical when free < 10%) instead of the terse "all drives are ok" line. Already-enrolled hosts keep their existing checks; this affects newly enrolled machines.
+
 ## 2026-06-25.14
 
 **Audit log: filter on agent enrollment**
