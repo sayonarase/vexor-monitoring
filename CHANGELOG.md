@@ -3,6 +3,16 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.18
+
+**Fixed: adding a check returned a server error**
+
+Adding a check to a host could fail with a 500 error (a runbook-URL field wasn't mapped on the host/service model). Fixed, and the optional runbook URL now saves correctly.
+
+**Fixed: Re-scan host (NRPE introspection) found nothing**
+
+Re-scanning a Windows host could finish instantly with "nothing new" when the agent's `nsclient.ini` didn't expose the version query. Detection now also uses the standard `check_cpu` / `check_drivesize` commands, so drives and checks are discovered reliably. Suggested per-drive checks now use the detailed **Disk C:** / **Disk D:** format (Total / Used / Free), and the redundant "Agent version" suggestion was removed.
+
 ## 2026-06-25.17
 
 **Auto-enrolled Windows hosts get one service per drive (op5-style)**
