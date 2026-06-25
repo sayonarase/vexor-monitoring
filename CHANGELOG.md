@@ -3,6 +3,20 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.19
+
+**One-liner to install + auto-enroll the Linux agent**
+
+You can now install the Vexor agent on a Linux host and have it register itself with a single command, just like the Windows deploy script. Generate an enrollment token under **Settings -> Agents**, then run:
+
+```
+curl -fsSL https://YOUR-VEXOR-SERVER/api/v1/nrpe/bootstrap.sh | sudo VEXOR_TOKEN=YOUR-TOKEN bash
+```
+
+It installs nrpe + the standard Nagios plugins + Vexor's helper plugins, whitelists your Vexor server, starts nrpe, and enrolls the host (auto-approve or pending, depending on the token). The installer is idempotent and non-destructive: re-running it on a host that already has an agent just refreshes Vexor's command set and whitelist - it never uninstalls your nrpe.
+
+A new **Help -> "Install the agent (Linux & Windows)"** page documents the one-liners and options.
+
 ## 2026-06-25.18
 
 **Fixed: adding a check returned a server error**
