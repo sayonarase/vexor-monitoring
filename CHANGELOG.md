@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.13
+
+**Follow agent auto-enrollment in the Audit log**
+
+Every time an agent self-registers, Vexor now records an entry in the **Audit log** (Settings/Audit, or `GET /api/v1/audit`) with the client IP and outcome: `agent.enroll.auto` (host created), `agent.enroll.pending` (queued for approval), `agent.enroll.exists` (already monitored, no-op) and `agent.enroll.denied` (wrong token). Approving or rejecting a queued host is logged too (`agent.enroll.approved` / `agent.enroll.rejected`). Filter the Audit log by action `agent.enroll` to watch new machines roll in as your deploy script runs.
+
 ## 2026-06-25.12
 
 **Auto-enrollment: choose auto-approve vs. pending per machine**
