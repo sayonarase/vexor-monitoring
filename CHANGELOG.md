@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.24
+- Fix: the Settings -> System page froze the entire UI (infinite render
+  loop, React #185). After opening it, navigating to other menus changed
+  the URL but the page never loaded. Root cause: Mantine useForm objects
+  in useEffect dependency arrays. Removed them from the deps.
+
 ## 2026-06-25.23
 - Fix: certificate/service notes now actually appear on the host detail
   page. The host list endpoint that feeds that page was not returning
