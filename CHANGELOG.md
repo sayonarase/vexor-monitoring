@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.16
+
+**Auto-enrolled Windows hosts now monitor all fixed drives**
+
+The default disk check for auto-enrolled Windows agents now covers **every fixed drive** in the machine (C:, D:, ...), not just C:. It uses a new `check_nrpe_disk_all` command (NSClient++ `check_drivesize` filtered to `type = 'fixed'`, so optical/removable drives are skipped) and reports per-drive Total / Used (%) / Free (%) with warning at free < 20% and critical at free < 10%. Already-enrolled hosts keep their current checks.
+
 ## 2026-06-25.15
 
 **Better default checks for auto-enrolled Windows hosts**
