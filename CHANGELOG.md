@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.11
+
+**Zero-touch agent auto-enrollment**
+
+Freshly deployed agents can now register themselves automatically. In **Settings -> Agent Recipes** an admin enables **Auto-enrollment**, picks the default OS (Windows/NSClient++ or Linux/NRPE) and generates a single **shared enrollment token** (shown once; rotate or clear it any time). Drop that token into your agent deploy script and each machine calls `POST /api/v1/agents/enroll` on install. Vexor creates the host automatically with a sensible set of default agent checks (CPU, memory, disk, uptime, agent version) and reloads monitoring — no manual host registration, auto-approve. Re-running the deploy script on an already-enrolled host is a safe no-op.
+
 ## 2026-06-25.10
 
 **Fix: self-monitoring checks failed with 'plugin not found' on fresh installs / the demo**
