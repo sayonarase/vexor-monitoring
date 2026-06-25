@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.14
+
+**Audit log: filter on agent enrollment**
+
+The Audit log (Reports -> Audit) action filter now lists the agent self-registration actions (`agent.enroll.auto`, `.pending`, `.exists`, `.denied`, `.approved`, `.rejected`) with colour-coded badges, so you can filter straight to enrollment events while a deploy runs.
+
 ## 2026-06-25.13
 
 **Follow agent auto-enrollment in the Audit log**
