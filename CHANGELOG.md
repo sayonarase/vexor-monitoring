@@ -3,6 +3,15 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-26.1
+- Fix the recurring **blank/white page after an update**. The web server kept
+  letting browsers cache the app shell (index.html), so after a new version was
+  deployed the cached page still pointed at script files that had been replaced
+  — they failed to load and the page stayed blank. index.html is now always
+  revalidated, while the versioned asset files are cached for a year. If you
+  still see a blank page once, do a single hard refresh (Ctrl/Cmd+Shift+R);
+  after that it self-corrects on every future update.
+
 ## 2026-06-25.25
 - Distributed pollers now run **service checks**, not just host checks.
   Previously only host (ping) checks were expanded for the poller, so
