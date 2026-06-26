@@ -296,24 +296,42 @@ objects with:
 active_checks_enabled    0
 passive_checks_enabled   1
 check_freshness          1
-freshness_threshold      300
+freshness_threshold      <derived>
 ```
 
 So the master stops actively checking those objects and instead waits for the
-poller to push results. `freshness_threshold 300` means a check is considered
-**stale 5 minutes** after the last pushed result.
+poller to push results. The freshness window is **derived from the check
+interval** so a slow check is not flagged stale prematurely: a pinned **host**
+uses `600` s, and a pinned **service** uses
+`max(600, check_interval_minutes * 120 + 120)` s (roughly two missed cycles plus
+slack). Once that window passes with no fresh result, the check is **stale**.
 
-`GET /me/assigned` resolves each assigned host/service into a ready-to-run
-`command_line` (Naemon macros pre-expanded, absolute plugin paths stripped so the
-poller can locate the plugin in its own `plugin_dir`). The agent runs them on its
-`interval` and posts results to `POST /me/results`, which writes
-`PROCESS_SERVICE_CHECK_RESULT` / `PROCESS_HOST_CHECK_RESULT` lines into the
-Naemon external command pipe.
+`GET /me/assigned` resolves each assigned host **and service** into a
+ready-to-run `command_line`: the service's Naemon command alias (e.g.
+`check_rdp`, `check_http!...`, `vexor_exec!...`) is expanded against the command
+catalog, `$ARGn$` and host macros (`$HOSTADDRESS$` -> `{address}`) are
+substituted, and absolute plugin paths are stripped so the poller can locate the
+plugin in its own `plugin_dir`. The agent fills in `{address}`, runs each check
+on **its own per-check interval**, and posts results to `POST /me/results`, which
+writes `PROCESS_SERVICE_CHECK_RESULT` / `PROCESS_HOST_CHECK_RESULT` lines into the
+Naemon external command pipe (opened **non-blocking** so a stalled Naemon reader
+can never wedge an API worker).
+
+> **Credentialed checks are skipped on pollers.** Checks that need master-local
+> secrets or payloads — agentless WMI (`check_wmi_simple`), agentless SSH
+> (`vexor_ssh_check`), or anything referencing `/etc/naemon/keys/`,
+> `/etc/naemon/vexor/payloads/` or `/var/lib/vexor/` — cannot run on a remote
+> poller. `GET /me/assigned` detects and omits them (reporting a
+> `skipped_non_pollable` count), and the host detail page shows an orange
+> warning listing the skipped checks. Monitor credential-based checks from the
+> master, or move them to an on-host agent (NRPE/NSClient) on the remote site.
 
 ### 5.3 Heartbeat & health
 
 Every `GET /me/assigned` and `POST /me/results` call updates the poller's
-`last_seen` (and `last_status`, e.g. `ok (N results)`). The Pollers page surfaces
+`last_seen` (and `last_status`). `last_status` is recorded **after** the results
+are forwarded and reflects how many were injected, e.g. `ok (12/12 injected)` or
+`degraded (0/12; naemon command pipe unavailable (ENXIO))`. The Pollers page surfaces
 `last_seen`/`last_status` so you can see at a glance whether a poller is alive.
 
 > There is **no automatic action** taken when `last_seen` goes stale. The
@@ -325,10 +343,10 @@ Every `GET /me/assigned` and `POST /me/results` call updates the poller's
 This is the key operational reality:
 
 1. The poller stops calling `POST /me/results`.
-2. After `freshness_threshold` (300 s) the pinned host/service checks become
-   **stale**. Because active checks are disabled for those objects, the master
-   **cannot re-run them itself** — they go to an UNKNOWN/stale state and stay
-   there until results resume.
+2. After the (interval-derived) `freshness_threshold` the pinned host/service
+   checks become **stale**. Because active checks are disabled for those objects,
+   the master **cannot re-run them itself** — they go to an UNKNOWN/stale state
+   and stay there until results resume.
 3. `last_seen` on the Pollers page stops advancing.
 4. **Nothing is auto-reassigned.** Recovery is operator-driven (below).
 

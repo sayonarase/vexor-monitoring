@@ -3,6 +3,26 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-25.25
+- Distributed pollers now run **service checks**, not just host checks.
+  Previously only host (ping) checks were expanded for the poller, so
+  pinned hosts showed no service results. The poller now receives fully
+  expanded, ready-to-run service commands.
+- Credentialed checks (agentless WMI/SSH and anything using master-local
+  key/payload files) are detected and **skipped on pollers** — they can't
+  run remotely. The host detail page warns you which checks are skipped on
+  a poller-pinned host, so you can run them from the master or use an
+  on-host agent instead.
+- Fix: poller service check intervals were interpreted in the wrong unit
+  (treated minutes as seconds). Each check now runs on its correct schedule.
+- Reliability: result push to Naemon is now non-blocking (a stalled Naemon
+  can no longer wedge the API), and a poller's status now reflects how many
+  results were actually injected.
+- Fix: nightly orphan-poller cleanup now returns affected hosts to active
+  checking instead of leaving them stuck as stale/passive.
+- Stale-detection windows for poller-pinned checks now scale with the check
+  interval instead of a flat 5 minutes.
+
 ## 2026-06-25.24
 - Fix: the Settings -> System page froze the entire UI (infinite render
   loop, React #185). After opening it, navigating to other menus changed
