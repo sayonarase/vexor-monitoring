@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-28.1
+- The **PLANit AppServer agents** check (check_nrpe_pladm_agents) now shows
+  built-in setup help when you add it to a host: which files to deploy, the
+  one permission tweak the NRPE user needs on the check script, and how to
+  pick the right system name (production vs. training). The System, Warning
+  and Critical fields also get inline hints.
+
 ## 2026-06-26.1
 - Fix the recurring **blank/white page after an update**. The web server kept
   letting browsers cache the app shell (index.html), so after a new version was
