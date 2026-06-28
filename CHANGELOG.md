@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-06-28.2
+- More **built-in setup help** in the Add-service dialog: the rest of the
+  PLANit checks (status, running, running with staleness, BusySonic, REQMIN,
+  versions, path size, path size with filter) and the generic mountpoint
+  check now show short setup notes and pre-filled argument hints, matching
+  the AppServer agents check.
+
 ## 2026-06-28.1
 - The **PLANit AppServer agents** check (check_nrpe_pladm_agents) now shows
   built-in setup help when you add it to a host: which files to deploy, the
