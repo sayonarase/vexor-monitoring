@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.8
+- **Windows installer now works with self-signed certificates out of the box.**
+  Most Vexor servers use a self-signed TLS certificate, so the one-file installer
+  now trusts it by default. Downloads use curl (or a PowerShell fallback) that
+  handle self-signed certs cleanly and without tripping antivirus heuristics, so
+  you no longer have to obtain a public certificate just to roll out agents.
+
 ## 2026-07-03.7
 - **Get started: clearer enrollment step.** Removed the confusing "Auto-enroll
   on/off" switch. You now simply create a token and the token you pick decides
