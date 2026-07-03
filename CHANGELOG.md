@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.4
+- **Windows one-file installer hardened.** The downloadable installer no
+  longer trips Windows Defender (it was being flagged as a *ClickFix*
+  downloader). It now uses standard, inspectable PowerShell and enforces a
+  valid TLS certificate on your Vexor server instead of bypassing the check.
+
 ## 2026-07-03.3
 - New **Get started** page (top of the menu) — go from zero to monitoring in
   minutes. Generate an enrollment token, then:
