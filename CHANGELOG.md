@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.5
+- **Windows installer now warns about antivirus up front.** The Get started
+  page and install docs tell you before download that some antivirus / EDR /
+  SmartScreen products may flag the downloaded PowerShell installer, so you can
+  allow it across your environment before rolling it out.
+
 ## 2026-07-03.4
 - **Windows one-file installer hardened.** The downloadable installer no
   longer trips Windows Defender (it was being flagged as a *ClickFix*
