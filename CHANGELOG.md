@@ -1,5 +1,18 @@
 # Vexor — What's new
 
+## 2026-07-03.17
+- Navigation redesign: the left sidebar is reorganised into seven clear,
+  role-based sections - Overview, Monitoring, Incidents & Response, Logs,
+  Reports & SLA, Configuration and Administration. Related tools are grouped
+  (e.g. Configuration and Administration now use tidy sub-menus), and you only
+  see the sections your role can act on, so the menu is far less crowded.
+- New global "+ Add" button in the top bar (add a host, run discovery, network
+  discovery or import an op5 backup from anywhere) plus a one-click AI Assistant
+  shortcut. Your personal settings - account, two-factor auth and API tokens -
+  along with the product tour and Help & docs now live in the avatar menu.
+  (vexor-ui 0.1.0-126)
+
+
 ## 2026-07-03.16
 - Help -> "Install the agent": the Manual / PDQ section now has direct download
   links for Deploy-VexorAgent.ps1 and all support files (NSClient++ MSI,
