@@ -3,6 +3,15 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.10
+- **Windows disk check no longer lists nameless volumes.** The "all drives"
+  disk check enumerated `drive=*`, which included EFI/recovery/system
+  partitions without a drive letter (odd entries like `: Total: 96MB`). It now
+  uses `all-drives`, so only lettered fixed drives (C:, D:, ...) are reported.
+- **Edit service: Save now enables when you change a threshold.** Editing a
+  check's argument (e.g. a critical value) no longer gets reset on the fly, so
+  the Save button activates and your change can be saved.
+
 ## 2026-07-03.9
 - **Windows agent checks fixed: "Could not complete SSL handshake".** The
   agent config (`nsclient.ini`) shipped a hard-coded `allowed hosts` list, so a
