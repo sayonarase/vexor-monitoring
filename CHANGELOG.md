@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026-07-03.16
+- Help -> "Install the agent": the Manual / PDQ section now has direct download
+  links for Deploy-VexorAgent.ps1 and all support files (NSClient++ MSI,
+  nsclient.ini, DH cert, helper plugins). Previously the page told you to use
+  the script for mass/offline deploys but didn't say where to get it.
+  (vexor-api 0.1.0-231)
+
+
 ## 2026-07-03.15
 - Fix: the "Vexor Agent Self-Update" Scheduled Task failed to register on install
   because the NSClient++ scripts path contains a space ("Program Files"). The
