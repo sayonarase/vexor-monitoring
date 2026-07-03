@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026-07-03.12
+- Uptime check is now useful: it shows how long the host has been up and its boot
+  time (e.g. "OK: up 1w 2d 16:10, booted 2026-06-23 23:33"), instead of just "OK".
+  It also accepts optional Warning/Critical filters (units m/h/d) so you can alert
+  when a host rebooted recently, e.g. warning=uptime<2h, critical=uptime<1h.
+  (vexor-naemon 0.1.0-64, vexor-api 0.1.0-227)
+
+
 ## 2026-07-03.11
 - Windows Update check: fixed a false CRITICAL that appeared when no updates were
   pending. The combined status hid its real reason because a '|' separator was
