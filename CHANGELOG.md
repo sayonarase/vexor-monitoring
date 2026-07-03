@@ -1,5 +1,16 @@
 # Vexor — What's new
 
+## 2026-07-03.13
+- Agents now self-update their Vexor plugins. Once installed, each monitored host
+  keeps its Vexor plugins in sync with the master automatically, so plugin fixes
+  reach every agent without re-running the installer. On Windows an hourly Scheduled
+  Task (LocalSystem) applies updates; on Linux a root systemd timer does. Two new
+  optional checks report the state: "Agent plugin self-update (Windows)" and
+  "(Linux)" — e.g. "up-to-date" or "updated N plugin(s)". Existing hosts pick it up
+  the next time the installer/bootstrap is run.
+  (vexor-api 0.1.0-228, vexor-naemon 0.1.0-65)
+
+
 ## 2026-07-03.12
 - Uptime check is now useful: it shows how long the host has been up and its boot
   time (e.g. "OK: up 1w 2d 16:10, booted 2026-06-23 23:33"), instead of just "OK".
