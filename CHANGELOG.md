@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026-07-03.22
+- SQL Server discovery: when you scan or add a Windows host that runs
+  Microsoft SQL Server, Vexor now reliably detects it - even on busy servers
+  where the agent's service list was previously cut off - and offers SQL
+  Server as a monitorable role. Tick the ready-made database checks (server
+  online, backup age, blocked processes, connections, deadlocks, free space,
+  transaction-log size) and enter a SQL login to enable them.
+  (vexor-api 0.1.0-234, vexor-ui 0.1.0-130)
+
 ## 2026-07-03.21
 - MSSQL checks fixed: SQL Server checks imported from op5 Monitor (backup job
   status, blocked processes, query counts, query response time and query
