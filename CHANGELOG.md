@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026-07-03.15
+- Fix: the "Vexor Agent Self-Update" Scheduled Task failed to register on install
+  because the NSClient++ scripts path contains a space ("Program Files"). The
+  installer now uses a small wrapper .cmd so the task registers reliably. Re-run
+  the installer once on already-installed agents. (vexor-api 0.1.0-230)
+
+
 ## 2026-07-03.14
 - Fix: the one-file Windows installer didn't fetch the self-update helper, so the
   hourly "Vexor Agent Self-Update" Scheduled Task was never created. New installs
