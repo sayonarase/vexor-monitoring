@@ -3,6 +3,12 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.6
+- **Fully English UI and installer.** Translated the last remaining Swedish
+  text to English across the product: the Get started page, the sidebar entry,
+  the Windows agent deployment scripts and the NSClient++ config comments.
+  Vexor is now consistently English throughout.
+
 ## 2026-07-03.5
 - **Windows installer now warns about antivirus up front.** The Get started
   page and install docs tell you before download that some antivirus / EDR /
