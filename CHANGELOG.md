@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026-07-03.18
+- Small navigation polish: menu items that open a sub-menu are now shown in
+  bolder text, so they stand out from ordinary links and the grouped
+  Configuration/Administration menus are easier to scan at a glance.
+  (vexor-ui 0.1.0-127)
+
+
 ## 2026-07-03.17
 - Navigation redesign: the left sidebar is reorganised into seven clear,
   role-based sections - Overview, Monitoring, Incidents & Response, Logs,
