@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026-07-03.20
+- New shared "Vexor Overview" dashboard: a built-in dashboard that always
+  exists and that every user can switch to from the dashboard picker (under
+  "Central"). It won't replace your own default dashboard - it's simply always
+  available as a ready-made overview.
+- Fixed "Problems" counting: the Services "Problems" filter and the top-bar
+  problem badge now count only unhandled problems. Once you acknowledge an
+  alert it no longer inflates the problem count, so the number always matches
+  what the problems list actually shows.
+  (vexor-ui 0.1.0-129, vexor-api 0.1.0-232)
+
+
 ## 2026-07-03.19
 - Clearer navigation icons: every sidebar item now has its own distinct,
   meaningful icon, so you can recognise entries at a glance instead of seeing
