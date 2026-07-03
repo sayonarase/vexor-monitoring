@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026-07-03.21
+- MSSQL checks fixed: SQL Server checks imported from op5 Monitor (backup job
+  status, blocked processes, query counts, query response time and query
+  regex checks) now work again. They previously failed with "plugin binary
+  not found" because they relied on an old Perl SQL plugin that was never
+  installed. Vexor now ships a native, dependency-free SQL Server check.
+  (vexor-api 0.1.0-233)
+
 ## 2026-07-03.20
 - New shared "Vexor Overview" dashboard: a built-in dashboard that always
   exists and that every user can switch to from the dashboard picker (under
