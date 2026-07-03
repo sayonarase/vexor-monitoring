@@ -3,6 +3,36 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.2
+- New **ZeroSSL certificate monitoring**. Vexor can now watch *every*
+  certificate in your ZeroSSL account through the ZeroSSL API and warn you
+  before any of them expire — or if one already lapsed without being renewed.
+  It looks at the newest certificate per domain, so a renewal clears the alert
+  automatically. Add it from **Add service -> Certificates -> ZeroSSL account
+  cert expiry** and set your warning/critical day thresholds. A step-by-step
+  **help page** (get your API key, store it safely, test it, add the service)
+  is included in the in-app Help section. Read-only — Vexor never changes your
+  ZeroSSL account.
+
+## 2026-07-03.1
+- New **patch & update monitoring**, read-only, for both Windows and Linux:
+  - **Windows Updates** — pending updates (with a security-only view), how many
+    days since the machine last patched, whether it's **waiting for a reboot**
+    after updates, failed update installs, the Windows Update service state, and
+    an **end-of-support** warning that knows the exact Windows 10/11 and Server
+    edition/build (including 24H2/25H2).
+  - **Linux patch status** — pending (and security) updates, days since the last
+    upgrade, reboot-required detection, failed package transactions, distro
+    end-of-support, and whether automatic updates are configured. Works out of
+    the box on RHEL-family (dnf/yum) and Debian/Ubuntu (apt); openSUSE, Arch and
+    Alpine are best-effort.
+- New **application dependency monitoring**. Point Vexor at a project (or scan a
+  whole directory tree) and it reports **outdated dependencies** and known
+  **security vulnerabilities** for **npm, pip and composer** projects — either
+  per project or aggregated across the host. All of the above show up in the
+  Add-service catalog under **Windows Updates**, **Linux Updates** and
+  **App Dependencies**.
+
 ## 2026-06-28.2
 - More **built-in setup help** in the Add-service dialog: the rest of the
   PLANit checks (status, running, running with staleness, BusySonic, REQMIN,
