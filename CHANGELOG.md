@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026-07-03.11
+- Windows Update check: fixed a false CRITICAL that appeared when no updates were
+  pending. The combined status hid its real reason because a '|' separator was
+  parsed as Nagios perfdata; it now uses ' / '. PendingFileRenameOperations is no
+  longer treated as a servicing reboot by default (noisy/not update-related) —
+  shown as a note, opt in with -IncludeFileRename 1. (vexor-api 0.1.0-226)
+
+
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
