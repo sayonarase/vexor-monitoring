@@ -3,6 +3,16 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.3
+- New **Get started** page (top of the menu) — go from zero to monitoring in
+  minutes. Generate an enrollment token, then:
+  - **Windows:** download a single, ready-made installer file. Right-click →
+    *Run as administrator* and it fetches NSClient++, installs, opens the
+    firewall and enrolls the machine automatically — nothing else to copy.
+  - **Linux:** one copy-paste command with the token already baked in.
+  - A clear **firewall port table (both directions)** so you know exactly what
+    to open, plus a shortcut to **scan a host** and pick services to monitor.
+
 ## 2026-07-03.2
 - New **ZeroSSL certificate monitoring**. Vexor can now watch *every*
   certificate in your ZeroSSL account through the ZeroSSL API and warn you
