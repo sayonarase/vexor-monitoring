@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026-07-03.19
+- Clearer navigation icons: every sidebar item now has its own distinct,
+  meaningful icon, so you can recognise entries at a glance instead of seeing
+  the same generic symbol repeated across many unrelated items.
+- The Logs "Overview" entry is now called "Log overview" to avoid confusion
+  with the main Overview section, and the "Problems" shortcut now highlights
+  correctly in the menu.
+  (vexor-ui 0.1.0-128)
+
+
 ## 2026-07-03.18
 - Small navigation polish: menu items that open a sub-menu are now shown in
   bolder text, so they stand out from ordinary links and the grouped
