@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026-07-03.14
+- Fix: the one-file Windows installer didn't fetch the self-update helper, so the
+  hourly "Vexor Agent Self-Update" Scheduled Task was never created. New installs
+  now get it. If you already installed an agent, re-run the installer once to
+  activate self-update. (vexor-api 0.1.0-229)
+
+
 ## 2026-07-03.13
 - Agents now self-update their Vexor plugins. Once installed, each monitored host
   keeps its Vexor plugins in sync with the master automatically, so plugin fixes
