@@ -3,6 +3,13 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.7
+- **Get started: clearer enrollment step.** Removed the confusing "Auto-enroll
+  on/off" switch. You now simply create a token and the token you pick decides
+  approval: **auto-approve** (hosts appear immediately) or **manual approval**
+  (you approve them under Settings -> Agent Recipes). The Windows installer
+  download unlocks as soon as a token exists.
+
 ## 2026-07-03.6
 - **Fully English UI and installer.** Translated the last remaining Swedish
   text to English across the product: the Get started page, the sidebar entry,
