@@ -3,6 +3,15 @@
 Short, public release notes for Vexor. Builds are rolling (early access), so the
 dates below mark when each change reached the public RPM repo and Docker image.
 
+## 2026-07-03.9
+- **Windows agent checks fixed: "Could not complete SSL handshake".** The
+  agent config (`nsclient.ini`) shipped a hard-coded `allowed hosts` list, so a
+  freshly installed NSClient++ silently rejected NRPE queries from your Vexor
+  server and every check failed with `CHECK_NRPE: (ssl_err != 5) Could not
+  complete SSL handshake`. The installer now locks `allowed hosts` to the exact
+  Vexor server the agent was installed from, so checks work immediately. Re-run
+  the one-file installer on affected hosts to pick up the corrected config.
+
 ## 2026-07-03.8
 - **Windows installer now works with self-signed certificates out of the box.**
   Most Vexor servers use a self-signed TLS certificate, so the one-file installer
