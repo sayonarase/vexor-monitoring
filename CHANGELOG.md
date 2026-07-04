@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.10
+
+- Fixed the Windows log-shipper installer so it completes cleanly on a first install (the NSSM service registration no longer fails with a cannot-open-service error).
+
 ## 2026-07-04.9
 - **Windows log-shipper install fix.** Installing the Vector log shipper on Windows could stop right after the download with a "Cannot bind parameter 'RemainingScripts'" error; the installer now completes cleanly.
 
