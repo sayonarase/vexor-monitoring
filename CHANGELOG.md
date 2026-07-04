@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.13
+
+- Windows log shipping can now handle non-UTF-8 log files (e.g. SQL Server ERRORLOG in UTF-16, or legacy ANSI logs) via a character-set option, so the text shows up correctly instead of as garbled characters.
+
 ## 2026-07-04.12
 
 - Windows log shipping can now collect log files and folder globs (e.g. IIS or app logs), not only Windows event channels. Pass file paths/globs alongside channel names when installing the agent.
