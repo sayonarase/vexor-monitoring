@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.17
+
+**Simpler uptime alerts.** The Uptime check now just asks for a number of hours in the Warning and Critical fields. Want to be warned if a host rebooted within the last 2 hours and alerted critically within 1 hour? Just type 2 and 1 - no more filter syntax to remember.
+
 ## 2026-07-04.16
 
 - Fixed Windows NSClient++ checks (uptime, CPU, memory, service, disk) that were showing a stray "$" in front of the status text; output is now clean both in the live check and the Run-check-now preview.
