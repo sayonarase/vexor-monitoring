@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.11
+
+- Windows log shipping now starts correctly (fixed a Vector configuration field that prevented the agent from loading its config).
+
 ## 2026-07-04.10
 
 - Fixed the Windows log-shipper installer so it completes cleanly on a first install (the NSSM service registration no longer fails with a cannot-open-service error).
