@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.12
+
+- Windows log shipping can now collect log files and folder globs (e.g. IIS or app logs), not only Windows event channels. Pass file paths/globs alongside channel names when installing the agent.
+
 ## 2026-07-04.11
 
 - Windows log shipping now starts correctly (fixed a Vector configuration field that prevented the agent from loading its config).
