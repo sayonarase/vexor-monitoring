@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026-07-04.7
+- The **Agent deployment** page now has a **Log shipper** tab, so setting up log
+  streaming lives right next to installing the monitoring agent instead of being
+  tucked away in a separate section. (vexor-ui 0.1.0-136)
+
 ## 2026-07-04.6
 - **Log shippers are easier to install.** The Log shippers page now shows the
   **log ingest token** (with reveal + copy), and every install command already
