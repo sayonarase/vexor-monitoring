@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026-07-04.2
+- Microsoft SQL Server monitoring works out of the box again: Vexor now ships
+  its own SQL Server health check, so the full set of MSSQL checks (connection
+  time, active users, transactions, cache hit ratio, backup age, database free
+  space, failed Agent jobs, long-running queries and more) run without any
+  extra plugins or drivers to install. (vexor-api 0.1.0-236)
+- Dashboards: you can now pick your own default dashboard. Click the star on a
+  dashboard you created to make it the one Vexor opens on — the shared Vexor
+  Overview is used only until you set your own. (vexor-ui 0.1.0-131)
+
 ## 2026-07-04.1
 - More reliable Windows service discovery: the monitoring agent's response
   size was raised so Vexor now reads the host's full service list when you
