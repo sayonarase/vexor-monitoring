@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.14
+
+- Fixed the interactive Windows log-shipper installer so log paths that contain spaces (such as the SQL Server log folder under Program Files) work correctly.
+
 ## 2026-07-04.13
 
 - Windows log shipping can now handle non-UTF-8 log files (e.g. SQL Server ERRORLOG in UTF-16, or legacy ANSI logs) via a character-set option, so the text shows up correctly instead of as garbled characters.
