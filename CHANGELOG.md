@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026-07-04.3
+- New **Agent deployment** page (under Monitoring) gathers everything about
+  installing the agent in one place: the one-click Windows installer and Linux
+  one-liner, ready-to-copy manual and mass-deployment commands (PowerShell,
+  cmd and bash for PDQ/GPO/Ansible), direct downloads of every agent file
+  (including Deploy-VexorAgent.ps1), add-on packages, cloud instance import and
+  the firewall port reference. Cloud agents now live under this menu.
+  (vexor-ui 0.1.0-132)
+
 ## 2026-07-04.2
 - Microsoft SQL Server monitoring works out of the box again: Vexor now ships
   its own SQL Server health check, so the full set of MSSQL checks (connection
