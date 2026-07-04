@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.18
+
+**Fixed empty agent check output.** Windows/Linux agent checks (Uptime, CPU, Memory, Disks, Services) could show blank values like `:` or `/ (%)` in their status. They now display the full details again - e.g. `OK: up 1w 3d, booted ...` and `committed 45.6GB/65.5GB (69%)`.
+
 ## 2026-07-04.17
 
 **Simpler uptime alerts.** The Uptime check now just asks for a number of hours in the Warning and Critical fields. Want to be warned if a host rebooted within the last 2 hours and alerted critically within 1 hour? Just type 2 and 1 - no more filter syntax to remember.
