@@ -1,5 +1,16 @@
 # Vexor — What's new
 
+## 2026-07-04.6
+- **Log shippers are easier to install.** The Log shippers page now shows the
+  **log ingest token** (with reveal + copy), and every install command already
+  has the token filled in — no more hunting for where to set it or replacing
+  `<TOKEN>` by hand.
+- Fixed the Windows log-shipper install command failing with *“Could not
+  establish trust relationship for the SSL/TLS secure channel”* against a
+  self-signed Vexor certificate: it now uses `curl.exe -k`, and the broken
+  backslash that split the pasted command has been removed.
+  (vexor-logs 0.1.0-21, vexor-ui 0.1.0-135)
+
 ## 2026-07-04.5
 - **Upload your own agent checks.** Agent deployment now has a **Custom
   scripts** tab where you can upload your own NRPE plugins to be bundled with
