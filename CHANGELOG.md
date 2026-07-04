@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026-07-04.4
+- Fixed the Save button not activating when you change a check's arguments
+  (for example a warning or critical threshold) while editing a service.
+- Fixed unreadable code snippets in light theme — commands on the Agent
+  deployment, Get started and Log shippers pages showed as dark text on a
+  dark background. (vexor-ui 0.1.0-133)
+
 ## 2026-07-04.3
 - New **Agent deployment** page (under Monitoring) gathers everything about
   installing the agent in one place: the one-click Windows installer and Linux
