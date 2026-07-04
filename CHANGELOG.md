@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.15
+
+- The interactive Windows log-shipper installer now guides you through log selection: confirm the standard Windows event logs, then add as many extra sources as you like - a file, a folder (all files under it), a wildcard, or another event channel.
+
 ## 2026-07-04.14
 
 - Fixed the interactive Windows log-shipper installer so log paths that contain spaces (such as the SQL Server log folder under Program Files) work correctly.
