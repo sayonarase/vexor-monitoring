@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026-07-04.5
+- **Upload your own agent checks.** Agent deployment now has a **Custom
+  scripts** tab where you can upload your own NRPE plugins to be bundled with
+  the standard ones pushed out to hosts. Every upload is malware-scanned and
+  held in a review queue — you see the verdict and any findings, then approve
+  or reject before it ships.
+- Scanning uses a built-in heuristic scanner (reverse shells, `curl | sh`,
+  embedded secrets, TLS-verification bypass, destructive commands). You can
+  additionally install **ClamAV** with one click, and enable an optional
+  **VirusTotal** hash-only lookup — your script contents never leave the
+  server, only a SHA-256 hash is sent. (vexor-api 0.1.0-237, vexor-ui 0.1.0-134)
+
 ## 2026-07-04.4
 - Fixed the Save button not activating when you change a check's arguments
   (for example a warning or critical threshold) while editing a service.
