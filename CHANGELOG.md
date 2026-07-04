@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.16
+
+- Fixed Windows NSClient++ checks (uptime, CPU, memory, service, disk) that were showing a stray "$" in front of the status text; output is now clean both in the live check and the Run-check-now preview.
+
 ## 2026-07-04.15
 
 - The interactive Windows log-shipper installer now guides you through log selection: confirm the standard Windows event logs, then add as many extra sources as you like - a file, a folder (all files under it), a wildcard, or another event channel.
