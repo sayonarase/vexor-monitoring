@@ -1,5 +1,8 @@
 # Vexor — What's new
 
+## 2026-07-04.9
+- **Windows log-shipper install fix.** Installing the Vector log shipper on Windows could stop right after the download with a "Cannot bind parameter 'RemainingScripts'" error; the installer now completes cleanly.
+
 ## 2026-07-04.8
 - **Spot trouble in your logs automatically.** The new **Logs -> Anomaly detection** page finds unusual log activity for you — without writing a single rule. Turn on ready-made detections (SSH brute force, service crashes, out-of-memory, disk errors, privilege escalation, error-rate surges, log sources going silent, or brand-new never-seen messages) with one click, or build your own. Each detection can post to the monitoring console (so it counts toward SLA and business services), and you can ask the built-in AI to explain any detection in plain language.
 - **The log-agent installer just works now.** Downloading the Windows log-shipper install script no longer fails with a "Missing bearer token" error — fresh machines can pull it straight away.
