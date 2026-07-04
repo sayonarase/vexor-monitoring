@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026-07-04.1
+- More reliable Windows service discovery: the monitoring agent's response
+  size was raised so Vexor now reads the host's full service list when you
+  scan it, instead of stopping after the first ~30 services. Roles that used
+  to be missed (databases, web servers and other services further down the
+  alphabet) are now detected. Re-deploy the agent on existing hosts to get the
+  larger response; detection already works either way.
+  (vexor-api 0.1.0-235)
+
 ## 2026-07-03.22
 - SQL Server discovery: when you scan or add a Windows host that runs
   Microsoft SQL Server, Vexor now reliably detects it - even on busy servers
