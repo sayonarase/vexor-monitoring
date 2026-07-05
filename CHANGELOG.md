@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.19
+
+**New RDP sessions check.** You can now monitor how many users are logged in over Remote Desktop on a Windows host (via the agent). Set Warning and Critical to the maximum number of RDP users you want to allow - Vexor alerts when more than that are connected. Choose to count all sessions, only active ones, or only disconnected ones. Read-only, no changes to the monitored host.
+
 ## 2026-07-04.18
 
 **Fixed empty agent check output.** Windows/Linux agent checks (Uptime, CPU, Memory, Disks, Services) could show blank values like `:` or `/ (%)` in their status. They now display the full details again - e.g. `OK: up 1w 3d, booted ...` and `committed 45.6GB/65.5GB (69%)`.
