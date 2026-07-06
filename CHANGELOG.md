@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-04.21
+
+**Snappier log search.** Typing in the Logs search box is smooth again — the results table, histogram and inactive tabs no longer re-render on every keystroke, so large result sets don't cause input lag.
+
 ## 2026-07-04.20
 
 **Log subsystem: field extraction, metrics, reports, context & GeoIP.** The Logs area gains a batch of new capabilities:
