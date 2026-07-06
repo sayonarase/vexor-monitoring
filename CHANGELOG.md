@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026-07-04.20
+
+**Log subsystem: field extraction, metrics, reports, context & GeoIP.** The Logs area gains a batch of new capabilities:
+
+- **Field extraction** (Logs → Field extraction): define rules that pull named fields out of raw log lines (e.g. `ip`, `status`) so you can filter, group and chart on them. In the search view, flip on **Apply field extraction** to run your query with the rules applied. Preview a rule against recent logs before saving.
+- **Log metrics** (Logs → Log metrics): turn any log query into a graphable metric (count or events-per-second), optionally broken down per source. Set Warning/Critical thresholds to be notified when the value crosses a limit, and view a 24h series.
+- **Reports** (Logs → Reports): schedule digests (daily, weekly or every N hours) that summarise a query — total volume, top sources and an optional error count — delivered through your notification channels. Preview or send on demand.
+- **Show context**: from any search result, open the surrounding log lines (before/after) for the same host to see what happened around an event.
+- **GeoIP**: IP addresses in search results are annotated with a country flag, so you can spot where traffic is coming from at a glance.
+
+Also fixed a small rendering glitch in the Logs dashboard title.
+
 ## 2026-07-04.19
 
 **New RDP sessions check.** You can now monitor how many users are logged in over Remote Desktop on a Windows host (via the agent). Set Warning and Critical to the maximum number of RDP users you want to allow - Vexor alerts when more than that are connected. Choose to count all sessions, only active ones, or only disconnected ones. Read-only, no changes to the monitored host.
