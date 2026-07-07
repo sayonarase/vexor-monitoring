@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-07.7
+
+**Jump straight to Keycloak to manage your SSO users.** The Users page now has a clear *Manage SSO users in Keycloak* card with one-click links to the Keycloak admin console, the user list and group role-mappings for your realm. It also explains the difference between single sign-on users (managed in Keycloak) and local users (managed in Vexor), and reminds you that the Keycloak console uses its own administrator login.
+
 ## 2026-07-07.6
 
 **Get set up faster, and see your whole platform's health at a glance.** A new **guided setup** walks you through the first things that matter — adding your first host (Vexor scans it for services and spots any existing agent automatically), turning on alerting, and protecting your configuration with a backup — all from one screen with live progress. And under System Health, a new **Platform components** view shows every part of Vexor with its installed and latest available version, an update badge when something newer is out, and whether each service is running — so you always know your monitoring platform itself is healthy and up to date.
