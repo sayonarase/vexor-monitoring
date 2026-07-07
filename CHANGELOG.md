@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-07.4
+
+**See which network each log IP belongs to.** Log results now display the network operator behind every public IP address — for example `Google LLC` or `Cloudflare, Inc.` — right next to the country flag, with the AS number on hover. This makes it far quicker to tell whether traffic is coming from a cloud provider, an ISP, or somewhere unexpected, without leaving the log view.
+
 ## 2026-07-07.3
 
 **See the real IP of network devices sending syslog.** Switches, firewalls and routers that stream syslog to Vexor now show up on the Log shippers page with their actual source IP address. Vexor gained a built-in relay that captures the sender's real IP (something the raw syslog receiver couldn't do) and forwards it to the log store, so diskless network gear is no longer listed without an address. Existing syslog senders are picked up automatically the next time they send a line.
