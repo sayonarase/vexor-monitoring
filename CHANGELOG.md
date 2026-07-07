@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-07.3
+
+**See the real IP of network devices sending syslog.** Switches, firewalls and routers that stream syslog to Vexor now show up on the Log shippers page with their actual source IP address. Vexor gained a built-in relay that captures the sender's real IP (something the raw syslog receiver couldn't do) and forwards it to the log store, so diskless network gear is no longer listed without an address. Existing syslog senders are picked up automatically the next time they send a line.
+
 ## 2026-07-07.2
 
 **See the IP of every log sender.** The Log shippers page (Logs → Shippers) now has an **IP** column so you can tell at a glance which address each host is shipping from. It's the address directly for hosts registered by IP, and resolved via DNS for named hosts; devices without a DNS record show “—”.
