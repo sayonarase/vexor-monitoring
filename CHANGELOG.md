@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-07.6
+
+**Get set up faster, and see your whole platform's health at a glance.** A new **guided setup** walks you through the first things that matter — adding your first host (Vexor scans it for services and spots any existing agent automatically), turning on alerting, and protecting your configuration with a backup — all from one screen with live progress. And under System Health, a new **Platform components** view shows every part of Vexor with its installed and latest available version, an update badge when something newer is out, and whether each service is running — so you always know your monitoring platform itself is healthy and up to date.
+
 ## 2026-07-07.5
 
 **Get told when Vexor itself goes down — the one alert it could never send.** Every monitoring system has a blind spot: if it crashes, loses its database, or its host dies, it simply stops alerting and no one finds out. The new **notification watchdog** closes that gap. Vexor continuously proves its alerting pipeline works and sends a heartbeat to an external dead-man's-switch service you control (such as Healthchecks.io). If the heartbeats stop, that independent service raises the alarm. It can also run a periodic end-to-end self-test through your real channels, catching a broken SMTP password or a revoked Slack webhook before a real incident does. Enable it under Alerting setup → Watchdog.
