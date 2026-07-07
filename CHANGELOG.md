@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-07.5
+
+**Get told when Vexor itself goes down — the one alert it could never send.** Every monitoring system has a blind spot: if it crashes, loses its database, or its host dies, it simply stops alerting and no one finds out. The new **notification watchdog** closes that gap. Vexor continuously proves its alerting pipeline works and sends a heartbeat to an external dead-man's-switch service you control (such as Healthchecks.io). If the heartbeats stop, that independent service raises the alarm. It can also run a periodic end-to-end self-test through your real channels, catching a broken SMTP password or a revoked Slack webhook before a real incident does. Enable it under Alerting setup → Watchdog.
+
 ## 2026-07-07.4
 
 **See which network each log IP belongs to.** Log results now display the network operator behind every public IP address — for example `Google LLC` or `Cloudflare, Inc.` — right next to the country flag, with the AS number on hover. This makes it far quicker to tell whether traffic is coming from a cloud provider, an ISP, or somewhere unexpected, without leaving the log view.
