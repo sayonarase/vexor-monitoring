@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026-07-07.1
+
+**Network devices show up on the Log shippers page.** If you point a switch, firewall or router at Vexor's built-in syslog receiver (port 514), it now appears in **Logs → Shippers** alongside your agent hosts — tagged as a **syslog** source (agents are tagged **agent**). Each row shows last-seen status and a **View logs** link that jumps straight to that device's logs. Handy for diskless gear that can't store its own logs.
+
 ## 2026-07-04.21
 
 **Snappier log search.** Typing in the Logs search box is smooth again — the results table, histogram and inactive tabs no longer re-render on every keystroke, so large result sets don't cause input lag.
