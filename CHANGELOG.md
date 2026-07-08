@@ -1,6 +1,11 @@
 # Vexor — What's new
 
 
+## 2026-07-08.2
+
+**Reports now default to English.** The insights and SLA report language selector defaults to English out of the box, with Swedish still available from the dropdown. We also finished translating the last few internal developer notes to English so the whole product speaks one language.
+
+
 ## 2026-07-08.1
 
 **Fixed**
