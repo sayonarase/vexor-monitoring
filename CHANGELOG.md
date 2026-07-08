@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+
+## 2026-07-08.1
+
+**Fixed**
+
+- Uploading a custom NRPE plugin script could fail with a server error (HTTP 500) on some installs where the plugin storage folder ended up owned by the wrong user. The folder is now always provisioned correctly, and the fix automatically repairs affected installs on upgrade.
+
 ## 2026-07-07.7
 
 **Jump straight to Keycloak to manage your SSO users.** The Users page now has a clear *Manage SSO users in Keycloak* card with one-click links to the Keycloak admin console, the user list and group role-mappings for your realm. It also explains the difference between single sign-on users (managed in Keycloak) and local users (managed in Vexor), and reminds you that the Keycloak console uses its own administrator login.
