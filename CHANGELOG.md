@@ -1,6 +1,17 @@
 # Vexor — What's new
 
 
+## 2026-07-17.5
+
+**OpenVMS logs now flow into the log server.** When you add an OpenVMS host with log
+collection enabled (or flip the new **Ship logs to Vexor log server** switch on the host's
+Config tab), Vexor forwards that system's OPCOM, security-audit, error and accounting log
+entries into Logs. They show up in the host's **Logs** tab and can be searched and alerted
+on exactly like agent-shipped logs — no OpenVMS-side agent required. We also removed the last
+place that told you to hand-edit `bridge.yaml`: the Processes and Queues checks now point you
+at the host's Config tab to choose what to watch.
+
+
 ## 2026-07-17.4
 
 **Fixed**
