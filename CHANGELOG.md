@@ -1,6 +1,34 @@
 # Vexor — What's new
 
 
+## 2026-07-17.4
+
+**Fixed**
+
+- Deleting a host now cleans up *everything* tied to it. Previously, if a host had log-based alerting enabled, removing it could leave a stray log-alert check behind that made the next *Activate* fail and roll back with a "Could not find any host matching …" error. Host deletion now also removes those log-alert rules and their monitoring entries automatically. OpenVMS hosts are additionally de-registered from the monitoring bridge (including their stored credentials) on delete.
+
+## 2026-07-17.3
+
+**Adding an OpenVMS system is now point-and-click.** OpenVMS is a first-class choice in the Add Host wizard — pick it like any other template and Vexor creates the full set of OpenVMS checks for you. The wizard now collects the SSH login and CPU architecture inline and registers the host with the monitoring bridge on submit, so there are no config files to edit afterwards. We also made the whole wizard friendlier with clearer field labels and template descriptions, and fixed a crash that could occur when un-ticking a check during setup.
+
+## 2026-07-17.2
+
+**Manage OpenVMS entirely from the GUI — no file editing.** Every OpenVMS setting is now configurable from Vexor. Each OpenVMS host has a Config tab where you set the architecture, SSH credentials, and the processes and queues to watch; passwords are write-only and never shown back. A new **Settings → Monitoring definitions → OpenVMS bridge** page covers the global defaults (SNMP, VSI update-check login, and all collection schedules). Changes are applied live — you no longer need to touch `bridge.yaml` on disk.
+
+## 2026-07-17.1
+
+**Built-in OpenVMS help.** A dedicated *OpenVMS monitoring* page now appears under Help & Documentation, covering how to prepare the OpenVMS side (SSH log housekeeping, a least-privilege monitoring account), configure the bridge, add the host in Vexor, and read each check — plus troubleshooting for tokens, updates and iLO.
+
+## 2026-07-13.1
+
+**Fixed**
+
+- The Linux **Uptime** check could fail with a "CHECK_NRPE: Receive header underflow" / "illegal metacharacter" error. Linux uptime now uses plain warning/critical thresholds in hours, so the check runs cleanly. Update your Vexor packages on the server to get the fix.
+
+## 2026-07-08.3
+
+**New: monitor your OpenVMS systems.** Vexor can now monitor OpenVMS (x86, Itanium and Alpha) with no agent installed on the OpenVMS side. An optional, self-contained bridge collects everything over SSH/SNMP and presents it to Vexor as a normal host with a full set of checks — CPU, memory, swap, disks, network, processes, batch queues, licenses, available VSI updates, hardware/iLO, log version-file growth and an overview — so OpenVMS gets the same alerting, SLA reports, graphs and dashboards as the rest of your estate.
+
 ## 2026-07-08.2
 
 **Reports now default to English.** The insights and SLA report language selector defaults to English out of the box, with Swedish still available from the dropdown. We also finished translating the last few internal developer notes to English so the whole product speaks one language.
