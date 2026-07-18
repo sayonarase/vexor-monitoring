@@ -1,6 +1,23 @@
 # Vexor — What's new
 
 
+## 2026-07-18.3 — OpenVMS end-to-end audit fixes
+
+- **Fixed (important):** a deleted host could linger as a ghost in Naemon. If an
+  activation failed right after a delete, the last-known-good rollback restored
+  the host's config file even though its database row was already gone, so the
+  deleted host kept being scheduled with "Host not found" checks. Every
+  **Activate** now reconciles the on-disk host configs against the database and
+  removes any orphans (and cleaned up an existing `openvms-01` ghost).
+- **OpenVMS Hardware check:** now reports a calm **OK "iLO not configured"** on
+  hosts without an HPE iLO (VMs, most Alpha) instead of a misleading UNKNOWN.
+  UNKNOWN is kept only when iLO *is* configured but unreachable.
+- **OpenVMS help & in-product text:** rewritten to be GUI-first — add hosts with
+  the OpenVMS template, manage everything from the host's **Config tab**, set the
+  VSI login under **Settings → OpenVMS**. Editing `bridge.yaml`/`bridge.env` by
+  hand is now clearly optional. The Processes/Queues "nothing configured" hints
+  point at the Config tab instead of a YAML file.
+
 ## 2026-07-18.2 — OpenVMS watched-process/queue tag hygiene
 
 - **Fixed:** a stray comma or blank entry in the OpenVMS *Watched processes* / *Watched
