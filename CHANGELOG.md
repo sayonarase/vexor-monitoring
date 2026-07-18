@@ -1,6 +1,16 @@
 # Vexor — What's new
 
 
+## 2026-07-18.2 — OpenVMS watched-process/queue tag hygiene
+
+- **Fixed:** a stray comma or blank entry in the OpenVMS *Watched processes* / *Watched
+  queues* fields (Host → Config tab) no longer becomes a bogus "NOT RUNNING" process
+  that falsely turns the **Processes** check CRITICAL. The GUI now splits pasted
+  comma/space/semicolon lists into clean tags, trims and upper-cases names, and drops
+  punctuation-only junk; the bridge applies the same filter defensively.
+- Note: after editing watched processes it can take up to ~1–2 minutes for the change
+  to reflect (the bridge re-polls OpenVMS over SSH, then the Naemon check re-runs).
+
 ## 2026-07-18.1
 
 **More OpenVMS metrics over SNMP — no extra setup.** Using the SNMP agent OpenVMS
