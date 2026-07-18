@@ -1,6 +1,14 @@
 # Vexor — What's new
 
 
+## 2026-07-18.4 — Jump from a log check straight to its logs
+
+- **New:** log-alert and log-freshness checks now have a **"View logs"** button on
+  the service detail page. Clicking a `vexor_logs_*` check (e.g. an OpenVMS log
+  freshness dead-man) and pressing **View logs** opens the Logs explorer already
+  filtered to that host, so you go from "this host's logs look stale/alerting"
+  to the actual log stream in one click — no manual query needed.
+
 ## 2026-07-18.3 — OpenVMS end-to-end audit fixes
 
 - **Fixed (important):** a deleted host could linger as a ghost in Naemon. If an
