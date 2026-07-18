@@ -1,6 +1,16 @@
 # Vexor — What's new
 
 
+## 2026-07-18.5 — Clearer OpenVMS "Overview" check
+
+- **Improved:** the OpenVMS **Overview** check now explains itself. Previously it
+  read like `OK - openvms1 all systems operational | ... uptime=127202s`, which
+  didn't say what it covered and showed uptime in raw seconds. It now returns a
+  labelled summary (e.g. `OK - openvms1: all collectors reachable (CPU 0%, mem
+  8%, up 1d 11h 20m)`) plus detail lines: collector reachability (SSH / SNMP /
+  iLO) and a health snapshot with **human-readable uptime**. It also states that
+  it is an at-a-glance roll-up and does not replace the per-subsystem checks.
+
 ## 2026-07-18.4 — Jump from a log check straight to its logs
 
 - **New:** log-alert and log-freshness checks now have a **"View logs"** button on
