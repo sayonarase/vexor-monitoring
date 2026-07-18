@@ -1,6 +1,24 @@
 # Vexor — What's new
 
 
+## 2026-07-18.1
+
+**More OpenVMS metrics over SNMP — no extra setup.** Using the SNMP agent OpenVMS
+already runs, Vexor now offers three additional checks when you add or edit an
+OpenVMS host:
+
+- **Process count** — running processes vs the system's `MAXPROCESSCNT`, so you get
+  warned before the process table fills up.
+- **Logged-in users** — number of interactive sessions, handy for spotting runaway
+  logins.
+- **Network** now also tracks per-interface input/output **errors and discards** and
+  reports link **utilization %**; you can optionally alert when utilization crosses a
+  threshold.
+
+All of this is collected agentlessly — nothing new needs to be installed on the
+OpenVMS side.
+
+
 ## 2026-07-17.5
 
 **OpenVMS logs now flow into the log server.** When you add an OpenVMS host with log
