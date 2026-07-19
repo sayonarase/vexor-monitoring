@@ -1,6 +1,10 @@
 # Vexor — What's new
 
 
+## 2026-07-19.3 — OpenVMS crash-dump check no longer false-alarms on a fresh system
+
+The **Crash dumps** check now ignores the reserved `SYSDUMP.DMP;1` file, which OpenVMS pre-allocates at install to hold a full memory dump and is therefore always present (and large) even when nothing has crashed. The check now goes CRITICAL only on a **preserved** dump - a copy in `SYS$ERRORLOG:*.DMP` or a higher-version `SYSDUMP.DMP;n` left behind by a real crash.
+
 ## 2026-07-19.2 — OpenVMS: crash-dump, disk-integrity, RAID & performance checks
 
 Four new OpenVMS checks surface data the bridge already collected but never alerted on: **Crash dumps** (an actionable, non-empty `SYSDUMP.DMP`/`*.DMP` goes CRITICAL), **Disk integrity (DFU)** (INDEXF.SYS free headers, “INDEXF cannot extend”, low/fragmented free space, volume bitmap drift and per-volume file-header usage), **RAID / physical disks** (Smart Array / MSA member FAILED/REBUILDING) and **Performance** (MONITOR page-fault rate, deadlocks and disk I/O queue length). Add them from the OpenVMS check catalog; each reports a benign OK when its data source isn't present.
