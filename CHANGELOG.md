@@ -1,6 +1,14 @@
 # Vexor — What's new
 
 
+## 2026-07-19.1 — OpenVMS backup freshness check
+
+New OpenVMS **Backup freshness** check: warns/criticals when the newest backup file is
+older than configurable thresholds (default WARNING ≥24h, CRITICAL ≥48h). Point out
+where your backups live in the host's **Config** tab (Monitor backups toggle + Backup file
+path), or add the *Backup freshness* service from the OpenVMS check catalog. Reports newest
+backup age and file count as perfdata; CRITICAL with a clear hint when no files are found.
+
 ## 2026-07-18.5 — Clearer OpenVMS "Overview" check
 
 - **Improved:** the OpenVMS **Overview** check now explains itself. Previously it
