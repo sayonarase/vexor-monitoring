@@ -1,6 +1,42 @@
 # Vexor — What's new
 
 
+## 2026-07-25.9 — Public demo refreshed with a full MSSQL showcase
+
+The public demo at **demo.vexormon.com** now runs the latest Vexor build and includes a synthetic MSSQL Server host (`mssql-demo01`) with 24 hours of realistic point-in-time data — trends, top queries, wait stats, IO latency and a simulated blocking incident — so you can explore the new MSSQL dashboard without needing a real SQL Server. Also fixed: VictoriaLogs (which backs MSSQL snapshots and the log explorer) wasn't starting in the all-in-one container image.
+
+## 2026-07-25.8 — MSSQL dashboard: professional redesign
+
+Fixed a sticky-navigation overlap bug where the time-travel bar and the tab strip could hide each other while scrolling. Added colour-blind-friendly status icons alongside colour on every KPI/metric card, a collapsible time-travel scrubber (compact by default, expand for the chart), and a one-click **Export** button that produces a clean printable report for management.
+
+## 2026-07-25.7 — MSSQL dashboard: clearer navigation
+
+Reworked the MSSQL dashboard's menu structure so it's easier to find your way around after a few clicks — clearer section labels and breadcrumbs so you don't lose track of where you are.
+
+## 2026-07-25.6 — MSSQL: trend graphs and snapshot scheduling
+
+Added per-database trend graphs (size, sessions, IO latency growth over time) to the MSSQL dashboard, documented how to schedule the **SQL Snapshot (point-in-time)** service so a database ships a full snapshot every minute, and improved the message shown when no snapshots exist yet in the selected time window.
+
+## 2026-07-25.5 — MSSQL: per-database A/B comparison
+
+You can now compare two points in time for a single database — pick a baseline and an incident moment and see exactly what changed (size, sessions, blocking, hot queries) for that specific database, not just the whole server.
+
+## 2026-07-25.4 — MSSQL dashboard: point-in-time drill-down and A/B compare
+
+New MSSQL point-in-time dashboard: reconstruct exactly how a SQL Server looked at any past moment — active sessions, blocking chains, wait stats, per-database IO latency and top queries with their SQL text — and compare any two moments side by side to see what changed during an incident.
+
+## 2026-07-25.3 — MSSQL: deep performance & diagnostics collector
+
+Brand-new, additive MSSQL collector (it doesn't touch any existing MSSQL checks) that matches and extends what Telegraf/Grafana show: buffer cache hit ratio, page life expectancy, batch requests/sec, wait stats, blocking chains, top queries by CPU, per-database IO latency, tempdb usage and more — all viewable in the new MSSQL dashboard.
+
+## 2026-07-25.2 — OpenVMS: TCP/IP recovery and boot reliability
+
+Hardened OpenVMS TCP/IP service recovery after an unclean shutdown or crash, and improved autostart reliability so TCP/IP, SSH and SSL come up cleanly again after a reboot.
+
+## 2026-07-25.1 — OpenVMS: dedicated least-privilege monitoring account + hardened SSH
+
+Vexor's OpenVMS monitoring now runs under its own dedicated, least-privilege account instead of a shared/system account, with setup steps documented in the OpenVMS help. Also fixed SSH algorithm negotiation for modern OpenSSH-for-OpenVMS servers, scoped the orphan-session cleanup to only Vexor's own sessions (so it can no longer kill unrelated long-lived SSH sessions such as an sshfs mount), added a longer connection timeout to ride out brief CPU spikes, and made the monitoring bridge start up and shut down cleanly and quickly.
+
 ## 2026-07-19.3 — OpenVMS crash-dump check no longer false-alarms on a fresh system
 
 The **Crash dumps** check now ignores the reserved `SYSDUMP.DMP;1` file, which OpenVMS pre-allocates at install to hold a full memory dump and is therefore always present (and large) even when nothing has crashed. The check now goes CRITICAL only on a **preserved** dump - a copy in `SYS$ERRORLOG:*.DMP` or a higher-version `SYSDUMP.DMP;n` left behind by a real crash.
