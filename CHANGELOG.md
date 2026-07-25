@@ -29,10 +29,6 @@ New MSSQL point-in-time dashboard: reconstruct exactly how a SQL Server looked a
 
 Brand-new, additive MSSQL collector (it doesn't touch any existing MSSQL checks) that matches and extends what Telegraf/Grafana show: buffer cache hit ratio, page life expectancy, batch requests/sec, wait stats, blocking chains, top queries by CPU, per-database IO latency, tempdb usage and more — all viewable in the new MSSQL dashboard.
 
-## 2026-07-25.2 — OpenVMS: TCP/IP recovery and boot reliability
-
-Hardened OpenVMS TCP/IP service recovery after an unclean shutdown or crash, and improved autostart reliability so TCP/IP, SSH and SSL come up cleanly again after a reboot.
-
 ## 2026-07-25.1 — OpenVMS: dedicated least-privilege monitoring account + hardened SSH
 
 Vexor's OpenVMS monitoring now runs under its own dedicated, least-privilege account instead of a shared/system account, with setup steps documented in the OpenVMS help. Also fixed SSH algorithm negotiation for modern OpenSSH-for-OpenVMS servers, scoped the orphan-session cleanup to only Vexor's own sessions (so it can no longer kill unrelated long-lived SSH sessions such as an sshfs mount), added a longer connection timeout to ride out brief CPU spikes, and made the monitoring bridge start up and shut down cleanly and quickly.
