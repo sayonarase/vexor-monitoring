@@ -1,6 +1,32 @@
 # Vexor — What's new
 
 
+## 2026-08-01.1 — Security & reliability hardening
+
+A broad hardening pass across Vexor's backend and OpenVMS bridge, focused on
+things that protect your data and keep monitoring dependable under load:
+
+- **SSRF protection** — synthetic/HTTP checks and the AI (`ollama_url`) integration
+  now validate outbound targets through a single guard that blocks requests to
+  loopback, private, link-local and cloud-metadata addresses.
+- **Secrets encrypted at rest** — the OpenVMS monitoring bridge now encrypts its
+  stored credentials (Fernet) instead of keeping them in plaintext, with a
+  per-install key provisioned automatically on upgrade.
+- **SSH host-key verification** — OpenVMS and log collectors now pin and verify
+  each host's SSH key (trust-on-first-use), so a poll can't be silently
+  redirected to an impostor host.
+- **Locked-down metrics endpoint** — the Prometheus metrics export is no longer
+  world-readable; it requires a scrape token or a local/private client.
+- **Dependable config reloads** — monitoring-config writes are now atomic, guarded
+  by a cross-process lock, and leader election fails closed, so a crash or a
+  second node can no longer corrupt the running configuration.
+- **Snappier UI under load** — blocking system commands in the API are now offloaded
+  to worker threads and the auth secret is cached, keeping the interface
+  responsive while background work runs.
+
+No action is required — these ship automatically. If you scrape Vexor's metrics
+endpoint from a public address, set a scrape token (see the Operations guide).
+
 ## 2026-07-25.9 — Public demo refreshed with a full MSSQL showcase
 
 The public demo at **demo.vexormon.com** now runs the latest Vexor build and includes a synthetic MSSQL Server host (`mssql-demo01`) with 24 hours of realistic point-in-time data — trends, top queries, wait stats, IO latency and a simulated blocking incident — so you can explore the new MSSQL dashboard without needing a real SQL Server. Also fixed: VictoriaLogs (which backs MSSQL snapshots and the log explorer) wasn't starting in the all-in-one container image.
