@@ -15,6 +15,8 @@ block CI, so regressions are caught before release):
   reference and could fail; fixed.
 - Corrected a couple of smaller internal issues (two-factor secret handling and
   plugin-install logging) uncovered by the same pass.
+- **Dependency security fix** — bumped `pyasn1` to 0.6.4 to clear three known
+  advisories in the previous version.
 
 
 ## 2026-08-02.1 — Host incident timeline fix
