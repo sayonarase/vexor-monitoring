@@ -1,6 +1,22 @@
 # Vexor — What's new
 
 
+## 2026-08-02.2 — Backup & host-config bug fixes
+
+Fixes shipped alongside a new enforced code-quality gate (lint + type checks now
+block CI, so regressions are caught before release):
+
+- **Config backups now include the database again** — one backup code path
+  referenced a helper that was never defined, so the database dump was silently
+  skipped in that path. The dump is now built correctly (credentials passed
+  securely via the environment, never on the command line).
+- **Poller-pinned hosts no longer break config generation** — generating the
+  monitoring config for a host assigned to a specific poller hit an undefined
+  reference and could fail; fixed.
+- Corrected a couple of smaller internal issues (two-factor secret handling and
+  plugin-install logging) uncovered by the same pass.
+
+
 ## 2026-08-02.1 — Host incident timeline fix
 
 - Fixed the host **incident timeline** coming back empty. Naemon state changes,
