@@ -1,6 +1,12 @@
 # Vexor — What's new
 
 
+## 2026-08-02.1 — Host incident timeline fix
+
+- Fixed the host **incident timeline** coming back empty. Naemon state changes,
+  notifications, acknowledgements and downtimes now load correctly on the host
+  timeline view again (an internal monitoring-socket path had drifted).
+
 ## 2026-08-01.1 — Security & reliability hardening
 
 A broad hardening pass across Vexor's backend and OpenVMS bridge, focused on
