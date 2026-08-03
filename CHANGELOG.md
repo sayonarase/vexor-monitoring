@@ -1,5 +1,23 @@
 # Vexor — What's new
 
+## 2026-08-03.1 — Faster, more consistent tables across the whole app
+
+The final phase of a large front-end modernization is now live. Every list and
+table view in Vexor has been moved onto one unified data grid, so the whole app
+looks and behaves consistently:
+
+- **Sorting, pagination and a column picker** on list/table views, plus a
+  density toggle — show only the columns you care about.
+- **Virtualized rendering for large lists** (hosts, services, logs) so big tables
+  stay smooth and responsive instead of bogging the browser down.
+- **Consistent loading, empty and error states** everywhere, replacing a patchwork
+  of one-off spinners and tables.
+- Behavior is otherwise unchanged — this is a look-and-feel/consistency and
+  performance improvement, not a workflow change.
+
+Under the hood this completes the front-end design-system rollout and turns on
+strict code-quality guardrails, so future UI regressions are caught before release.
+
 
 ## 2026-08-02.2 — Backup & host-config bug fixes
 
