@@ -1,5 +1,28 @@
 # Vexor — What's new
 
+## 2026-08-07.1 — Redesigned navigation and a unified Home
+
+We reorganized Vexor's left-hand navigation around what you are trying to do, so
+the right page is easier to find:
+
+- **Purpose-driven sections** — the sidebar is now grouped into clear areas:
+  Home, Monitoring, Response, Reports, Configure and Administer (plus Logs when
+  the logs module is enabled). Related tools now live together — for example all
+  credentials (SNMP included) live under Administer, and agent deployment moved
+  to Configure -> Onboarding.
+- **A single Home** — the landing page is now a tabbed hub: your Overview
+  dashboard, the Monitoring score and Top talkers are tabs on one page instead of
+  separate menu entries. Your own dashboards and the full-screen NOC wallboard
+  stay their own destinations.
+- **Nothing moved out of reach** — existing bookmarks keep working; old links
+  such as the Monitoring score and Top talkers pages redirect into the new Home
+  tabs automatically.
+- SNMP-credential management is now admin-only, so credentials have a single,
+  properly protected home.
+
+This is a navigation and findability improvement — your hosts, checks, data and
+workflows are unchanged.
+
 ## 2026-08-03.1 — Faster, more consistent tables across the whole app
 
 The final phase of a large front-end modernization is now live. Every list and
