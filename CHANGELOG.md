@@ -1,5 +1,24 @@
 # Vexor — What's new
 
+## 2026.08.08.1 — Deploy the Windows agent remotely, straight from the GUI
+
+You can now roll out the Vexor Windows agent to one or many machines without
+touching them — no RDP, no USB stick, nothing typed on the target.
+
+- **Remote push (SMB)** — a new tab under Agent deployment. Enter admin
+  credentials and a list of Windows hosts, and Vexor installs NSClient++ over
+  SMB (PsExec-style) as SYSTEM, then cleans up after itself.
+- **Auto-register** — optionally have each freshly installed agent enroll itself
+  against the master automatically, so new hosts start reporting with no extra
+  steps.
+- **Safe overwrite** — if an agent is already present it is stopped and replaced,
+  the same way the local installer behaves.
+- **Credentials stay secret** — the admin password is never written to logs,
+  command lines or config files; it is passed only to the child install process.
+
+Prerequisites per target: TCP 445 + the ADMIN$ share reachable, a local-admin
+account, and (on workgroup hosts) `LocalAccountTokenFilterPolicy=1`.
+
 ## 2026-08-07.1 — Redesigned navigation and a unified Home
 
 We reorganized Vexor's left-hand navigation around what you are trying to do, so
