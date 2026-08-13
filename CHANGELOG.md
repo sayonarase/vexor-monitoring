@@ -1,5 +1,34 @@
 # Vexor — What's new
 
+## 2026.08.12.2 — A more consistent, responsive and accessible interface
+
+The second wave of our product-experience work. No new features — consistency,
+readability and accessibility across the whole app.
+
+- **Your branding shows up everywhere.** White-label logo, product name and
+  accent colour now propagate across the header, login, public status page and
+  browser tab — not just a few screens.
+- **Works on tablets and phones.** The top bar no longer collides with itself on
+  narrow screens, headers stack cleanly, and wide tables scroll horizontally
+  instead of overflowing the page.
+- **No more blank screens on failure.** Lists and panels now show clear loading
+  skeletons, empty-state messages and actionable error states instead of going
+  blank when a request fails.
+- **Actions tell you what happened.** Create, update and delete actions now
+  surface success and failure as toast notifications, and destructive actions
+  ask for confirmation first — no more silently swallowed errors.
+- **Readable, consistent timestamps.** Times are shown as friendly relative
+  values (“3 min ago”) with the exact local time and timezone on hover; raw
+  ISO strings no longer leak into the UI.
+- **Fast, paged history.** Events and the audit logs now page through results on
+  the server instead of capping at 500 rows, keeping large histories responsive.
+- **Accessibility in CI.** Automated accessibility (axe) scanning now runs in our
+  pipeline — the public status page on every push, and the main authenticated
+  views on the full end-to-end run — so regressions are caught early.
+
+Standard upgrade: `dnf upgrade vexor-api vexor-ui && systemctl restart vexor-api`.
+No configuration changes or migrations are required.
+
 ## 2026.08.12.1 — First-impression polish, safer host deletion and a cleaner audit trail
 
 This release closes the six highest-priority findings from our product
