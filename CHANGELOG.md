@@ -1,5 +1,33 @@
 # Vexor — What's new
 
+## 2026.08.12.1 — First-impression polish, safer host deletion and a cleaner audit trail
+
+This release closes the six highest-priority findings from our product
+experience review — the small things an evaluator notices on the very first
+screens. No new features; correctness, safety and polish only.
+
+- **No more silent errors on every page.** Vexor checked for optional modules
+  (like Logs) using a route that did not exist, so every page quietly fired a
+  failed request and the Logs navigation could disappear. That endpoint now
+  exists and always returns a stable answer.
+- **Safer host deletion.** Deleting a host now shows how many dependent services
+  will be removed and asks you to type the host name to confirm — no more
+  one-click accidents. Viewers no longer see Delete, row selection or the bulk
+  action bar (buttons that previously appeared and then failed with a
+  permission error).
+- **An audit trail that reads like one.** Action authors are shown as-is, and
+  opaque internal identifiers are now clearly labelled `unknown (…)` with a
+  tooltip instead of dumping raw UUIDs.
+- **Fonts that actually load.** Vexor declared its Inter and JetBrains Mono
+  typefaces but never shipped them, so everyone silently fell back to a system
+  font. They are now bundled and self-hosted for a consistent look everywhere.
+- **Help pages render properly.** Bold text, links and formatting inside Help
+  documentation tables now display correctly instead of showing raw markup.
+- **Removed a stray internal note** that had leaked into System Settings.
+
+Standard upgrade: `dnf upgrade vexor-api vexor-ui && systemctl restart vexor-api`.
+No configuration changes or migrations are required.
+
 ## 2026.08.08.1 — Deploy the Windows agent remotely, straight from the GUI
 
 You can now roll out the Vexor Windows agent to one or many machines without
