@@ -1,5 +1,32 @@
 # Vexor — What's new
 
+## 2026.08.13.1 — Cleaner actions, clearer data and safer bulk operations
+
+The third wave of our product-experience work closes the medium-priority
+findings. No new features beyond bulk host operations — the focus is
+consistency, clarity and control.
+
+- **Consistent, uncluttered row actions.** Per-row action buttons now follow one
+  pattern across the app: the primary action inline and the rest in a tidy
+  overflow menu, using a single set of semantic colours (danger is always red,
+  success always green) instead of ad-hoc styling.
+- **More accessible controls.** Icon-only buttons now carry proper accessible
+  names, so screen readers and keyboard users can tell them apart.
+- **A welcome that doesn't get in the way.** The product tour no longer pops a
+  modal over the page on first login — you get a dismissible welcome prompt and
+  can start the tour whenever you like.
+- **Cleaner, more trustworthy data.** SLA reports no longer leak raw `uname`
+  output into the alias column, MTTR explains what "—" means, and empty
+  discovery screens now guide you on what to do next.
+- **Resilient job console.** Deployment and log-shipper jobs can be retried,
+  re-attached after a dropped connection, and their full logs downloaded.
+- **Bulk host operations.** Select multiple hosts to add them to a host group,
+  or delete them in one guarded, type-to-confirm action — reusing the same safe
+  purge path as single-host deletion (pending until you Activate).
+
+Standard upgrade: `dnf upgrade vexor-api vexor-ui && systemctl restart vexor-api`.
+No configuration changes or migrations are required.
+
 ## 2026.08.12.2 — A more consistent, responsive and accessible interface
 
 The second wave of our product-experience work. No new features — consistency,
