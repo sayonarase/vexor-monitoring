@@ -1,5 +1,46 @@
 # Vexor — What's new
 
+## 2026.08.18.1 — Agent version management, plus a security and platform refresh
+
+You can now manage which NSClient++ build Vexor deploys to Windows hosts, instead
+of being tied to whatever version happened to ship with the product. This release
+also refreshes the whole underlying platform and fixes several security issues.
+
+- **Choose the agent version you deploy.** A new **Agent versions** page (under
+  Onboarding) lists every NSClient++ package Vexor knows about and lets you pick
+  the one used for new deployments. You can fetch a stable release straight from
+  the official upstream project, upload your own MSI, or keep using the bundled
+  build — whichever you set as primary is what gets deployed.
+- **Roll back safely.** Previous versions stay in the registry, so if a new agent
+  build misbehaves you can switch back with one click rather than hunting down
+  the old installer.
+- **Know when a new agent is out.** Vexor can check upstream for new stable
+  releases on a schedule and tell you when one is available, so staying current
+  is a decision rather than a chore. Nothing is downloaded or promoted without
+  you asking for it.
+- **Help where you'd look for it.** The Platform menu now links straight to the
+  in-app documentation.
+- **Fixes.** The Logs page no longer comes up blank in a browser tab that was
+  left open across an upgrade; large tables (including log views) render their
+  rows reliably again; and an expired session now recovers cleanly instead of
+  leaving live views silently stalled.
+
+### Security
+
+- Updated bundled Python dependencies to pick up fixes for several published
+  vulnerabilities, including a critical SQL-injection issue in the MySQL driver
+  (CVE-2025-65896). **Upgrading is recommended for all installations.**
+- Refreshed the bundled platform components — log storage, log shipper, identity
+  server — to current upstream releases. This includes a log-query fix that could
+  cause certain valid searches to be rejected.
+
+Upgrade with `dnf upgrade 'vexor-*'`, then restart the services (or reboot). No
+manual configuration changes or database migrations are required: the log shipper
+brings a new upstream version with stricter configuration rules, and its own
+default configuration is migrated for you during the upgrade. If you hand-edited
+your shipper configuration, check the service after upgrading — the upgrade will
+tell you if it needs your attention.
+
 ## 2026.08.13.1 — Cleaner actions, clearer data and safer bulk operations
 
 The third wave of our product-experience work closes the medium-priority
