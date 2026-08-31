@@ -1,5 +1,64 @@
 # Vexor — What's new
 
+## 2026.08.31.1 — Monitor Kubernetes and OpenShift without installing anything
+
+Vexor can now monitor a Kubernetes or OpenShift cluster the same way it monitors
+everything else — with alerts, graphs, SLA reports and notification policies — and
+without putting an agent on a single node.
+
+You give Vexor a read-only ServiceAccount token. Vexor reads the cluster's own API
+and turns it into ordinary Vexor services. Nothing is installed in the cluster,
+nothing is changed in it, and no workload runs there on Vexor's behalf.
+
+- **Add a cluster the way you add a host.** Choose Kubernetes or OpenShift in the
+  Add host wizard, give Vexor the API server address and a ServiceAccount token,
+  and Vexor probes the cluster and tells you what it can see before you commit to
+  anything. The new **Kubernetes / OpenShift** page lists your clusters, their
+  nodes and their checks.
+- **Fifteen checks, and Vexor works out which ones apply.** Ten apply to any
+  cluster: workloads running below their intended replica count; pods
+  crashlooping, stuck pulling an image, killed for memory or stuck Pending; node
+  Ready state, cordon and drain status and resource pressure; PersistentVolumeClaims
+  stuck Pending or Lost; services whose endpoints have no ready backend, which is
+  the usual shape of "the site is down but every pod looks fine"; failed and
+  overrunning batch jobs; warning events grouped by cause; API server liveness and
+  readiness; pending certificate signing requests, a quiet cause of nodes dropping
+  out of a cluster months later; and ServiceAccount token expiry.
+- **Plus what is specific to your distribution.** On OpenShift: cluster operators,
+  the cluster version and update status, and MachineConfigPool rollouts. On vanilla
+  Kubernetes: the self-hosted control-plane pods, and kubelet version skew between
+  nodes after a partial upgrade.
+- **Restart rate, not restart count.** A pod that misbehaved last month does not
+  alarm forever.
+- **Checks that do not apply say so.** Point an OpenShift check at a plain
+  Kubernetes cluster and it reports "not applicable", not a failure.
+- **Whole cluster, or one namespace at a time.** One team's failing workloads need
+  not raise alerts against another team's service. Cluster-wide facts such as node
+  health and the control plane are always judged cluster-wide.
+- **A cluster counts as one host.** A monitored cluster consumes one licence, no
+  matter how many nodes it has, and the nodes Vexor discovers for context cost
+  nothing. If you additionally monitor a node the classic way — with an agent on it
+  — that node counts as a normal host, as it always has.
+
+### Built so it stays trustworthy
+
+- **The cluster credential stays on the Vexor server.** Vexor reads the cluster on
+  a schedule and caches what it found; the individual checks read that cache. The
+  token is never handed to the check runner, and the checks make no network calls
+  of their own.
+- **One read per cluster, not one per check.** A large cluster can return tens of
+  megabytes per listing. Vexor fetches it once per interval, and only the resources
+  your enabled checks actually need.
+- **A monitoring outage is not reported as a service outage.** If Vexor cannot
+  reach the cluster, or its cached data has gone stale, the affected checks report
+  UNKNOWN rather than CRITICAL — which would otherwise wrongly destroy the measured
+  availability of every service in the cluster at once.
+- **Read-only, always.** Vexor only ever reads from the cluster, in keeping with how
+  it treats every other monitored system.
+
+Upgrade with `dnf upgrade 'vexor-*'`, then restart the services. The database
+migration runs automatically. Existing hosts and checks are untouched.
+
 ## 2026.08.18.1 — Agent version management, plus a security and platform refresh
 
 You can now manage which NSClient++ build Vexor deploys to Windows hosts, instead
