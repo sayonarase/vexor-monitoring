@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.09.02.1 — Status badges no longer truncate
+
+A service showing `OK` could render as `O..` in the services table on a host
+page. The status badge let itself be squeezed by a wide neighbouring column
+until only the icon and an ellipsis were left. A shortened status is worse than
+ugly — `UNKNOWN` and `UNREACHABLE` shortened to the same thing — so badges now
+always show their full label and the column is sized to fit.
+
 ## 2026.08.31.1 — Monitor Kubernetes and OpenShift without installing anything
 
 Vexor can now monitor a Kubernetes or OpenShift cluster the same way it monitors
