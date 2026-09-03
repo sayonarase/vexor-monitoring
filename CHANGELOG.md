@@ -1,5 +1,24 @@
 # Vexor — What's new
 
+## 2026.09.03.9 — Anomaly baseline checks now return a result
+
+A baseline check compares a metric against its own recent history and alerts when
+it drifts outside the normal range. Every one of these checks has been failing
+since the feature was introduced. Instead of a result you got a red alert
+containing a shell error message, on every host that used one.
+
+The cause was a single character. Our monitoring engine treats a semicolon in its
+configuration as the start of a comment, and this was the only check whose
+command contained one. The engine kept only the text before it, cutting the
+command in half, and what was left could not run.
+
+Two more faults were hidden behind that one and would have appeared as soon as it
+was fixed, so all three are corrected together. The checks now return a proper
+result with a value, a baseline and performance data for graphing.
+
+Nothing needs to be reconfigured. Existing baseline checks start working after
+the update, and the history they compare against was being collected all along.
+
 ## 2026.09.03.8 — The alternative log collector now works
 
 Vexor can collect logs with either of two programs. Vector is the default and is
