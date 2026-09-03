@@ -1,5 +1,44 @@
 # Vexor — What's new
 
+## 2026.09.03.10 — Everything Vexor is built from, brought up to date
+
+Vexor is assembled from a large number of open-source components. Sixty-five of
+them had drifted behind their current releases, some by a long way. All of them
+are now current, and a security scan of the result reports nothing outstanding.
+
+None of this changes how Vexor looks or behaves. It matters because a component
+that is left behind eventually becomes one nobody can update safely, and because
+fixes published upstream — including security fixes — only reach you once we take
+them.
+
+Three components moved across a major version boundary, which is where behaviour
+is allowed to change. Rather than assume the test suite would notice, we
+exercised each one against the part of Vexor that depends on it: PDF reports were
+generated and opened, including one with an embedded chart, and the graph images
+those reports contain were rendered and checked.
+
+Along the way we found a genuine fault in one of our own safety checks, and it
+was the quiet kind. Vexor has a test whose job is to walk every part of its web
+interface that can change something and confirm none of it can be reached without
+logging in. The newer version of one component changed how that list of endpoints
+is presented internally, and our test could no longer read it. It did not report
+an error. It found nothing to check, checked nothing, and passed — a security
+guard reporting success while looking at an empty room.
+
+The check now reads the same list from a stable, published description of the
+interface, and it refuses to pass if that list ever comes back suspiciously
+short. We confirmed no endpoint escapes it. To be clear about scope: the login
+requirement itself was never affected and no endpoint was ever left unprotected.
+What had stopped working was the thing that proves it, which is precisely what
+you want to hear about rather than discover later.
+
+We also removed a leftover file from our build system. It was an old list of
+component versions that nothing used any more, but it looked current enough that
+automated security scanning treated it as real and raised thirty-seven warnings
+against it, one of them critical. Every one was false — the versions that matter
+are recorded elsewhere and were already up to date. Thirty-seven false warnings
+is worse than none, because the one that is real stops standing out.
+
 ## 2026.09.03.9 — Anomaly baseline checks now return a result
 
 A baseline check compares a metric against its own recent history and alerts when
