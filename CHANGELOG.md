@@ -1,5 +1,30 @@
 # Vexor — What's new
 
+## 2026.09.03.6 — Security update for the sign-in component
+
+Keycloak, the component that handles signing in, has been updated from 26.7.1 to
+26.7.3. The two releases in between fix 27 security issues. Three of them matter
+directly to a monitoring platform that sits behind a login page: one let an
+attacker take over an account through the "forgot my password" flow without ever
+signing in, one let an attacker take over an account by guessing a predictable
+value used when linking accounts, and one meant that when Vexor authenticated
+users against your LDAP or Active Directory server, it did not check that the
+certificate it was offered actually belonged to that server.
+
+None of these required any change on your side, and we have no indication that
+any of them were used against a Vexor installation. Updating is still the right
+thing to do, and the update applies as soon as you install it.
+
+We also fixed a mistake of our own. When we build the Keycloak package, we copy
+the component's directory from our build server. That directory contains a
+configuration file, and the copy included our own build server's database
+password — which meant it was sitting in a file inside a package anyone could
+download. Your installation was never at risk: Vexor generates a database
+password unique to your server during installation and writes it over that file
+every time the package is installed or updated, so no installation has ever used
+the password that was in the package. The packaged file no longer contains a
+password at all, and we have changed the one on our build server.
+
 ## 2026.09.03.5 — Signing in still works after a restart
 
 Keycloak, the component that handles signing in, stores its accounts in a
