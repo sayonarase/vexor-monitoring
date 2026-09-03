@@ -1,5 +1,24 @@
 # Vexor — What's new
 
+## 2026.09.03.5 — Signing in still works after a restart
+
+Keycloak, the component that handles signing in, stores its accounts in a
+PostgreSQL database. Its startup instructions told the system only to wait for
+the network, not for that database. On a restart the two were therefore free to
+start in either order, and on a freshly installed server we measured Keycloak
+starting a full second ahead of the database it depends on.
+
+It got away with it there, but only just. On a slower machine, or after an
+unclean shutdown where PostgreSQL has to repair itself before accepting
+connections, Keycloak would fail to connect. It would then retry a handful of
+times, give up, and stay stopped — and because it is what serves the login page,
+the whole platform would be left with no way to sign in until someone logged in
+over SSH and started it by hand.
+
+Keycloak now waits for the database before starting, and is given a far more
+generous window to keep retrying if the database is slow to come up. Restarting
+your server is safe again; the fix applies as soon as you update.
+
 ## 2026.09.03.4 — No more false "no logs" warning after installing
 
 A newly installed server reported a warning on its own log collection —
