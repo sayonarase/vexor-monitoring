@@ -1,5 +1,28 @@
 # Vexor — What's new
 
+## 2026.09.03.7 — Log collector updated, and we now watch our own ingredients
+
+Vector, the component that collects log files from this server and forwards them
+to the log store, has been updated from 0.57.0 to 0.58.0.
+
+The version we shipped needed a setting switched on that Vector itself calls
+dangerous. It was not dangerous in our case: the setting relaxes a check on
+where values in the configuration are allowed to come from, and the only values
+we use it for are the host name and the service name that label your log lines.
+Vector's check was flagging a case it should not have. Upstream has now fixed
+the check, so the setting is gone. If you had edited your log collector
+configuration yourself, the update removes the setting from your copy too, but
+only after confirming that your configuration still works without it — if yours
+genuinely needs it, it is left alone and you are told so.
+
+Alongside that: Vexor bundles a handful of pieces of software that we did not
+write — the component that handles signing in, the monitoring engine, the log
+collectors and the log store — and we choose which version of each one ships.
+Until now nothing watched those projects for new releases, and we found that out
+the hard way with the security update in the previous entry. From now on we
+check every one of them against its upstream project every morning, so a
+security fix cannot sit unnoticed again.
+
 ## 2026.09.03.6 — Security update for the sign-in component
 
 Keycloak, the component that handles signing in, has been updated from 26.7.1 to
