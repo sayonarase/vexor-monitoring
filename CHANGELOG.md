@@ -1,5 +1,23 @@
 # Vexor — What's new
 
+## 2026.09.03.2 — Local accounts can log in on a fresh install
+
+If you signed in with a local Vexor account rather than single sign-on, the
+login could fail with a server error on a newly installed server. Vexor signs
+local-account sessions with a secret it kept in `/etc/vexor/local-jwt.secret`,
+and it tried to create that file the first time someone logged in. The service
+deliberately runs with write access to very little of the system, so on a fresh
+install that attempt was refused and the login failed — with the correct
+password. A wrong password still returned a normal "invalid credentials", which
+made the fault look like a password problem rather than a server one.
+
+The secret is now created when the package is installed, so local login works
+from the start. Upgrading keeps any existing secret, so nobody is signed out.
+If the file is ever missing and cannot be created, Vexor now says exactly that
+instead of returning a generic server error.
+
+Single sign-on (Keycloak, LDAP via Keycloak) was never affected.
+
 ## 2026.09.03.1 — A deleted host stays deleted
 
 Deleting a host removed it from monitoring straight away, but it could come back.
