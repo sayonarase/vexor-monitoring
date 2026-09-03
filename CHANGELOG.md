@@ -1,5 +1,22 @@
 # Vexor — What's new
 
+## 2026.09.03.1 — A deleted host stays deleted
+
+Deleting a host removed it from monitoring straight away, but it could come back.
+
+Vexor keeps a last-known-good copy of your monitoring configuration so a bad
+change can be rolled back automatically. That copy was only refreshed after a
+successful Activate, so a host you deleted still existed in it until then. If the
+next Activate failed its config check — or the server was restarted with a broken
+configuration — the rollback restored the deleted host along with everything else.
+It came back as a ghost: no longer in Vexor, but still scheduled by the monitoring
+engine, with its checks reporting "Host not found", and still counted in views and
+reports. It disappeared again only after the next Activate that succeeded.
+
+Deleting a host now removes it from the last-known-good copy at the same time, so
+a rollback restores everything else exactly as before but cannot bring back a host
+you deleted. The same applies to the cleanup that runs on every Activate.
+
 ## 2026.09.02.1 — Status badges no longer truncate
 
 A service showing `OK` could render as `O..` in the services table on a host
