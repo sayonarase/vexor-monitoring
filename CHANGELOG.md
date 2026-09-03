@@ -1,5 +1,49 @@
 # Vexor — What's new
 
+## 2026.09.03.4 — No more false "no logs" warning after installing
+
+A newly installed server reported a warning on its own log collection —
+"VictoriaLogs reports 0 bytes ingested (no logs?)" — even though logs were
+arriving normally and were perfectly searchable. It was the check that was
+wrong, not your log server, but it left every new installation showing a
+warning on day one and taught people to ignore a check that is supposed to tell
+them when log collection has genuinely stopped.
+
+Vexor ships the checks it runs against itself as part of the package, but the
+first-run setup step used to overwrite them with its own older copies. Those
+copies had fallen behind: one of them still looked for a storage measurement
+that VictoriaLogs renamed several versions ago, and finding nothing, concluded
+that nothing had been stored. A second check lost the ability to recognise that
+some background tasks are started by a timer rather than running continuously,
+and could report them as failed while they were working correctly.
+
+The packaged checks are now used as-is and setup only fills in a check if one
+is genuinely missing, so the two cannot drift apart again. Upgrading repairs a
+server that already shows the warning — no action needed beyond the update. The
+log-collection check now also raises a critical alert if VictoriaLogs stops
+accepting new logs because it has run out of disk space, which is the failure
+that actually deserves your attention.
+
+## 2026.09.03.3 — The admin account works right after setup
+
+Setup finishes by printing an administrator username and password for your new
+server. Signing in with them did not work: the browser sent you to an "Update
+Account Information" form before letting you in, and anything connecting
+through the API — scripts, integrations, our own tooling — was refused
+outright with "Account is not fully set up".
+
+Vexor's sign-in service requires every account to have a first and last name,
+and setup created the administrator with only a username and an email address.
+The account was therefore incomplete from the moment it was created. Nothing
+was wrong with the password, which made the failure particularly confusing.
+
+Setup now creates the administrator as a complete account, so the printed
+credentials work immediately, in the browser and over the API alike. Upgrading
+also repairs an administrator account that is missing those details, so
+existing servers are fixed without anyone editing anything by hand. You can set
+the name yourself with the VEXOR_INITIAL_ADMIN_FIRSTNAME and
+VEXOR_INITIAL_ADMIN_LASTNAME environment variables.
+
 ## 2026.09.03.2 — Local accounts can log in on a fresh install
 
 If you signed in with a local Vexor account rather than single sign-on, the
