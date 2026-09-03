@@ -1,5 +1,54 @@
 # Vexor — What's new
 
+## 2026.09.03.13
+
+### Fixed
+
+**The ownership repair announced in the previous release did not actually reach
+your installation.**
+
+The previous release said that upgrading would repair the alert log file's
+ownership. The repair was written, tested, and correct - but it was placed in a
+packaging file that no build reads, so it was never included in the package.
+Nothing about it was visible: the release completed normally and the change looked
+shipped. It was working on our own server only because we had also applied it
+there by hand.
+
+The repair now lives in the file the build actually uses, and we verified it is
+present in the package itself rather than only in the source. If you upgraded for
+the previous release and alerting is still not delivering, this upgrade is the one
+that fixes it.
+
+**New checks were never added to installations that already existed.**
+
+Checks we add to Vexor arrive as definitions the monitoring core has to know about.
+Those definitions were only written when Vexor was installed for the first time, so
+an existing installation would upgrade, receive the new check's program, and still
+have no way to run it. Upgrading now adds any definitions your installation is
+missing. Definitions you have edited yourself are left exactly as they are, and if
+adding one would stop the monitoring core from starting, the change is undone
+before that can happen.
+
+### Added
+
+**Vexor now proves its own alerting works, rather than assuming it does.**
+
+Vexor already tested its notification channels, but that test started inside the
+part of Vexor that sends notifications - so it could not see a fault in the stretch
+between the monitoring core and that point. That stretch is precisely where
+alerting had been broken for three months without anyone noticing.
+
+A new self-check called "Notification path" now travels the whole route: it runs
+the same script the monitoring core runs, under the same account, and then asks
+Vexor whether the alert arrived. It cannot be fooled by a quiet-hours schedule or a
+rate limit, and it never contacts anyone - it is not a test alert, so nobody's
+phone rings. If it goes quiet, Vexor's external dead-man switch reports the system
+as unhealthy, which is the one signal that still works when alerting itself is what
+has failed.
+
+The check appears automatically on the self-monitoring host. If it is not there,
+add "Notification path" to that host and activate the change.
+
 ## 2026.09.03.12
 
 ### Fixed
