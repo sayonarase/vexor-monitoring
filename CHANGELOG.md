@@ -1,5 +1,32 @@
 # Vexor — What's new
 
+## 2026.09.03.8 — The alternative log collector now works
+
+Vexor can collect logs with either of two programs. Vector is the default and is
+what you get unless you choose otherwise. The alternative is Fluent Bit, which
+you install by hand if you prefer it.
+
+Fluent Bit has never worked. Following our own installation guide — install the
+package, start the service — failed, and it failed in four separate places, each
+one hidden behind the one before it. The service pointed at the wrong location
+for the program itself, so it could not start. Once that was corrected it sent
+logs to an address our log store does not answer on, so everything it sent was
+refused. Once that was corrected the log text arrived in a field the log store
+does not read, so every line would have appeared in the log view as a placeholder
+instead of the message. And the host name attached to each line was blank.
+
+All of it is fixed and the whole path has been tested from end to end: the
+service starts, both plain log files and the system journal are collected, and
+lines arrive with the right host name and their actual text.
+
+If you use Vector, which is almost certainly the case, nothing changes for you.
+
+The package's version number also changes from 5.0.5 to 1.0.0. It looked like it
+was tracking Fluent Bit's own version, and it was not: this package contains only
+configuration, never the Fluent Bit program, which comes from your Linux
+distribution and is updated along with the rest of it. The number now describes
+what the package actually is. Existing installations still update normally.
+
 ## 2026.09.03.7 — Log collector updated, and we now watch our own ingredients
 
 Vector, the component that collects log files from this server and forwards them
