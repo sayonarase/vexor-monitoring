@@ -1,5 +1,61 @@
 # Vexor — What's new
 
+## 2026.09.03.12
+
+### Fixed
+
+**Alerts raised by the monitoring core were being discarded before they were sent.**
+
+This is the most serious fault we have found in Vexor, and it deserves a plain
+explanation.
+
+When a check goes critical, the monitoring core hands the alert to a small script
+that forwards it to Vexor's notification engine, which then decides who to tell and
+how. That script wrote a line to its own log file and sent the alert in what was,
+by a mistake in how it was written, a single indivisible step. If the log file
+could not be written, the send did not merely go unlogged - it never happened at
+all. The script then reported success, so nothing further up ever saw a problem.
+
+Whether the log could be written came down to which account happened to create the
+file first. If anything ever ran the script as an administrator - during setup, or
+while testing an alert - the file ended up owned by that account, and the service
+account that does the real work could no longer append to it. From that moment on,
+every alert the monitoring core raised was silently thrown away.
+
+There was no visible symptom. Checks still turned red in the interface, dashboards
+were correct, SLA figures were correct, and the notification settings all looked
+right. Only the delivery was missing. On our own server this had been the case
+since June.
+
+Sending and logging are now separate steps: the alert goes out first, and the log
+entry is written afterwards on a best-effort basis. A delivery that fails is
+recorded in the system log even when the file cannot be written, so this can never
+again be invisible. Upgrading also repairs the file ownership.
+
+**Please check that alerting works on your own installation after upgrading.** In
+the interface, open Notifications, use the test-send function, and confirm the
+delivery appears in the notification log. If you have been wondering why an alert
+never arrived, this is very likely why.
+
+### Added
+
+**A check that tells you when a build pipeline has stopped guarding you.**
+
+Aimed at teams whose release process depends on automated checks. A build pipeline
+fails in two ways that are easy to miss: it starts failing and stays that way until
+people stop reading it, or it quietly stops running and everything looks fine
+because nothing is red.
+
+The new check watches both. A fresh failure is treated as normal - someone pushed
+something that did not work - and it only raises an alert once a pipeline has
+stayed broken longer than you would expect a fix to take, with the elapsed time
+measured from when it first broke rather than when it last ran. It also reports a
+pipeline that has not run at all for a long time.
+
+Add it like any other check and point it at your repositories; it needs a
+read-only access token and only ever reads. We wrote it after finding one of our
+own blocking checks had been failing for eighteen days without anyone noticing.
+
 ## 2026.09.03.11
 
 ### Fixed
