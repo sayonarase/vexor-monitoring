@@ -1,5 +1,38 @@
 # Vexor — What's new
 
+## 2026.09.03.11
+
+### Fixed
+
+**Deploy configuration was being left behind on the Vexor server.**
+
+When you push the monitoring agent to a Windows machine from the Vexor interface, Vexor
+writes two short-lived files to its own temporary directory: the deploy configuration and
+the agent's ini file. They are meant to be deleted the moment the push finishes.
+
+They usually were. But the deletion was the last thing the push did rather than something
+that always happened, so any push that did not reach the end left its files behind
+permanently. The most common cause was ordinary maintenance: upgrading Vexor restarts the
+service, and every push still running at that moment was interrupted. Nothing ever came
+back to clean up.
+
+This matters because of what those files contain. Between them they name the machines you
+were deploying to, the administrative account used to reach them, and - if automatic
+registration is enabled - the enrollment token. The files were only ever readable by the
+Vexor service account, so this was not exposed to other users of the server, but material
+of that kind should not sit on disk indefinitely, and there was no upper bound on how long
+it did.
+
+Two changes: cleanup now runs whether the push succeeds, fails, or is interrupted, and each
+push first clears any leftovers from previous ones. The second part matters because it also
+clears whatever has already accumulated on your server - you do not need to go looking. The
+sweep only touches Vexor's own push files, only ones older than a day, and leaves anything
+that could still belong to a running deployment alone.
+
+If you would like to confirm your own server is clear, the files are named
+`vexor-winpush-*.json` and `vexor-ini-*.ini` in `/tmp`. After upgrading, the next agent push
+removes any that remain.
+
 ## 2026.09.03.10 — Everything Vexor is built from, brought up to date
 
 Vexor is assembled from a large number of open-source components. Sixty-five of
