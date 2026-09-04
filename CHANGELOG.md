@@ -1,5 +1,42 @@
 # Vexor — What's new
 
+## 2026.09.04.3
+
+### Fixed
+
+**Log shipping did not work on a new installation.**
+
+The address that log shippers send to, `/api/v1/logs/push`, was missing from the
+web server configuration Vexor installs. Anything sent to it was rejected as an
+unknown address, so a newly installed server collected no logs from the machines
+it monitors. The address is now part of the installation, and log shipping works
+as soon as Vexor is set up.
+
+### Improved
+
+**The log ingest token can now be managed from Vexor itself.**
+
+Log shippers authenticate with a token. Until now that token could only be
+created or replaced by editing two files on the Vexor server over SSH, and
+getting either of them wrong left log collection broken.
+
+Under Logs, Vexor now shows whether a token is configured, lets an administrator
+reveal and copy it, and can generate or replace it directly. Before replacing
+one, Vexor lists the machines that are currently sending logs, since each of
+them stops being accepted until it is given the new token; you are asked to
+confirm in writing before it goes ahead. The change is verified before it is
+applied, and reverted automatically if anything is wrong with it, so a mistake
+here cannot take the web interface down.
+
+**Background work is picked up straight after an update.**
+
+Certain tasks started from the web interface are carried out by a separate
+component that was not restarted when Vexor was updated. It therefore kept
+running the previous version and refused work that the newly installed version
+knew how to do, until the server was restarted. It is now restarted as part of
+the update.
+
+
 ## 2026.09.04.2
 
 ### Fixed
