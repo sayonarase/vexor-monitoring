@@ -1,5 +1,45 @@
 # Vexor — What's new
 
+## 2026.09.04.1
+
+### Fixed
+
+**A new installation came up with monitoring switched off.**
+
+Installing Vexor on a clean machine left its monitoring core unable to start. The
+command definitions Vexor ships were written into your own definitions file
+without checking whether the core already provided them, and six of them were
+duplicated as a result. The monitoring core refuses to start while a command is
+defined twice, so a brand new installation had no scheduler, no checks running,
+and no self-monitoring — while the installer otherwise reported success.
+
+Installing now writes only the definitions that are genuinely missing. If you
+installed Vexor recently and it has never run any checks, upgrading removes the
+duplicates and the core starts. Your own definitions are untouched: the ones
+removed have never been able to load.
+
+**Setup stopped without saying anything when run from a script.**
+
+Running setup anywhere without a terminal attached — over ssh without a
+terminal, from an automation tool, or from a first-boot script — stopped at the
+first question and exited with no output at all. Setup now recognises this and
+continues with generated passwords, saving them where it always does.
+
+**Pressing Enter at a password question set an empty password.**
+
+Setup offers to generate each password for you, but accepting that offer with
+Enter cleared it instead. Depending on the question this either stopped the
+install partway through or left the administrator accounts with no password.
+Enter now accepts the generated password, as it always said it would.
+
+**Vexor was not watching whether its own alerts could still be delivered.**
+
+Vexor includes a check that sends a probe through the whole alerting path, so a
+system that has quietly stopped alerting is not mistaken for one with nothing to
+report. It was included with Vexor but never actually scheduled, so it was not
+running anywhere. It is now part of self-monitoring on new installations, and
+re-running setup adds it to an existing one.
+
 ## 2026.09.03.13
 
 ### Fixed
