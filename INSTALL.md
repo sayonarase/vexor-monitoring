@@ -5,6 +5,23 @@
 > The public packages are built and tested **only** for EL10. EL9 and other
 > distributions are not supported by the public release.
 
+## System requirements
+
+| Resource | Minimum | Recommended |
+|----------|---------|-------------|
+| CPU      | 2 cores | 4 cores |
+| RAM      | 4 GB    | 8 GB |
+| Disk     | 20 GB free on `/` | 60 GB or more |
+
+A Vexor server runs MariaDB, PostgreSQL, InfluxDB, a Keycloak JVM, Naemon and
+the API side by side, which is why the memory floor is higher than the
+monitoring core alone would suggest. Disk use grows over time with metric and
+log retention, so size `/` for the retention you intend to keep.
+
+`vexor-setup` warns when the machine looks undersized but never refuses to
+run: virtual machines with dynamic memory report a low figure while idle and
+grow on demand.
+
 ## Quick install on a fresh server
 
 Run as `root` (or prefix every command with `sudo`):

@@ -1,5 +1,32 @@
 # Vexor — What's new
 
+## 2026.09.04.2
+
+### Fixed
+
+**Setup reported the wrong number of self-monitoring checks.**
+
+After installing, setup said it had created 29 checks on the `vexor-self` host
+when it had actually created 30. The number was written into the message by
+hand and was never updated when a new check was added. The installer now
+reports the number it actually created, so the two cannot drift apart again.
+
+### Improved
+
+**Setup now tells you up front if the server is too small.**
+
+A machine with too little memory or disk space used to fail part-way through
+the installation with nothing to explain why. A Vexor server runs its database,
+metrics store, login service, monitoring core and web API alongside each other,
+so it needs roughly 4 GB of memory and 20 GB of free disk space; 8 GB of memory
+is comfortable.
+
+Setup now points this out before it starts working. It is only a warning and
+never stops the installation, because virtual machines that size their memory
+on demand report a small figure while idle and grow once the work begins. The
+requirements are now written down in the installation guide as well.
+
+
 ## 2026.09.04.1
 
 ### Fixed
