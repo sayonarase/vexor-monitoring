@@ -1,5 +1,30 @@
 # Vexor — What's new
 
+## 2026.10.06.1
+
+### Security
+
+**Sign-in (Keycloak) updated to 26.8.0.**
+
+The sign-in service bundled with Vexor has been updated from Keycloak 26.7.3 to
+26.8.0. This closes the security issues fixed in Keycloak 26.7.4, 26.7.5 and
+26.8.0. Among other things, a disabled client application can no longer appear
+in the tokens Keycloak issues.
+
+Existing users, groups, roles and LDAP settings are carried over automatically
+the first time the new version starts. You do not need to do anything beyond
+the normal update. If brute-force protection is turned on, failed sign-in
+attempts are now kept in the database, so an account locked after repeated wrong
+passwords stays locked when the server is restarted.
+
+**Log storage (VictoriaLogs) updated to 1.53.0.**
+
+The log database has been updated to VictoriaLogs 1.53.0. That version only
+accepts deletions sent as a POST request. Vexor's per-host log retention used
+an older form of the request and would have stopped removing old log entries
+without any warning. It has been changed to work with the new version, so
+retention keeps working after the update.
+
 ## 2026.09.04.3
 
 ### Fixed
