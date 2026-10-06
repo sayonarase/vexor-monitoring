@@ -1,5 +1,22 @@
 # Vexor — What's new
 
+## 2026.10.06.2
+
+### Security
+
+**Security updates of bundled libraries.**
+
+Several libraries bundled with the Vexor server and web interface have been
+updated to close published security advisories:
+
+- PyJWT 2.15.1, which checks sign-in tokens. This closes one critical and
+  several high-severity advisories about how tokens are validated.
+- urllib3 2.8.0, Mako 1.4.3, multidict 6.9.1 and Werkzeug 3.1.9.
+- DOMPurify 3.4.16 in the web interface, which cleans formatted text before it
+  is shown.
+
+No settings change. Install the update as usual with `dnf update`.
+
 ## 2026.10.06.1
 
 ### Security
