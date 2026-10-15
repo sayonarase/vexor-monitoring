@@ -6,6 +6,8 @@
 - The wizard notice now shows the command to start the bridge if it is ever stopped.
 - **Fixed:** on a fresh install the OpenVMS bridge could not read its own configuration file and kept restarting. Update with `dnf update vexor-vms`.
 - System health → Platform components now lists the OpenVMS bridge (version, available update, service state) when the add-on is installed.
+- OpenVMS: the software-updates check now says where to enter the VSI login when it is missing, and its service page and the host Config tab have a shortcut to the VSI login settings.
+- OpenVMS: the "Minimum OS version" setting now explains that it filters VSI packages for all hosts and should stay empty with mixed OpenVMS versions.
 
 ## 2026.10.15.1
 
