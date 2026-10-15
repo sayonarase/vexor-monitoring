@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.10.15.3 — OpenVMS: test the VSI login, see checked products
+
+- OpenVMS bridge settings: a **Test credentials** button checks the VSI Service Platform login right away (the typed one, or the saved one if the fields are empty). Nothing is saved by the test.
+- OpenVMS: the **Software updates (VSI)** check can now be expanded to list every product found on the host and its status: update available, up to date, or not in the VSI catalog (not checked).
+- Update with `dnf update vexor-api vexor-ui vexor-vms`.
+
 ## 2026.10.15.2 — OpenVMS add-on starts automatically
 
 - **Fixed:** installing the optional OpenVMS add-on (`vexor-vms`) now starts its bridge service right away. Before, the Add Host wizard said "The vexor-vms bridge is not reachable" until the service was started by hand.
