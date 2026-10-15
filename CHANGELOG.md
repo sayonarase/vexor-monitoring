@@ -1,5 +1,24 @@
 # Vexor — What's new
 
+## 2026.10.15.1
+
+### Fixed
+
+**Adding an OpenVMS host no longer breaks Activate when the OpenVMS add-on is missing.**
+
+OpenVMS checks come from the optional `vexor-vms` package. On a server without
+it, choosing the OpenVMS template used to save checks that the monitoring core
+could not run, and Activate then failed with "check command 'check_vms' ... not
+defined anywhere".
+
+- The Add Host wizard now says that the add-on is not installed and stops you
+  before the host is created.
+- Activate now names the host, the check and the missing package, instead of
+  showing the raw configuration error. Monitoring continues on the current
+  configuration in the meantime.
+
+To monitor OpenVMS, install the add-on first with `dnf install vexor-vms`.
+
 ## 2026.10.06.2
 
 ### Security
