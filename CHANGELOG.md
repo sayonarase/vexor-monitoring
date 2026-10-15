@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.10.15.4 — Maintenance: dependency refresh
+
+- All bundled Python libraries in Vexor and the OpenVMS add-on are updated to their latest releases (among them SQLAlchemy 2.1, FastAPI 0.143, pydantic 2.14, uvicorn 0.54, pysnmp 7.1). No known vulnerabilities.
+- No change in behaviour. Update with `dnf update vexor-api vexor-ui vexor-vms`.
+
 ## 2026.10.15.3 — OpenVMS: test the VSI login, expandable updates and licences
 
 - OpenVMS bridge settings: a **Test credentials** button checks the VSI Service Platform login right away (the typed one, or the saved one if the fields are empty). Nothing is saved by the test.
