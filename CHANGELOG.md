@@ -5,6 +5,7 @@
 - **Fixed:** installing the optional OpenVMS add-on (`vexor-vms`) now starts its bridge service right away. Before, the Add Host wizard said "The vexor-vms bridge is not reachable" until the service was started by hand.
 - The wizard notice now shows the command to start the bridge if it is ever stopped.
 - **Fixed:** on a fresh install the OpenVMS bridge could not read its own configuration file and kept restarting. Update with `dnf update vexor-vms`.
+- System health → Platform components now lists the OpenVMS bridge (version, available update, service state) when the add-on is installed.
 
 ## 2026.10.15.1
 
