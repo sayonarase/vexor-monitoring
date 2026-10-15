@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.10.15.1 — OpenVMS add-on starts automatically
+
+- **Fixed:** installing the optional OpenVMS add-on (`vexor-vms`) now starts its bridge service right away. Before, the Add Host wizard said "The vexor-vms bridge is not reachable" until the service was started by hand.
+- The wizard notice now shows the command to start the bridge if it is ever stopped.
+
 ## 2026.10.15.1
 
 ### Fixed
