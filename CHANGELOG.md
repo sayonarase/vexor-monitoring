@@ -4,6 +4,7 @@
 
 - **Fixed:** on busy OpenVMS hosts the **Memory**, **Swap/page file**, **Licenses** and **Software updates (VSI)** checks sometimes showed no data. A slow collection, usually while reading the system logs, discarded everything it had already gathered. Logs are now read last, everything collected before a timeout is kept, and if one poll still misses data the previous values are shown for up to 15 minutes, marked "(from previous poll)".
 - **Fixed:** dropped monitoring connections could leave SSH server processes (`SSH$SSH_<port>`) running at full CPU on the OpenVMS host. The bridge now recognises its own leftover sessions and stops them automatically; other users' SSH sessions are never touched. This needs the monitoring account to have WORLD privilege (SYSTEM has it).
+- **Fixed:** the bridge no longer opens extra short-lived SSH connections for clean-up on every poll. On a busy host these could time out and leave processes behind (vexor-vms 0.1.0-40).
 - Update with `dnf update vexor-vms`.
 
 ## 2026.10.15.4 — Maintenance: dependency refresh
