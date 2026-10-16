@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.10.16.1 — OpenVMS: no more gaps in memory, swap, licences and updates
+
+- **Fixed:** on busy OpenVMS hosts the **Memory**, **Swap/page file**, **Licenses** and **Software updates (VSI)** checks sometimes showed no data. A slow collection, usually while reading the system logs, discarded everything it had already gathered. Logs are now read last, everything collected before a timeout is kept, and if one poll still misses data the previous values are shown for up to 15 minutes, marked "(from previous poll)".
+- **Fixed:** dropped monitoring connections could leave SSH server processes (`SSH$SSH_<port>`) running at full CPU on the OpenVMS host. The bridge now recognises its own leftover sessions and stops them automatically; other users' SSH sessions are never touched. This needs the monitoring account to have WORLD privilege (SYSTEM has it).
+- Update with `dnf update vexor-vms`.
+
 ## 2026.10.15.4 — Maintenance: dependency refresh
 
 - All bundled Python libraries in Vexor and the OpenVMS add-on are updated to their latest releases (among them SQLAlchemy 2.1, FastAPI 0.143, pydantic 2.14, uvicorn 0.54, pysnmp 7.1). No known vulnerabilities.
