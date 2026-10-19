@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.10.19.1 — OpenVMS: leftover SSH sessions are now found and stopped
+
+- **Fixed:** the clean-up of leftover SSH sessions on OpenVMS hosts (2026.10.16.1) did not find them. It now identifies each SSH connection on the host by its network socket and stops the ones left behind by Vexor: connections Vexor has already closed, and connections from the Vexor server that are spinning at full CPU. SSH sessions from other machines (for example your own PuTTY session) are never touched. Stopping them needs WORLD privilege on the monitoring account (SYSTEM has it); otherwise the bridge log lists the process IDs to stop by hand.
+- **Fixed:** a monitoring connection aborted during the SSH login could also leave a process behind, and could not be cleaned up. Vexor now waits up to 60 seconds for the login instead of 20 (a busy host can be slow) and also cleans up after logins that fail.
+- When the login to an OpenVMS host fails, the error now says why instead of being empty.
+- If many leftover processes are already running, stop them once by hand with `STOP/ID` (the host may be too loaded for Vexor to log in). Update with `dnf update vexor-vms`.
+
 ## 2026.10.16.1 — OpenVMS: no more gaps in memory, swap, licences and updates
 
 - **Fixed:** on busy OpenVMS hosts the **Memory**, **Swap/page file**, **Licenses** and **Software updates (VSI)** checks sometimes showed no data. A slow collection, usually while reading the system logs, discarded everything it had already gathered. Logs are now read last, everything collected before a timeout is kept, and if one poll still misses data the previous values are shown for up to 15 minutes, marked "(from previous poll)".
