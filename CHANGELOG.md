@@ -1,5 +1,25 @@
 # Vexor — What's new
 
+## 2026.10.19.2 — OpenVMS: lighter polling, incremental logs, login back-off
+
+- Each OpenVMS poll now uses a single SSH channel. The collection procedure is
+  kept on the host (`SYS$SCRATCH:VMSMON_*.COM`) instead of being rewritten every
+  poll, and watched-process details come from the same run.
+- Error log, audit and accounting records are only read for hosts that ship logs
+  to the log server, and only records newer than the last ones already shipped.
+- When the SSH login times out (the host accepts the connection but never
+  completes the login, typically when it is overloaded) the checks say so, and
+  Vexor pauses polling that host for a while (up to 30 minutes) instead of
+  opening more sessions.
+- The Overview check warns when the monitoring account lacks the WORLD
+  privilege, which Vexor needs to stop hung SSH sessions automatically. Add it
+  with `MODIFY VEXOR /PRIVILEGES=(...,WORLD) /DEFPRIVILEGES=(...,WORLD)` in
+  AUTHORIZE (see Help > OpenVMS monitoring).
+- Fewer helper SSH sessions on hosts without a LAN failover set and when WORLD is
+  missing.
+
+Update with `dnf update vexor-vms`.
+
 ## 2026.10.19.1 — OpenVMS: leftover SSH sessions are now found and stopped
 
 - **Fixed:** the clean-up of leftover SSH sessions on OpenVMS hosts (2026.10.16.1) did not find them. It now identifies each SSH connection on the host by its network socket and stops the ones left behind by Vexor: connections Vexor has already closed, and connections from the Vexor server that are spinning at full CPU. SSH sessions from other machines (for example your own PuTTY session) are never touched. Stopping them needs WORLD privilege on the monitoring account (SYSTEM has it); otherwise the bridge log lists the process IDs to stop by hand.
