@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026.10.20.1 — Readable service names, sharper monospace text
+
+- Service names containing characters the monitoring engine does not allow
+  (for example parentheses, as in "Software updates (VSI)") are now shown with
+  their real name everywhere in the UI. History and SLA data are unaffected.
+- Check output and other monospace text use the operating system's hinted
+  monospace font (Cascadia Mono / Consolas on Windows), which renders more
+  crisply than before.
+- On an OpenVMS host the OpenVMS settings are now shown first on the Config tab.
+
 ## 2026.10.19.2 — OpenVMS: lighter polling, incremental logs, login back-off
 
 - Each OpenVMS poll now uses a single SSH channel. The collection procedure is
