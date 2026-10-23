@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.10.23.1 — Outages visible in performance graphs
+
+- Performance graphs now use a real time axis. Periods when no measurements
+  arrived (for example while a host was down or hung) are shown as a shaded
+  "No data" area instead of a straight line joining the values on each side.
+
 ## 2026.10.20.1 — Readable service names, sharper monospace text
 
 - Service names containing characters the monitoring engine does not allow
