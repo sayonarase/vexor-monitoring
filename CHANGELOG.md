@@ -5,6 +5,9 @@
 - Performance graphs now use a real time axis. Periods when no measurements
   arrived (for example while a host was down or hung) are shown as a shaded
   "No data" area instead of a straight line joining the values on each side.
+- Graphs got a cleaner look: time labels on whole hours or days, values in
+  readable units (0.45 ms rather than 0.00045 s, GB rather than bytes), the
+  length of each data gap, and the latest value next to the graph title.
 
 ## 2026.10.20.1 — Readable service names, sharper monospace text
 
