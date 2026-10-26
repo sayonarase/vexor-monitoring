@@ -1,5 +1,18 @@
 # Vexor — What's new
 
+## 2026.10.26.2 — Security updates
+
+- Keycloak (sign-in) updated to 26.8.1, a security release.
+- Log collector (Vector) updated to 0.60.0, which fixes memory-exhaustion
+  issues and a disk-buffer bug that could read the wrong data after many
+  rotations.
+- Bundled Python libraries updated, among them Pillow 13.0.0 (image handling
+  in PDF reports, many security fixes) and certifi 2026.10.23 (trusted
+  certificate list).
+- Web interface libraries updated to their latest patch releases.
+
+Run `dnf update` to install.
+
 ## 2026.10.26.1 — OpenVMS: per-processor and per-process CPU alerts
 
 - The OpenVMS CPU check now also alerts when a single processor stays busy
