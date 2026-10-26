@@ -1,5 +1,30 @@
 # Vexor — What's new
 
+## 2026.10.26.4 — OpenVMS: nine new checks for critical systems
+
+New checks, added automatically to existing OpenVMS hosts:
+
+- **Disk errors** — new device errors in the last 24 hours, per disk.
+- **Shadow sets** — volume shadowing members missing, copying or merging.
+- **Pool memory** — nonpaged/paged pool usage and allocation failures.
+- **Intrusion attempts** — active intrusion records (break-in attempts).
+  Needs the SECURITY privilege on the monitoring account.
+- **Monitoring account** — warns before the monitoring account's password or
+  the account itself expires, so monitoring does not silently stop.
+- **Resource waits** — processes stuck in a resource wait (RWAST, RWMBX and
+  similar) for too long.
+- **Process quotas** — processes close to a quota limit (open files, byte
+  count, page file and more). Needs WORLD to see all processes.
+- **System resources** — usage of process slots, global pages/sections and
+  similar system-wide limits.
+- **Certificates** — expiry of certificate files on the host (WARNING 30
+  days, CRITICAL 7 days). Choose the files under the host's Config tab.
+
+Fixed: working-set values for watched processes were never collected because
+long lines were cut off on the OpenVMS side.
+
+Run `dnf update` to install.
+
 ## 2026.10.26.3 — OpenVMS: expandable Performance check
 
 - The OpenVMS Performance check can now be expanded like Overview and Process
