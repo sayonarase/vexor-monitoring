@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.10.26.3 — OpenVMS: expandable Performance check
+
+- The OpenVMS Performance check can now be expanded like Overview and Process
+  CPU. It shows one section each for paging (page faults, page reads/writes,
+  free and modified list), the lock manager (deadlocks, lock activity) and the
+  I/O queue on every disk, with each line marked OK, WARNING or CRITICAL.
+
+Run `dnf update vexor-vms` to install.
+
 ## 2026.10.26.2 — Security updates
 
 - Keycloak (sign-in) updated to 26.8.1, a security release.
