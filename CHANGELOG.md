@@ -1,5 +1,18 @@
 # Vexor — What's new
 
+## 2026.10.26.1 — OpenVMS: per-processor and per-process CPU alerts
+
+- The OpenVMS CPU check now also alerts when a single processor stays busy
+  (default 95 %), not only on the average across all processors. Works for
+  any number of CPUs; each processor gets its own graph.
+- New "Process CPU" check names the process using the most CPU, shown as a
+  share of one processor (for example a network service spinning at 98 % of
+  one CPU on a 4-CPU system that only looks 25 % busy overall). Defaults:
+  warning 80 %, critical 95 %.
+- Existing OpenVMS hosts get the new check automatically after the update;
+  it shows data after two collection rounds (about 10 minutes).
+- Update both packages: `dnf update vexor-api vexor-vms`.
+
 ## 2026.10.23.1 — Outages visible in performance graphs
 
 - Performance graphs now use a real time axis. Periods when no measurements
