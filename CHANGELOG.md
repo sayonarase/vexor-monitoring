@@ -1,5 +1,18 @@
 # Vexor — What's new
 
+## 2026.10.27.1 — Security updates
+
+- pyasn1 updated to 0.6.5 in the API and the OpenVMS bridge. Fixes four
+  issues where crafted ASN.1 data (used by SNMP) could exhaust the CPU.
+- Bundled Python libraries updated: msgpack 1.2.4, boto3/botocore 1.43.119
+  and pymssql 2.4.6.
+- Web interface libraries updated to their latest patch releases, among
+  them axios 1.21.0.
+- Keep the operating system current as well: Rocky Linux released kernel,
+  glibc, OpenSSH, expat and ca-certificates security updates this week.
+
+Run `dnf update` to install, then reboot if a new kernel was installed.
+
 ## 2026.10.26.4 — OpenVMS: nine new checks for critical systems
 
 New checks, added automatically to existing OpenVMS hosts:
