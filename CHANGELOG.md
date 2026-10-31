@@ -1,5 +1,16 @@
 # Vexor — What's new
 
+## 2026.10.31.2 — No mail server on new installs
+
+- New installs no longer get the exim mail server. It came in as a side
+  effect of the full plugin bundle, through a mail-queue check Vexor never
+  uses. Vexor sends notifications directly to the SMTP server you configure.
+- On existing installs exim is installed but not running. To remove it:
+  `dnf remove exim nagios-plugins-mailq nagios-plugins-all`
+  (the plugins Vexor uses stay installed).
+
+Run `dnf update` to install.
+
 ## 2026.10.31.1 — No license required
 
 - Vexor no longer requires a license. Every feature is available, there is
