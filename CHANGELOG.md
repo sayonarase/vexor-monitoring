@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026.10.31.3 — Agent push to Windows 11 24H2 / Server 2025, host comments
+
+- Remote agent push (Deploy agents → Remote push (SMB)) now works against
+  Windows 11 24H2 and Windows Server 2025. These releases reject the
+  unencrypted Task Scheduler call the push used, so the package was uploaded
+  but the installer never started ("access denied").
+- The Comments panel on a host or service shows only that host's or
+  service's comments. It previously listed every comment in the system.
+- Cancelling a running job now also stops the process it started.
+
+Run `dnf update` to install.
+
 ## 2026.10.31.2 — No mail server on new installs
 
 - New installs no longer get the exim mail server. It came in as a side
