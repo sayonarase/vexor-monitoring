@@ -27,9 +27,9 @@ enterprise reporting — so you can go from a fresh server to a fully monitored
 environment in minutes.
 
 This repository is the **public landing page** for Vexor. It contains
-screenshots, installation instructions, and the End-User License Agreement. A
-**700-day Enterprise evaluation license ships pre-installed**, so fresh
-installs are fully licensed out of the box — no manual activation step.
+screenshots, installation instructions, and the End-User License Agreement.
+Vexor is **free to use and needs no license** — no activation step, no host
+limit and nothing expires.
 
 > The full website lives at **[vexormon.com](https://vexormon.com)**, and you can
 > try a hosted instance at **[demo.vexormon.com](https://demo.vexormon.com)**
@@ -148,27 +148,10 @@ Image: `ghcr.io/sayonarase/vexor:latest` · source &amp; docs:
 
 ---
 
-## 🔑 Free 700-day evaluation license
+## 🔑 No license required
 
-A signed **Enterprise** evaluation license ships **pre-installed** — fresh
-installs are fully licensed out of the box, with **no manual step required**:
-
-- **License ID:** `VX-2026-4B3ED6`
-- **Edition:** Enterprise · **Host limit:** unlimited
-- **Valid until:** 2028-05-08
-
-It is bundled with `vexor-api`, so after `vexor-setup` the platform is already
-running on the trial license. You can confirm it under **Settings → License** in
-the web UI.
-
-If you ever need to (re)install it manually — e.g. to restore it after replacing
-the file — the license is also attached to every [Release](../../releases) and
-lives at [`vexor-trial-700d-unlimited.lic`](vexor-trial-700d-unlimited.lic):
-
-```bash
-install -m 0640 -o root -g vexor vexor-trial-700d-unlimited.lic /etc/vexor/license.lic
-systemctl restart vexor-api
-```
+Vexor is free to use and does not require a license. Every feature is
+available, there is no host limit and nothing expires.
 
 > The pre-built **RPMs attached to each Release are for EL10 (Rocky/RHEL 10),
 > x86_64** only.  They are a fallback download for when the primary repo server

@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026.10.31.1 — No license required
+
+- Vexor no longer requires a license. Every feature is available, there is
+  no host limit, nothing expires and no license banner is shown. The License
+  page has been removed from the menu.
+- The *License-status* self-monitoring check now reports
+  `OK: Vexor does not require a license`.
+
+Run `dnf update` to install.
+
 ## 2026.10.27.1 — Security updates
 
 - pyasn1 updated to 0.6.5 in the API and the OpenVMS bridge. Fixes four
