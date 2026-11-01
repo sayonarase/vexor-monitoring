@@ -1,5 +1,24 @@
 # Vexor — What's new
 
+## 2026.11.01.1 — Stored secrets encrypted, tokens kept out of logs
+
+- Notification push tokens, channel settings (SMTP passwords, bot tokens,
+  webhook URLs), cloud account keys, host agent tokens and inbound webhook
+  secrets are now encrypted in the database. Existing values are encrypted
+  automatically during the upgrade.
+- Push tokens and webhook URLs no longer appear in the notification log,
+  notify.log, the audit trail or API responses; they are shown as a short
+  fingerprint instead. Older log entries are cleaned up during the upgrade.
+- A contact's push token is now write-only: leave the field empty to keep the
+  saved token, or tick "Remove saved push token".
+- Job output (for example remote agent push) hides any password passed to the
+  job, and the WMI credential test no longer puts the password on the
+  command line.
+- OpenVMS bridge: old configuration backups that still held plaintext
+  passwords are removed, and new backups are never world-readable.
+
+Run `dnf update` to install.
+
 ## 2026.10.31.3 — Agent push to Windows 11 24H2 / Server 2025, editable host settings
 
 - Remote agent push (Deploy agents → Remote push (SMB)) now works against
