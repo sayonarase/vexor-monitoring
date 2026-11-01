@@ -1,5 +1,29 @@
 # Vexor — What's new
 
+## 2026.11.01.2 — Security hardening: headers, IPv6, Keycloak ports, watchdog URLs
+
+- The web interface now sends its full set of security headers (Content
+  Security Policy, clickjacking protection, HSTS) on every page. Previously
+  the main page lost them because of how its cache headers were set.
+- Vexor now answers on IPv6 as well: `http://[::]` redirects to HTTPS and
+  HTTPS works over IPv6, instead of showing the operating system's default
+  web server test page.
+- HTTPS offers only modern forward-secret ciphers (ECDHE with AES-GCM or
+  ChaCha20).
+- Keycloak runs with local caches on a single server, so it no longer opens
+  its cluster ports (7800/57800) on the network.
+- The notification watchdog's ping and fail URLs are encrypted in the
+  database and write-only in the GUI: the page shows only the host name of a
+  saved URL, with a Clear button. Errors and run results never show the URL.
+- The SNMP credential test no longer puts the community string on the command
+  line.
+
+If you have edited `/etc/nginx/conf.d/vexor.conf`, the update installs the new
+version as `vexor.conf.rpmnew`; compare and replace your file to get the new
+headers and IPv6 support.
+
+Run `dnf update` to install.
+
 ## 2026.11.01.1 — Stored secrets encrypted, tokens kept out of logs
 
 - Notification push tokens, channel settings (SMTP passwords, bot tokens,
