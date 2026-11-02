@@ -1,5 +1,21 @@
 # Vexor — What's new
 
+## 2026.11.02.2 — Linux agent push with automatic registration
+
+- **Remote push to Linux (SSH).** Agent deployment → Remote push now has a Linux
+  section next to Windows: pick a stored SSH credential (key or password), paste
+  any number of hosts and Vexor installs NRPE + Vexor plugins on all of them in
+  parallel with live progress. With *Register automatically* (default on) each
+  host appears as a monitored host at the address you pushed to — no manual add.
+  Supports RHEL/Rocky/Alma, Fedora and Debian/Ubuntu; optional sudo for non-root.
+- **Safer push enrollment.** Windows and Linux pushes now use their own short-lived
+  enrollment token instead of rotating the shared auto-approve token, so installers
+  you already handed out keep working, and pushing no longer switches public
+  self-enrollment on.
+- **Fix:** pushing the Linux agent from a host's page always failed.
+- **Fix:** the Windows deploy script no longer prints the enrollment token in its
+  log when enrollment is skipped.
+
 ## 2026.11.02.1 — Fix: saving credentials failed with "status code 400"
 
 - On some older installs the credential encryption key was readable only by
