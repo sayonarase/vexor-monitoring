@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.02.5 — Windows Uptime check fixed
+
+- **Fix:** the Uptime service added by a host scan or agent auto-registration on
+  Windows was created without its thresholds and failed with "Warning expression is
+  not valid: uptime<h". New services get the defaults (warning when up less than
+  2 h, critical when up less than 1 h), and existing ones are repaired on update.
+  Activate the configuration once after updating so the repaired services take
+  effect.
+
 ## 2026.11.02.4 — Windows agent deploys a current NSClient++ by default
 
 - **Fix:** when no primary agent version was chosen, Windows deployments fell back
