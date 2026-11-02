@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026.11.02.3 — Clear errors when a host re-scan cannot reach the agent
+
+- **Re-scan tells you why.** Re-scanning a host for agent checks now tests TCP 5666
+  first and, within about 3 seconds, says whether the port is dropped by a firewall,
+  refused (agent not running) or unreachable, or that the agent rejected the NRPE
+  session (Vexor missing from *allowed hosts*, TLS mismatch), instead of failing with
+  "timeout of 30000ms exceeded".
+- **Fix:** a host that did not answer could be mistaken for a Windows agent, which
+  made the re-scan run past the time limit.
+- Re-scans of busy hosts may take up to 2 minutes and no longer hold up other
+  requests while they run.
+
 ## 2026.11.02.2 — Linux agent push with automatic registration
 
 - **Remote push to Linux (SSH).** Agent deployment → Remote push now has a Linux
