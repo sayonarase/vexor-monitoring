@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026.11.02.1 — Fix: saving credentials failed with "status code 400"
+
+- On some older installs the credential encryption key was readable only by
+  root, so saving a new credential failed with "Request failed with status
+  code 400". Upgrading now repairs the key file's permissions automatically
+  (and creates the key if it is missing); no manual step is needed.
+- If the key ever becomes unreadable again, the credential dialog says so and
+  shows the exact command to fix it, instead of a bare status code.
+- Credential save errors no longer include database query details.
+
 ## 2026.11.01.2 — Security hardening: headers, IPv6, Keycloak ports, watchdog URLs
 
 - The web interface now sends its full set of security headers (Content
