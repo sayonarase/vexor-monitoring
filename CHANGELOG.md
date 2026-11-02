@@ -6,6 +6,7 @@
 - **Host-wide contacts still work.** Contacts and contact groups attached to a host (Contacts button on the host page) are notified about the host and every service on it.
 - **Fixed:** contact groups attached to a single service were saved but never notified. They are now included for that service's alerts.
 - Channels and states are still decided by the matching notification policy.
+- The **Edit service** dialog now also has a **Contacts** button, so you can set per-service contacts straight from the host's service list.
 
 ## 2026.11.02.6 — Linux push works with sudo passwords
 
