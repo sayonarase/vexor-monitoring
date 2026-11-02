@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.02.6 — Linux push works with sudo passwords
+
+- **Linux push no longer requires password-less sudo.** When the account in the SSH
+  credential needs a password for sudo, Vexor now uses the credential's password.
+  The password is sent over the encrypted SSH session only; it never appears in a
+  process list or in the job log. Hosts with NOPASSWD sudo or root work as before.
+- If sudo rejects the password (or the user has no sudo rights), the push reports
+  that clearly instead of a generic sudo error.
+
 ## 2026.11.02.5 — Windows Uptime check fixed
 
 - **Fix:** the Uptime service added by a host scan or agent auto-registration on
