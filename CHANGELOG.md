@@ -1,5 +1,20 @@
 # Vexor — What's new
 
+## 2026.11.02.4 — Windows agent deploys a current NSClient++ by default
+
+- **Fix:** when no primary agent version was chosen, Windows deployments fell back
+  to NSClient++ 0.5.2 from 2018. Its TLS stack cannot complete the handshake with
+  the Vexor server, so the agent accepted connections but never answered
+  ("Socket timeout" in Vexor, "short read" in the agent log). The built-in
+  fallback is now 0.25.0, and a previously cached 0.5.2 copy is no longer served.
+- **Settings → Agent Packages** warns when no primary version is set and shows
+  which version new installs will get.
+- **Clearer deploy failures.** The Windows installer now stops with an error if the
+  NSClient++ MSI fails to install (showing the end of the MSI log) or if an old
+  0.5.x agent is still in place, instead of reporting success.
+- To fix an affected host: set a primary version (or update Vexor) and deploy the
+  agent to the host again.
+
 ## 2026.11.02.3 — Clear errors when a host re-scan cannot reach the agent
 
 - **Re-scan tells you why.** Re-scanning a host for agent checks now tests TCP 5666
