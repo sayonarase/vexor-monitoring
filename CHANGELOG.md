@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.02.7 — Contacts on individual services
+
+- **Bind people to a single check.** The **Contacts** button on a service now lets you attach individual contacts as well as contact groups. They are notified about that service only — not about the host's other services.
+- **Host-wide contacts still work.** Contacts and contact groups attached to a host (Contacts button on the host page) are notified about the host and every service on it.
+- **Fixed:** contact groups attached to a single service were saved but never notified. They are now included for that service's alerts.
+- Channels and states are still decided by the matching notification policy.
+
 ## 2026.11.02.6 — Linux push works with sudo passwords
 
 - **Linux push no longer requires password-less sudo.** When the account in the SSH
