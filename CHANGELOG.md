@@ -1,5 +1,9 @@
 # Vexor — What's new
 
+## 2026.11.03.4 — Checkbox crash fixed
+
+- **Fixed:** ticking a check in **Re-scan host** could crash the page with "Cannot read properties of null (reading 'checked')". The same fault was fixed in the add-host wizard credentials, log source picker, network discovery, SLA report service picker and role editor.
+
 ## 2026.11.03.3 — Windows agent: all check scripts installed
 
 - **Fixed:** installing or re-installing the Windows agent only copied four of the Vexor check scripts; the RDP sessions, IIS connections and IIS app pool scripts were downloaded but never installed. The installer now installs every Vexor check script it downloads.
