@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.03.6 — Reports you can hand to product owners
+
+- **Web Site Report**: pick any IIS site and get a PDF with availability, response times, traffic, errors, app pool health, certificate expiry, busiest hours and a comparison with the previous period.
+- **Metrics Across Hosts**: report any metric (CPU, memory, disk, ping, IIS requests…) for many hosts at once, with a live preview of what matches.
+- Scheduled reports now have a name, a period (e.g. last 30 days or last month) and a language, and support every report type.
+- The service snapshot PDF has been reworked and is readable again.
+
 ## 2026.11.03.5 — Sortable tables
 
 - Click any column header to sort: hosts, services, a host's checks, problems, dashboards widgets and more. Click again to reverse.
