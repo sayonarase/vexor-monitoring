@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.03.2 — IIS app pool health + errors/users
+
+- **New check: IIS app pool** — per application pool: state (stopped = CRITICAL), worker process failures and recycles, CPU and memory of the w3wp processes, and the HTTP.sys request queue (size and rejected requests). Optional warning/critical thresholds for queue size and memory.
+- Offered in **Re-scan host** and the **IIS Web Discovery** card as `IIS app pool: <pool>`.
+- **IIS connections** now also graphs anonymous/authenticated users and 404 / locked errors per second, per site.
+- Windows agents pick up the new script automatically via self-update.
+
 ## 2026.11.03.1 — IIS load graphs per site
 
 - New Windows agent check **IIS connections**: current connections, requests/s (GET/POST), new connections/s and bytes/s — for the whole server and per IIS site, with perfdata for graphs.
