@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.03.5 — Sortable tables
+
+- Click any column header to sort: hosts, services, a host's checks, problems, dashboards widgets and more. Click again to reverse.
+- **State** sorts by severity (Critical, Unknown, Warning, OK) and names sort naturally (`disk 2` before `disk 10`).
+- By default problems come first, then alphabetical. Your choice is remembered per table.
+- The Services page sorts across all pages, not just the visible one.
+
 ## 2026.11.03.4 — Checkbox crash fixed
 
 - **Fixed:** ticking a check in **Re-scan host** could crash the page with "Cannot read properties of null (reading 'checked')". The same fault was fixed in the add-host wizard credentials, log source picker, network discovery, SLA report service picker and role editor.
