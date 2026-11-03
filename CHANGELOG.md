@@ -6,6 +6,7 @@
 - Offered in **Re-scan host** and the **IIS Web Discovery** card as `IIS app pool: <pool>`.
 - **IIS connections** now also graphs anonymous/authenticated users and 404 / locked errors per second, per site.
 - Windows agents pick up the new script automatically via self-update.
+- The RDP sessions, IIS connections and IIS app pool scripts are now listed for manual download under **Agent deployment**.
 
 ## 2026.11.03.1 — IIS load graphs per site
 
