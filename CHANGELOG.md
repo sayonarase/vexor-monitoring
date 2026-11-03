@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.03.1 — IIS load graphs per site
+
+- New Windows agent check **IIS connections**: current connections, requests/s (GET/POST), new connections/s and bytes/s — for the whole server and per IIS site, with perfdata for graphs.
+- Offered automatically in **Re-scan host** when IIS (W3SVC) runs, and on the **IIS Web Discovery** page ("IIS load graphs").
+- Each site is shown by its full FQDN; sites with several bindings let you pick which name to show — also changeable later in **Edit service**.
+- Agents receive the new script through the hourly self-update, or immediately on re-deploy.
+
+Packages: vexor-api 0.1.0-339, vexor-ui 0.1.0-268, vexor-naemon 0.1.0-77.
+
 ## 2026.11.02.7 — Contacts on individual services
 
 - **Bind people to a single check.** The **Contacts** button on a service now lets you attach individual contacts as well as contact groups. They are notified about that service only — not about the host's other services.
