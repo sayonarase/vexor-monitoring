@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.11.03.3 — Windows agent: all check scripts installed
+
+- **Fixed:** installing or re-installing the Windows agent only copied four of the Vexor check scripts; the RDP sessions, IIS connections and IIS app pool scripts were downloaded but never installed. The installer now installs every Vexor check script it downloads.
+- **Fixed:** the agent self-update could stop silently on Windows hosts with the FIPS security policy enabled, so new scripts never arrived. It now uses a FIPS-compatible checksum, and any unexpected failure is written to `vexor-selfupdate.status` and shown in the Agent self-update check.
+
 ## 2026.11.03.2 — IIS app pool health + errors/users
 
 - **New check: IIS app pool** — per application pool: state (stopped = CRITICAL), worker process failures and recycles, CPU and memory of the w3wp processes, and the HTTP.sys request queue (size and rejected requests). Optional warning/critical thresholds for queue size and memory.
