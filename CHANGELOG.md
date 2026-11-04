@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026.11.04.7 — Clearer SQL point-in-time dashboard
+
+- The dashboard tabs (Overview, Trends, Databases, Compare A/B) now look like tabs, with icons next to their labels.
+- The time bar shows the time of the latest snapshot, a correct snapshot count, and a clear "Show timeline" button.
+- KPI labels are spelled out ("Grants pending", "Active requests"), and values are no longer cut off.
+- Top waits show readable durations (ms, s, min, h, d) instead of raw milliseconds, and the blocking table has clear column headers.
+- More idle/background SQL Server wait types are filtered out, so the waits list shows real bottlenecks. This applies to new snapshots.
+
+Update with `dnf update`.
+
 ## 2026.11.04.6 — How to turn on SQL point-in-time snapshots
 
 ### Added
