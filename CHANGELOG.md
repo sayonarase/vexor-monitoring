@@ -6,6 +6,7 @@
 - **Focused on the site.** Charts use only the checks belonging to the chosen IIS site; other app pools you tick are listed in a compact summary table.
 - **Response times fixed.** Agent (node) checks reporting milliseconds are no longer treated as seconds.
 - **Quiet sites.** When a site has no requests the report says so instead of showing empty charts, and the blank page is gone.
+- **Clearer check picker.** When choosing checks for a web site report, the site's own checks and the other checks on the server are now shown as separate groups.
 - **Polish.** Axes cover the whole report period, chart stats are translated, availability never rounds up to 100 %, incident states are coloured, and the metrics report shows uptime in days and disk sizes in GB.
 
 ## 2026.11.03.6 — Reports you can hand to product owners
