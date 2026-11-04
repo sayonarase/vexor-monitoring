@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.04.3 — CrowdStrike Falcon integration
+
+- **See Falcon next to your monitoring.** Connect Vexor to CrowdStrike Falcon with a read-only API client (Hosts: Read, Alerts: Read) under Settings → CrowdStrike.
+- **Hosts matched automatically.** Monitored hosts are paired with Falcon devices by hostname or IP address; pin a device ID when the names differ.
+- **Two new checks.** *CrowdStrike sensor* warns when the sensor stops reporting, runs in reduced functionality mode or the host is network-contained. *CrowdStrike alerts* goes critical or warning on open high or medium alerts, with graphs and normal notifications.
+- **Falcon card on the host page.** Shows the sensor state, version and last contact, plus the latest alerts with technique, user, command line and a link straight into Falcon.
+- **Nothing is sent to Falcon.** Vexor only reads; it never contains hosts or changes alerts.
+
 ## 2026.11.04.2 — Web site reports for whole servers and fleets
 
 - **Choose what the report covers.** One site, several sites, a whole IIS server, or several servers. Filter by host group, customer, server and site name (wildcards such as `shop*`).
