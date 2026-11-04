@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.04.1 — Clearer web site reports
+
+- **Correct units in charts.** App pool CPU now reads as percent (e.g. 0.02 %) instead of "20m", memory as MB/GB with round axis steps, and response times in ms.
+- **Focused on the site.** Charts use only the checks belonging to the chosen IIS site; other app pools you tick are listed in a compact summary table.
+- **Response times fixed.** Agent (node) checks reporting milliseconds are no longer treated as seconds.
+- **Quiet sites.** When a site has no requests the report says so instead of showing empty charts, and the blank page is gone.
+- **Polish.** Axes cover the whole report period, chart stats are translated, availability never rounds up to 100 %, incident states are coloured, and the metrics report shows uptime in days and disk sizes in GB.
+
 ## 2026.11.03.6 — Reports you can hand to product owners
 
 - **Web Site Report**: pick any IIS site and get a PDF with availability, response times, traffic, errors, app pool health, certificate expiry, busiest hours and a comparison with the previous period.
