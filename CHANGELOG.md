@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026.11.04.5 — Clear answers when the SQL login lacks permissions
+
+### Fixed
+- **MSSQL checks:** a login without the right permissions no longer produces Python tracebacks or a misleading OK. Deadlocks, connections and blocked processes report UNKNOWN with the exact `GRANT` to run.
+- **Database free space and log size** now read every database. Before, they only saw `master` and could report "No user data files visible" or no transaction logs at all.
+- **Test output** of checks no longer shows the password in the executed command line.
+
+### Added
+- The **SQL login** dialog shows a copyable least-privilege permission script (VIEW SERVER STATE, VIEW ANY DEFINITION, CONNECT ANY DATABASE, read on msdb backup history). No data access is needed.
+
+Packages: vexor-api 0.1.0-349, vexor-ui 0.1.0-277.
+
 ## 2026.11.04.4 — MSSQL checks get the SQL login you enter
 
 ### Fixed
