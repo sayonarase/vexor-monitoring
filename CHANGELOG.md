@@ -1,5 +1,16 @@
 # Vexor — What's new
 
+## 2026.11.04.6 — How to turn on SQL point-in-time snapshots
+
+### Added
+- New help page **SQL Server point-in-time snapshots** (Help & Documentation): the permissions the SQL login needs, how to add the snapshot check to new and existing hosts, how to verify it, what it costs on SQL Server and Vexor, and troubleshooting.
+- The SQL point-in-time dashboard links to this page when no snapshots exist yet.
+
+### Fixed
+- The empty dashboard said snapshots arrive every 5 minutes; the check runs every minute.
+
+Packages: vexor-api 0.1.0-350, vexor-ui 0.1.0-278.
+
 ## 2026.11.04.5 — Clear answers when the SQL login lacks permissions
 
 ### Fixed
