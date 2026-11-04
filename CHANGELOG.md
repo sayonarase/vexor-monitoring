@@ -1,5 +1,15 @@
 # Vexor — What's new
 
+## 2026.11.04.4 — MSSQL checks get the SQL login you enter
+
+### Fixed
+- **Add Host:** MSSQL template checks were saved with the placeholder login `SQLUSER`/`SQLPASS`, so every database check failed with "Login failed". The wizard now asks for the SQL login in the Template step, shares it with Discovery, and won't save while placeholders remain.
+
+### Added
+- **SQL login** button on MSSQL host pages: sets the login on all MSSQL checks of the host in one go, optionally tests it against the server first. Use it to fix existing hosts or rotate the monitoring password, then Activate.
+
+Packages: vexor-api 0.1.0-347, vexor-ui 0.1.0-276.
+
 ## 2026.11.04.3 — CrowdStrike Falcon integration
 
 - **See Falcon next to your monitoring.** Connect Vexor to CrowdStrike Falcon with a read-only API client (Hosts: Read, Alerts: Read) under Settings → CrowdStrike.
