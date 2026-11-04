@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.04.9 — CrowdStrike: vulnerabilities and automatic checks
+
+### Added
+- **Vulnerabilities from Falcon Spotlight.** Each matched host shows its open vulnerabilities on the host page, grouped by product, worst first, with CVEs, whether they are actively exploited or on the CISA KEV list, and the recommended fix. Settings > CrowdStrike gets a Vulnerabilities column.
+- New **CrowdStrike vulnerabilities** check: WARNING on high, CRITICAL on critical findings, actively exploited ones or KEV entries (all adjustable). Needs the optional **Vulnerabilities: Read** scope on the Falcon API client; without it the sensor and alert checks work as before.
+- **Add checks automatically.** A new switch in Settings > CrowdStrike adds the CrowdStrike checks to hosts that newly match a Falcon device. A check you delete is not added back. Vexor activates the change itself only when no other changes are waiting for Activate.
+
+Update with `dnf update`, add the Vulnerabilities: Read scope to your Falcon API client and click Test connection.
+
 ## 2026.11.04.8 — "Run check now" uses the host name
 
 - "Run check now" on a service used the host's IP address wherever the check expects the host name. Checks that look up data by host name, such as the CrowdStrike checks, therefore reported "no data" when run by hand, although their scheduled runs worked. They now get the host name, like the scheduled runs do.
