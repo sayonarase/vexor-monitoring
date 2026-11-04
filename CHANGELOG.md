@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.04.2 — Web site reports for whole servers and fleets
+
+- **Choose what the report covers.** One site, several sites, a whole IIS server, or several servers. Filter by host group, customer, server and site name (wildcards such as `shop*`).
+- **Built for large fleets.** The site picker searches on the server, so it stays fast with thousands of sites, and a live preview shows how many sites and servers the report will cover.
+- **Comparison plus details.** Multi-site reports open with a table comparing every site (requests, response times, availability, errors, incidents), then give the top 10 sites a page each with charts. Choose how many and rank by traffic, response time, availability or incidents.
+- **Server report.** A whole-server report adds the server's traffic and every app pool on it.
+- **Checks picked for you.** A site's own checks are now selected automatically; switch to manual selection only when you want to change them.
+
 ## 2026.11.04.1 — Clearer web site reports
 
 - **Correct units in charts.** App pool CPU now reads as percent (e.g. 0.02 %) instead of "20m", memory as MB/GB with round axis steps, and response times in ms.
