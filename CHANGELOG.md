@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.04.8 — "Run check now" uses the host name
+
+- "Run check now" on a service used the host's IP address wherever the check expects the host name. Checks that look up data by host name, such as the CrowdStrike checks, therefore reported "no data" when run by hand, although their scheduled runs worked. They now get the host name, like the scheduled runs do.
+
+Update with `dnf update`.
+
 ## 2026.11.04.7 — Clearer SQL point-in-time dashboard
 
 - The dashboard tabs (Overview, Trends, Databases, Compare A/B) now look like tabs, with icons next to their labels.
