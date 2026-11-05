@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.05.3 — Windows NRPE checks: "Incorrect command line arguments"
+
+- Fixed: many built-in Windows agent checks (for example Windows process) and checks imported from op5 passed an old option to check_nrpe that the current version no longer accepts, so they failed with "Incorrect command line arguments". The update corrects existing check commands automatically and reloads Naemon.
+
+Update with `dnf update`.
+
 ## 2026.11.05.2 — Pasted spaces no longer break checks
 
 - Fixed: a space pasted in front of or after a check argument (for example an NRPE command name copied from a document or chat) was sent to the agent, which then answered "Unknown command". Add check and Edit check now remove surrounding spaces, including invisible ones, from the command and every argument.
