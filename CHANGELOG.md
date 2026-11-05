@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.05.6 — Integrations in one menu
+
+- **New Configure → Integrations menu group.** CrowdStrike Falcon, OpenVMS, Kubernetes / OpenShift, Cloud agents, AI providers, Inbound webhooks and Keycloak sync are now in one place instead of six different menus. Links are unchanged; admin-only pages are still shown only to admins.
+
+Update with `dnf update`.
+
 ## 2026.11.05.5 — systemd checks for Linux hosts
 
 - New: two checks for Linux hosts with the Vexor agent. **All systemd units** goes CRITICAL as soon as any service on the host fails and names the failed service; you can list services to ignore. **systemd timers** warns when a timer (for example a backup or cleanup job) has stopped running. Re-scan on a Linux host offers both checks when the host can run them.
