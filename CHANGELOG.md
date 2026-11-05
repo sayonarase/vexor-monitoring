@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.05.9 — Menu fine-tuning
+
+- **Keycloak sync** moved to Administer → Access, next to Users and Roles.
+- New **Configure → Agents** group with Deploy agents, Agent recipes and Agent versions. Onboarding now only covers adding hosts (Get started and the discovery tools).
+- The Logs menu entry "Settings" is renamed **Log settings**.
+
+Update with `dnf update`, then reload the browser (Ctrl+F5).
 ## 2026.11.05.8 — Find anything in the menu
 
 - **New "Find in menu" box** at the top of the sidebar. Type a word (for example *nightly*, *audit* or *on-call*) and the menu shows only matching entries; press Enter to open the first one, Escape to clear.
