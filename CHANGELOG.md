@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.05.1 — NRPE checks: "plugin not found"
+
+- Fixed: checks imported from op5, such as the NRPE checks (check_nrpe_win_process and others), failed with "plugin not found: /usr/lib64/naemon/plugins/check_nrpe" on some installations. The plugin directory these commands point to is now always set up.
+
+Update with `dnf update`.
+
 ## 2026.11.04.9 — CrowdStrike: vulnerabilities and automatic checks
 
 ### Added
