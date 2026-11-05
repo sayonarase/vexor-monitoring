@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.05.8 — Find anything in the menu
+
+- **New "Find in menu" box** at the top of the sidebar. Type a word (for example *nightly*, *audit* or *on-call*) and the menu shows only matching entries; press Enter to open the first one, Escape to clear.
+- **Audit logs in one place:** Administer → Audit now holds the **Audit log** (who changed what, previously "Availability audit" under Reports) and the **Notification audit**.
+- **Notification log** moved from Alerting to Reports.
+- "Nightly maintenance" is renamed **Housekeeping** so it is not confused with Maintenance windows.
+- Access tightened: the audit logs are admin-only; the notification log and stored network device configurations now require operator (device configs can contain password hashes).
+
+Update with `dnf update`, then reload the browser (Ctrl+F5).
 ## 2026.11.05.7 — Tidier menus
 
 - Several menu entries moved to where they belong: **Time periods** and **Event handlers** are now under Configure → Monitoring definitions, **SNMP traps** under Configure → Data collection, **Escalations** under Configure → Alerting, and **Network config backups** and **Detection & prediction** under Monitoring. Links are unchanged.
