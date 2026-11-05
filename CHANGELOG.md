@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.05.2 — Pasted spaces no longer break checks
+
+- Fixed: a space pasted in front of or after a check argument (for example an NRPE command name copied from a document or chat) was sent to the agent, which then answered "Unknown command". Add check and Edit check now remove surrounding spaces, including invisible ones, from the command and every argument.
+
+Update with `dnf update`.
+
 ## 2026.11.05.1 — NRPE checks: "plugin not found"
 
 - Fixed: checks imported from op5, such as the NRPE checks (check_nrpe_win_process and others), failed with "plugin not found: /usr/lib64/naemon/plugins/check_nrpe" on some installations. The plugin directory these commands point to is now always set up.
