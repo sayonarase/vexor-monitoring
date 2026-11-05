@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.05.5 — systemd checks for Linux hosts
+
+- New: two checks for Linux hosts with the Vexor agent. **All systemd units** goes CRITICAL as soon as any service on the host fails and names the failed service; you can list services to ignore. **systemd timers** warns when a timer (for example a backup or cleanup job) has stopped running. Re-scan on a Linux host offers both checks when the host can run them.
+- Requirements: the host needs Python 3.9 or later and the `python3-nagiosplugin` package (RHEL/Rocky 9+, Debian 11+, Ubuntu 22.04+). New agent installs get the package automatically. On existing agents, run the agent deploy again or install the package by hand.
+
+Update with `dnf update`.
+
 ## 2026.11.05.4 — Network device checks updated
 
 - Updated: the bundled network device plugin (check_nwc_health) is now version 12.17.2. It adds support for ZPE Nodegrid, OneOS and Q-SYS Audio devices, per-core CPU on Check Point firewalls, faster Aruba access point checks, and interface filtering on any interface attribute.
