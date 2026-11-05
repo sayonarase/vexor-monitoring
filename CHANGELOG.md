@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.05.4 — Network device checks updated
+
+- Updated: the bundled network device plugin (check_nwc_health) is now version 12.17.2. It adds support for ZPE Nodegrid, OneOS and Q-SYS Audio devices, per-core CPU on Check Point firewalls, faster Aruba access point checks, and interface filtering on any interface attribute.
+
+Update with `dnf update`.
+
 ## 2026.11.05.3 — Windows NRPE checks: "Incorrect command line arguments"
 
 - Fixed: many built-in Windows agent checks (for example Windows process) and checks imported from op5 passed an old option to check_nrpe that the current version no longer accepts, so they failed with "Incorrect command line arguments". The update corrects existing check commands automatically and reloads Naemon.
