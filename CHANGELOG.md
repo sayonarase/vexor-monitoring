@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.05.7 — Tidier menus
+
+- Several menu entries moved to where they belong: **Time periods** and **Event handlers** are now under Configure → Monitoring definitions, **SNMP traps** under Configure → Data collection, **Escalations** under Configure → Alerting, and **Network config backups** and **Detection & prediction** under Monitoring. Links are unchanged.
+
+Update with `dnf update`.
+
 ## 2026.11.05.6 — Integrations in one menu
 
 - **New Configure → Integrations menu group.** CrowdStrike Falcon, OpenVMS, Kubernetes / OpenShift, Cloud agents, AI providers, Inbound webhooks and Keycloak sync are now in one place instead of six different menus. Links are unchanged; admin-only pages are still shown only to admins.
