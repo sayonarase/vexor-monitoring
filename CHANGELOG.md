@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.11.06.1 — More detail in Kubernetes and OpenShift checks
+
+- Expand a Kubernetes or OpenShift check on the host page to see one line per object: each node (role, kubelet version, CPU and RAM), pods and workloads per namespace, each Job, PVC and service, control-plane pods, kubelet versions, OpenShift cluster operators, MachineConfigPools and upgrade history. Problems are listed first, up to 15 lines per check.
+
+Update with `dnf update`.
 ## 2026.11.05.9 — Menu fine-tuning
 
 - **Keycloak sync** moved to Administer → Access, next to Users and Roles.
