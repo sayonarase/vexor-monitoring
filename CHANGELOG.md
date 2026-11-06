@@ -1,5 +1,18 @@
 # Vexor — What's new
 
+## 2026.11.06.2 — Nine new Kubernetes and OpenShift checks
+
+- **Capacity** — CPU, memory and pod requests against what the nodes can hold, plus live usage when metrics-server (or OpenShift monitoring) is installed.
+- **Volume usage** — fill level of each mounted PersistentVolumeClaim.
+- **CronJobs** — failed, missed and suspended schedules.
+- **Alerts** — firing alerts from the cluster's Alertmanager (OpenShift monitoring or kube-prometheus).
+- **HPA** and **PodDisruptionBudgets** — autoscalers stuck at max, and PDBs that would block node drains.
+- **Resource quotas** — namespaces close to their quota.
+- **Deprecated APIs** — APIs in use that are removed in the next Kubernetes versions.
+- **Ingress / Route** — every published host name is resolved and called, with TLS certificate expiry.
+- If the monitoring account lacks a permission, only the affected check shows UNKNOWN and names the missing grant. The required permissions are in Help → *Kubernetes and OpenShift permissions*.
+
+Update with `dnf update`, then open the cluster and click **Re-test with stored token** to add the new checks.
 ## 2026.11.06.1 — More detail in Kubernetes and OpenShift checks
 
 - Expand a Kubernetes or OpenShift check on the host page to see one line per object: each node (role, kubelet version, CPU and RAM), pods and workloads per namespace, each Job, PVC and service, control-plane pods, kubelet versions, OpenShift cluster operators, MachineConfigPools and upgrade history. Problems are listed first, up to 15 lines per check.
