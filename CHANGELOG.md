@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.09.1 — Alerts to a team's Teams, Slack or Discord channel
+
+- A contact can now be a team chat. Create a contact such as **teams-devops**, paste the channel's Teams, Slack or Discord webhook URL under **Team chat**, and bind the contact to hosts and services like any person. The whole team sees the alert without each member being a contact.
+- Each alert is posted once to a channel, even when several policies or contacts match. Webhook, Teams, Slack, PagerDuty, Opsgenie, Discord and Telegram channels now post once per alert instead of once per contact.
+- Escalations also reach team chats.
+- Teams messages are Adaptive Cards with host, service, state and an Acknowledge button. Microsoft has retired the old Office 365 connectors: create the URL with **Workflows → "Post to a channel when a webhook request is received"** in the Teams channel.
+- Webhook URLs are write-only and must point at the vendor's own host.
+
+Update with `dnf update`.
 ## 2026.11.06.2 — Nine new Kubernetes and OpenShift checks
 
 - **Capacity** — CPU, memory and pod requests against what the nodes can hold, plus live usage when metrics-server (or OpenShift monitoring) is installed.
