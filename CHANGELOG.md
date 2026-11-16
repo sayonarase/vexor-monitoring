@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.16.1 — Reports no longer time out on large installations
+
+- SLA and availability figures are read from the monitoring history once per report period instead of once per host and SLA target. Executive, SLA, operations and SLA-profile reports, and the SLA overview, are now many times faster on servers with many hosts or long history. This fixes reports that failed with a timeout or error 502.
+- If AI summaries are turned on, a slow AI provider can no longer stop a report: after 20 seconds the standard summary text is used.
+- The web interface now waits up to 2 minutes for a report instead of 30 seconds.
+
+Update with `dnf update`.
 ## 2026.11.09.1 — Alerts to a team's Teams, Slack or Discord channel
 
 - A contact can now be a team chat. Create a contact such as **teams-devops**, paste the channel's Teams, Slack or Discord webhook URL under **Team chat**, and bind the contact to hosts and services like any person. The whole team sees the alert without each member being a contact.
