@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.16.2 — Executive report crash fixed, security updates
+
+- Generating an executive report as PDF with AI summaries turned on could crash the API service (error 502, and the web interface lost contact for a few seconds). The AI summary now runs safely and the report is created normally.
+- Security: dnspython 2.9.2 (GHSA-vvf4-9x63-8xvv) and opentelemetry-api 1.45.2, plus patch and minor updates of the API, web interface and OpenVMS bridge libraries.
+
+Update with `dnf update`.
 ## 2026.11.16.1 — Reports no longer time out on large installations
 
 - SLA and availability figures are read from the monitoring history once per report period instead of once per host and SLA target. Executive, SLA, operations and SLA-profile reports, and the SLA overview, are now many times faster on servers with many hosts or long history. This fixes reports that failed with a timeout or error 502.
