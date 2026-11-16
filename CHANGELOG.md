@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.16.5 — SQL Server report
+
+- New report under Reports → Generate: **SQL Server report**, built from the SQL point-in-time snapshots. Pick a SQL Server, optionally one database, and compare with the previous period or before/after a change (for example a release).
+- Part A for product owners: verdict, workload and response time trend, slowest periods, blocking incidents, data growth and how long the disk lasts.
+- Part B for developers: queries that got slower or newer, wait profile, blocking chains with the blocking statement, missing indexes with ready CREATE INDEX statements, and backup/configuration findings.
+- Requires the SQL Snapshot (point-in-time) check on the host.
+
+Update with `dnf update vexor-api vexor-ui`.
+
 ## 2026.11.16.4 — Metrics reports on many checks no longer time out
 
 - Metrics reports over hosts with hundreds of checks and a long period could fail with a timeout. The heavy statistics (maximum, 95th percentile, previous period, units) are now read only for the series shown in the report and are fetched in parallel, and each query may run for up to 100 seconds instead of 10. Such reports are about three times faster.
