@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.16.3 — Log store always starts after a reboot
+
+- The log store (VictoriaLogs), the log alert evaluator and the Vector log shipper are now enabled at boot when they are installed or updated. Before, some servers left them switched off after a reboot, and log search and SQL point-in-time snapshots then failed with error 503. `dnf update` switches them on again.
+- Self-monitoring now warns when a Vexor service is running but will not start after a reboot.
+- When the log store is down, the SQL point-in-time page and the SQL snapshot check say so and show the command that fixes it.
+
+Update with `dnf update`.
 ## 2026.11.16.2 — Executive report crash fixed, security updates
 
 - Generating an executive report as PDF with AI summaries turned on could crash the API service (error 502, and the web interface lost contact for a few seconds). The AI summary now runs safely and the report is created normally.
