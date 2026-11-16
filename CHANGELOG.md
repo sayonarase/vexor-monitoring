@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.16.7 — Vexor keeps itself running
+
+- The system journal is now kept on disk, so logs from before a reboot or crash are still there when you troubleshoot.
+- Vexor services and the database, Naemon, web server, Keycloak and InfluxDB restart automatically after a crash, with a growing pause between attempts, and never give up after a few failures.
+- A new watchdog checks every minute that Vexor's services are running and answering. A service that has crashed or stopped responding is restarted, and the event is shown under Settings → System health. Pause it for maintenance with `vexor-watchdog pause 60`.
+- New diagnostics bundle: Settings → System health → Diagnostics, or `vexor-diag` on the server. It collects versions, service status, logs and configuration with passwords removed, ready to attach to a support case.
+
+Update with `dnf update vexor-api vexor-ui`.
+
 ## 2026.11.16.6 — SQL point-in-time opens faster
 
 - The SQL point-in-time page now asks the log store only for the numbers it needs for the timeline, and only for the newest snapshot instead of every snapshot in the last six hours. On servers with many databases the page went from several seconds to well under a second in our tests.
