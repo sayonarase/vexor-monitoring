@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.16.6 — SQL point-in-time opens faster
+
+- The SQL point-in-time page now asks the log store only for the numbers it needs for the timeline, and only for the newest snapshot instead of every snapshot in the last six hours. On servers with many databases the page went from several seconds to well under a second in our tests.
+
+Update with `dnf update vexor-api`.
+
 ## 2026.11.16.5 — SQL Server report
 
 - New report under Reports → Generate: **SQL Server report**, built from the SQL point-in-time snapshots. Pick a SQL Server, optionally one database, and compare with the previous period or before/after a change (for example a release).
