@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.16.9 — Naemon 1.6.0
+
+- The monitoring engine is updated to Naemon 1.6.0 with Livestatus 1.6.0. Status pages and dashboards answer faster, state files are written faster, and several rare crashes are fixed.
+- Naemon now refuses to start if its saved state file is damaged, instead of silently losing acknowledgements and downtimes.
+- Your hosts, checks, acknowledgements, comments and downtimes are kept.
+
+Update with `dnf update vexor-naemon`.
+
 ## 2026.11.16.8 — Security updates for bundled components
 
 - Keycloak 26.8.2 (login and user management), VictoriaLogs 1.54.0 (log store) and Vector 0.62.0 (log collection) bring the latest upstream security fixes. Existing logins, realms, logs and settings are kept.
