@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.16.8 — Security updates for bundled components
+
+- Keycloak 26.8.2 (login and user management), VictoriaLogs 1.54.0 (log store) and Vector 0.62.0 (log collection) bring the latest upstream security fixes. Existing logins, realms, logs and settings are kept.
+- If you sync groups from Keycloak with your own service client, that client now needs the `kc-admin-api` client scope (a Keycloak 26.8.2 change). Vexor's sync page tells you if it is missing. The default setup is not affected.
+
+Update with `dnf update vexor-keycloak vexor-victorialogs vexor-vector`.
+
 ## 2026.11.16.7 — Vexor keeps itself running
 
 - The system journal is now kept on disk, so logs from before a reboot or crash are still there when you troubleshoot.
