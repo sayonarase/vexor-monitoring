@@ -1,5 +1,11 @@
 # Vexor — What's new
 
+## 2026.11.16.4 — Metrics reports on many checks no longer time out
+
+- Metrics reports over hosts with hundreds of checks and a long period could fail with a timeout. The heavy statistics (maximum, 95th percentile, previous period, units) are now read only for the series shown in the report and are fetched in parallel, and each query may run for up to 100 seconds instead of 10. Such reports are about three times faster.
+- After an update, an open browser tab could show an empty page if it still used old style files. The page now reloads itself.
+
+Update with `dnf update`.
 ## 2026.11.16.3 — Log store always starts after a reboot
 
 - The log store (VictoriaLogs), the log alert evaluator and the Vector log shipper are now enabled at boot when they are installed or updated. Before, some servers left them switched off after a reboot, and log search and SQL point-in-time snapshots then failed with error 503. `dnf update` switches them on again.
