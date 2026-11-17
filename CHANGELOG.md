@@ -1,5 +1,18 @@
 # Vexor — What's new
 
+## 2026.11.17.1 — More accurate reports and five new reports
+
+- Availability (SLA) reports are now correct over long periods. Older history is no longer lost when Naemon's log files are rotated, a check's state at the start of the period is taken from earlier history, and 400 days of history are kept so yearly reports work.
+- Fixed reports that could show a check as 0 % available after it had recovered, incidents counted twice after a Naemon restart, and a negative "mean time between failures".
+- Clearer report content: problems are grouped into more categories (database, network, storage, Kubernetes and more), and units, durations and Swedish texts have been improved. With the built-in local AI, summaries now use factual template text; cloud AI providers still write the summary, checked against the report figures.
+- New reports, in PDF and CSV:
+  - **Host status**: the current result of every check on the hosts you choose, with output, time in state, acknowledgements and availability.
+  - **Alert histogram**: when alerts happen, by day and hour, compared with the previous period.
+  - **Notifications**: what was sent, failed or suppressed, per channel, type, policy and recipient.
+  - **Monitoring coverage**: gaps to fix, such as hosts without checks, checks that have been UNKNOWN for a long time and disabled checks.
+  - **Inventory**: hosts with OS, agent, uptime, last seen, groups and templates.
+
+Update with `dnf update vexor-api vexor-ui vexor-naemon`.
 ## 2026.11.16.9 — Naemon 1.6.0
 
 - The monitoring engine is updated to Naemon 1.6.0 with Livestatus 1.6.0. Status pages and dashboards answer faster, state files are written faster, and several rare crashes are fixed.
