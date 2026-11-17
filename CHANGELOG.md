@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.17.3 — Fast capacity report
+
+- The Capacity trends report no longer times out. Only the selected hosts and services are read from the performance database, several hosts are read in parallel, and long periods are summarised to about 150 points per metric. One host takes about a second and 24 hosts with 384 services about five seconds.
+- Free space is now forecast correctly: a falling "free %" is predicted to reach 0 %, and a rising free percentage is no longer listed as growing. Very distant forecasts are left out instead of making the report fail.
+- With many selected services the PDF shows charts for the 40 with the clearest trend; the CSV export lists every metric and now includes its unit.
+
+Update with `dnf update vexor-api`.
+
 ## 2026.11.17.2 — Reports explain the AI summary
 
 - The Reports page now says whether a summary is written by AI. With no AI or a local AI (Ollama), the Executive summary uses a fixed template and no report data leaves the server. With a cloud AI, the page names the provider and lists exactly what is sent: aggregated figures only, no passwords, addresses, check output or logs.
