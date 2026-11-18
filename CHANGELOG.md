@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.18.3 — Protection against Java4Shell (CVE-2026-114938)
+
+- Keycloak, which handles Vexor sign-in, runs on OpenJDK 21. Java4Shell is a critical flaw in Java's Base64 decoder that can allow code execution without signing in, on servers whose CPU supports AVX-512 VBMI (Intel Ice Lake and newer, AMD Zen 4 and newer).
+- Until Rocky Linux ships a fixed OpenJDK, Keycloak now starts with `-XX:-UseBASE64Intrinsics`, Red Hat's recommended interim mitigation. It switches off only the vulnerable code path; sign-in works as before.
+- No other part of Vexor uses Java.
+
+Update with `dnf update vexor-keycloak`. Keycloak restarts automatically. Install the fixed `java-21-openjdk` with `dnf update` as soon as it is available.
+
 ## 2026.11.18.2 — Open source licence page
 
 - The GPL source code for vexor-naemon and vexor-plugin-wmiplus is now published at https://repo.vexormon.com/sources/. The links on the Open Source Licenses page point there and to vexormon.com.
