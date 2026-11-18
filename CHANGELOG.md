@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.18.1 — InfluxDB 2.10.1 and dependency updates
+
+- InfluxDB 2.10.1 (security update) is now applied right away. InfluxData's package does not restart the database after an upgrade, so the old version kept running until the next reboot. Vexor now restarts InfluxDB automatically when it is upgraded.
+- The Metrics and Capacity trends reports now work with Windows disk metrics such as `C:\ free`. Previously they stopped with "unsupported character".
+- Updated components: FastAPI, SQLAlchemy, Gunicorn, the AWS SDK and the web interface's libraries. An unused library was removed.
+
+Update with `dnf update`. This also installs InfluxDB 2.10.1.
+
 ## 2026.11.17.3 — Fast capacity report
 
 - The Capacity trends report no longer times out. Only the selected hosts and services are read from the performance database, several hosts are read in parallel, and long periods are summarised to about 150 points per metric. One host takes about a second and 24 hosts with 384 services about five seconds.
