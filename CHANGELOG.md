@@ -1,5 +1,12 @@
 # Vexor — What's new
 
+## 2026.11.18.2 — Open source licence page
+
+- The GPL source code for vexor-naemon and vexor-plugin-wmiplus is now published at https://repo.vexormon.com/sources/. The links on the Open Source Licenses page point there and to vexormon.com.
+- The page lists Naemon 1.6.0, the version Vexor ships. Source for earlier shipped versions remains available.
+
+Update with `dnf update vexor-api`.
+
 ## 2026.11.18.1 — InfluxDB 2.10.1 and dependency updates
 
 - InfluxDB 2.10.1 (security update) is now applied right away. InfluxData's package does not restart the database after an upgrade, so the old version kept running until the next reboot. Vexor now restarts InfluxDB automatically when it is upgraded.
