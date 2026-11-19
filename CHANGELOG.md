@@ -1,5 +1,13 @@
 # Vexor — What's new
 
+## 2026.11.19.1 — Dependency updates
+
+- Server components updated to the latest patch releases (FastAPI, Pydantic, AWS SDK and others). No known vulnerabilities in what Vexor ships.
+- Web interface libraries updated, including the graph engine behind Topology & maps. The topology graph now always follows Vexor's light/dark theme.
+- The OpenVMS bridge requires the updated FastAPI as well.
+
+Update with `dnf update`.
+
 ## 2026.11.18.3 — Protection against Java4Shell (CVE-2026-114938)
 
 - Keycloak, which handles Vexor sign-in, runs on OpenJDK 21. Java4Shell is a critical flaw in Java's Base64 decoder that can allow code execution without signing in, on servers whose CPU supports AVX-512 VBMI (Intel Ice Lake and newer, AMD Zen 4 and newer).
