@@ -1,5 +1,14 @@
 # Vexor — What's new
 
+## 2026.11.23.1 — VictoriaMetrics replaces InfluxDB
+
+- Performance data (graphs, reports, capacity trends, anomaly baselines) is now stored in VictoriaMetrics. It uses less disk and memory, answers report queries faster, and needs no tokens or external package repository.
+- Your existing graph history is copied over automatically, once, during the update. InfluxDB is then stopped; its data is left untouched in `/var/lib/influxdb` until you remove it.
+- Performance data is now pruned automatically. The default is 400 days; change it under Settings → Housekeeping → Nightly maintenance. VictoriaMetrics removes data a month at a time, so the oldest data can remain up to about a month past the limit.
+- Graph data for deleted hosts is removed by the nightly maintenance run.
+
+Update with `dnf update`. When you have confirmed that your graphs look right, you can remove InfluxDB with `dnf remove influxdb2`.
+
 ## 2026.11.19.1 — Dependency updates
 
 - Server components updated to the latest patch releases (FastAPI, Pydantic, AWS SDK and others). No known vulnerabilities in what Vexor ships.
