@@ -1,5 +1,32 @@
 # Vexor — What's new
 
+## 2026.11.23.5 — OS security-update check, Java4Shell fix, NSClient++ 0.27
+
+### New
+- **OS-security-updates** self check on the Vexor server. It reports pending
+  Rocky Linux security advisories: CRITICAL for a Critical advisory, WARNING
+  for an Important one or when a reboot is needed to load installed updates.
+  The scan runs every 6 hours and again right after any `dnf` transaction, so
+  the alarm clears as soon as the server is patched. Re-run `vexor-setup` (or
+  `install-self-monitor.sh`) to add the service to an existing installation.
+
+### Security
+- Keycloak now requires java-21-openjdk 21.0.13.1 or later, which fixes
+  Java4Shell (CVE-2026-114938). The temporary `-XX:-UseBASE64Intrinsics`
+  workaround has been removed.
+- Rocky has published fixes for nginx (Critical, HTTP/2), curl, expat, the
+  kernel, podman and vim. Run `dnf upgrade`, restart nginx and reboot.
+
+### Changed
+- NSClient++ 0.27.0 is now the Windows agent served for new installs and
+  pushes.
+- Dependency updates in the API (boto3, certifi, pycryptodome, PyYAML and
+  others), the web UI (Mantine, dompurify, React Query, React Flow) and the
+  OpenVMS bridge.
+
+Packages: vexor-api 0.1.0-376, vexor-ui 0.1.0-298, vexor-keycloak 0.1.0-16,
+vexor-vms 0.1.0-51.
+
 ## 2026.11.23.4
 
 ### Security
