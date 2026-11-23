@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.11.23.4
+
+### Security
+- VictoriaMetrics updated to 1.157.0 (Go 1.27.4 security fixes, plus a fix where some label filters could silently miss series). Data and the 400-day retention are kept. Update with `dnf update vexor-victoriametrics`.
+
 ## 2026.11.23.3
 
 ### Fixed
