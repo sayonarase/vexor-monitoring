@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.11.23.2
+
+### Fixed
+- The baseline anomaly check (`check_vexor_baseline`) no longer reads the old InfluxDB settings file, so it also works on new installations that never had InfluxDB. Update with `dnf update vexor-naemon`.
+
 ## 2026.11.23.1 — VictoriaMetrics replaces InfluxDB
 
 - Performance data (graphs, reports, capacity trends, anomaly baselines) is now stored in VictoriaMetrics. It uses less disk and memory, answers report queries faster, and needs no tokens or external package repository.
