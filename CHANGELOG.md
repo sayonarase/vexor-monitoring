@@ -1,5 +1,10 @@
 # Vexor — What's new
 
+## 2026.11.23.3
+
+### Fixed
+- Kubernetes/OpenShift checks no longer go UNKNOWN ("capability snapshot ... is 188s old - the poller has stopped") for a few minutes after an upgrade or API restart. Background jobs now hand over to the new API process immediately, and the checks allow data up to 5 minutes old. Update with `dnf update vexor-api`.
+
 ## 2026.11.23.2
 
 ### Fixed
