@@ -1,5 +1,22 @@
 # Vexor — What's new
 
+## 2026.11.25.1 — SLA without planned downtime, Naemon retention guard
+
+### New
+- **Exclude scheduled downtime** in SLA profiles (on by default). Time a host or
+  service spent in scheduled downtime no longer counts against availability. A
+  service also inherits its host's downtime. Reports show both the raw and the
+  adjusted availability.
+- **Naemon retention** self check on the Vexor server. It goes CRITICAL when the
+  saved state file (acknowledgements, downtimes, comments) is damaged and WARNING
+  when it is stale or was repaired at startup. Run `install-self-monitor.sh` to
+  add it to an existing installation.
+
+### Fixed
+- Naemon no longer fails to start when its state file has the wrong owner or
+  permissions. A damaged file is set aside and the last known good copy is
+  restored, instead of silently losing acknowledgements and downtimes.
+
 ## 2026.11.23.5 — OS security-update check, Java4Shell fix, NSClient++ 0.27
 
 ### New
