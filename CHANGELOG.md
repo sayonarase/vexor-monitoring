@@ -1,5 +1,17 @@
 # Vexor — What's new
 
+## 2026.11.28.1 — VictoriaLogs 1.55.0 and dependency updates
+
+### Changed
+- VictoriaLogs 1.55.0. Heavy log searches running at the same time now share a
+  memory limit, so a search that would exhaust memory fails with an error
+  instead of crashing the log store. Slow-query logging no longer counts time
+  spent waiting in the queue.
+- Dependency updates in the API (boto3, httpx, redis, reportlab and others),
+  the web UI (Vite, Recharts, React Router, Tabler icons) and the OpenVMS
+  bridge (pydantic, httpx, asyncssh, pysnmp). None of them fixes a known
+  vulnerability.
+
 ## 2026.11.25.1 — SLA without planned downtime, Naemon retention guard
 
 ### New
